@@ -1,0 +1,143 @@
+body {
+    font-family: 'Poppins', sans-serif;
+  }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+  }
+  #loginPage {
+    display: none;
+  }
+  .hero {
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .hero p {
+    font-size: 1.25rem;
+  }
+  .btn-yellow {
+    background-color: #facc15;
+    color: black;
+    font-weight: 600;
+  }
+  .btn-yellow:hover {
+    background-color: #eab308;
+  }
+
+/* Prevent horizontal scroll */
+html, body,.modal-content {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+  .card:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+  }
+  /* Make modal fit smaller screens */
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 1rem;
+  }
+}
+
+/* Extra padding and size adjustments */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .about p {
+    font-size: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+}
+.nav-link:hover {
+  color: gold;
+}
+#img-fluid{
+  max-width: 120px;
+
+}
+#loginPage .card {
+  max-width: 400px;
+  width: 90vw;
+}
+
+@keyframes grow-and-shrink {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+.welcomeMessage{
+  animation: grow-and-shrink 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#mainPage{
+  display: none;
+}
+
+.video-background-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero {
+  position: relative; 
+  z-index: 1;         
+  height: 100vh;      
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;     
+  padding: 0 1rem;         
+  text-shadow: 0 0 10px rgba(0,0,0,0.7); 
+}
+
+.hero .btn-warning {
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
+}
+/* Social icon default colors */
+.social-icons .twitter i {
+  color: #1DA1F2; /* Twitter Blue */
+}
+
+.social-icons .linkedin i {
+  color: #0077B5; /* LinkedIn Blue */
+}
+
+.social-icons .github i {
+  color: #ffffff; /* GitHub White */
+}
+
+/* Optional: Hover effects */
+.social-icons a:hover i {
+  opacity: 0.8;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}

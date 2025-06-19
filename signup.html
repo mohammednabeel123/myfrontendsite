@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up - BeelForge</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script type="module" src="/js/auth.js" defer></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+</head>
+<body class="bg-dark text-white">
+
+  <nav class="px-4 py-3">
+    <a class="navbar-brand text-white" href="#">🐝BeelForge</a>
+  </nav>
+
+  <div id="signupPage" class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="card p-4 bg-dark text-white" style="min-width: 320px; max-width: 400px; width: 100%;">
+      <h3 class="text-center mb-4">Sign up with email</h3>
+      <form id="signupForm">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" id="email" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control" required minlength="6" />
+        </div>
+        <button type="submit" id="submit-signup" class="btn btn-yellow w-100">Sign Up</button>
+      </form>
+      <p class="mt-3 text-center">
+        Already have an account? <a href="login.html" class="text-warning">Login here</a>
+      </p>
+    </div>
+  </div>
+  <div id="welcomeMessage" class="welcomeMessage mt-3 text-success text-center"></div>
+</body>
+</html>
