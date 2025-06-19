@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signOut
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
 // Your Firebase config
 const firebaseConfig = {
@@ -87,13 +88,19 @@ if (loginForm) {
   });
   document.getElementById("resetForm").addEventListener("submit", async function (e) {
     e.preventDefault();
+    const resetForm = document.getElementById("resetForm");
+if (resetForm) {
+  resetForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
     const email = document.getElementById("resetEmail").value.trim();
-  
+
     try {
       await sendPasswordResetEmail(auth, email);
       alert("Password reset email sent! Check your inbox.");
     } catch (error) {
       alert("Error: " + error.message);
     }
+  });
+}
   });
 }

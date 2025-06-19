@@ -116,65 +116,83 @@
       </div>
     </div>
   </div>
-      <section class="about py-5 bg-body-tertiary">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8 text-center">
-                    <h2 class="mb-4 text-warning">About BeelForge</h2>
-                    <p class="lead">
-                        BeelForge is a dedicated showcase platform for my front-end development journey. It began as a simple archive for Bootstrap projects and is growing into a live gallery of creative interfaces built with HTML, CSS, JavaScript, and modern frameworks like React.
-                    </p>
-                    <p>
-                        Every project here reflects consistent learning, real-world application, and attention to design and usability. This site isn’t a portfolio — it’s my forge: where raw code becomes polished frontend experiences.
-                    </p>
-                    <div>
-                      <button class="btn btn-outline-primary" data-bs-target="#addProjectModal"  data-bs-toggle="modal" >ADD PROJECT</button>
-                      <a href="#projects" class="btn btn-outline-primary">VIEW PROJECTS</a>
-                    </div>
-                    <!-- Modal -->
-              <div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="addProjectModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="addProjectModalLabel">Add New Project</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <form id="projectForm">
-                        <div class="mb-3">
-                          <label for="title" class="form-label">Project Title</label>
-                          <input type="text" class="form-control" id="title" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="description" class="form-label">Description</label>
-                          <textarea class="form-control" id="description" rows="2" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                          <label  class="form-label">Image URL</label>
-                          <input  class="form-control" id="imageUrl" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="githubLink" class="form-label">GitHub Link</label>
-                          <input type="url" class="form-control" id="githubLink" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="liveLink" class="form-label">Live Demo Link</label>
-                          <input type="url" class="form-control" id="liveLink" required>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary" id="saveProjectBtn">Save changes</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-                </div>
-            </div>
+  <section class="about py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-10 col-lg-8 text-center">
+          <h2 class="mb-4 text-warning fw-bold">About BeelForge</h2>
+          <p class="lead text-secondary">
+            BeelForge is more than a frontend showcase — it’s a creative forge for ideas across full stack development, IoT, PCB design, 3D modeling, and beyond. Here, code meets hardware, and learning never stops.
+          </p>
+          <p class="text-muted">
+            Every project here reflects consistent learning, real-world application, and attention to design and usability. This site isn’t a portfolio — it’s my forge: where raw code becomes polished frontend experiences.
+          </p>
+          <div class="mt-4">
+            <button class="btn btn-outline-warning me-3" data-bs-target="#addProjectModal" data-bs-toggle="modal">Add Project</button>
+            <a href="#projects" class="btn btn-warning text-white">View Projects</a>
+          </div>
         </div>
-      </section>
+      </div>
+  
+      <!-- New Goals Section -->
+      <div id="goals" class="row justify-content-center">
+        <h3 class="text-center text-warning fw-bold mb-4">My Development Goals</h3>
+  
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+              <i class="fas fa-code fa-3x text-warning mb-3"></i>
+              <h5 class="card-title fw-bold">Full Stack Development</h5>
+              <p class="card-text text-muted">Master frontend and backend technologies to build complete web applications.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+              <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
+              <h5 class="card-title fw-bold">IoT Projects</h5>
+              <p class="card-text text-muted">Integrate hardware with software for smart and connected systems.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+              <i class="fas fa-desktop fa-3x text-warning mb-3"></i>
+              <h5 class="card-title fw-bold">Frontend Development</h5>
+              <p class="card-text text-muted">Create responsive, modern, and interactive user interfaces.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+              <i class="fas fa-tools fa-3x text-warning mb-3"></i>
+              <h5 class="card-title fw-bold">PCB Design</h5>
+              <p class="card-text text-muted">Design and prototype printed circuit boards for hardware projects.</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center">
+              <i class="fas fa-cube fa-3x text-warning mb-3"></i>
+              <h5 class="card-title fw-bold">Fusion 360 Modeling</h5>
+              <p class="card-text text-muted">Build 3D models and simulations using CAD software.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- You can add more goal cards here -->
+      </div>
+    </div>
+  </section>
+  
      
     <footer class="py-5  bg-body-secondary text-dark text-center">
       <div class="container">
