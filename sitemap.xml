@@ -4,8 +4,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://beelforge.com/</loc>
@@ -23,11 +21,6 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://beelforge.com/home</loc>
-  <lastmod>2025-06-19T19:08:32+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>https://beelforge.com/signup</loc>
   <lastmod>2025-06-19T19:08:32+00:00</lastmod>
   <priority>0.64</priority>
@@ -38,5 +31,5 @@
   <priority>0.64</priority>
 </url>
 
-
 </urlset>
+ 
