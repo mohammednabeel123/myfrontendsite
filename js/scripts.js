@@ -12,63 +12,58 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("saveProjectBtn").addEventListener("click", function () {
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
-    const imageUrl = document.getElementById("imageUrl").value;
-    const githubLink = document.getElementById("githubLink").value;
-    const liveLink = document.getElementById("liveLink").value;
+// document.addEventListener("DOMContentLoaded", function () {
+//   document.getElementById("saveProjectBtn").addEventListener("click", function () {
+//     const title = document.getElementById("title").value;
+//     const description = document.getElementById("description").value;
+//     const imageUrl = document.getElementById("imageUrl").value;
+//     const githubLink = document.getElementById("githubLink").value;
+//     const liveLink = document.getElementById("liveLink").value;
 
-    const projectCol = document.createElement("div");
-    projectCol.className = "col-md-6 col-lg-4";
-    projectCol.innerHTML = `
-      <div class="card h-100">
-        <img src="${imageUrl}" class="card-img-top" alt="Project Thumbnail">
-        <div class="card-body">r
-          <h5 class="card-title">${title}</h5>
-          <p class="card-text">${description}</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-          <a href="${githubLink}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
-          <a href="${liveLink}" class="btn btn-outline-success btn-sm" target="_blank">Live Demo</a>
-          <button class="btn btn-outline-danger btn-sm remove-btn">Remove</button>
-        </div>
-      </div>
-    `;
+//     const projectCol = document.createElement("div");
+//     projectCol.className = "col-md-6 col-lg-4";
+//     projectCol.innerHTML = `
+//       <div class="card h-100">
+//         <img src="${imageUrl}" class="card-img-top" alt="Project Thumbnail">
+//         <div class="card-body">r
+//           <h5 class="card-title">${title}</h5>
+//           <p class="card-text">${description}</p>
+//         </div>
+//         <div class="card-footer d-flex justify-content-between">
+//           <a href="${githubLink}" class="btn btn-outline-primary btn-sm" target="_blank">GitHub</a>
+//           <a href="${liveLink}" class="btn btn-outline-success btn-sm" target="_blank">Live Demo</a>
+//           <button class="btn btn-outline-danger btn-sm remove-btn">Remove</button>
+//         </div>
+//       </div>
+//     `;
 
-    projectCol.querySelector(".remove-btn").addEventListener("click", function () {
-      const confirmRemove = confirm("Are you sure you want to remove this project?");
-      if (confirmRemove) {
-        projectCol.remove();
-      }
-    });
+    // projectCol.querySelector(".remove-btn").addEventListener("click", function () {
+    //   const confirmRemove = confirm("Are you sure you want to remove this project?");
+    //   if (confirmRemove) {
+    //     projectCol.remove();
+    //   }
+    // });
 
-    document.getElementById("projectContainer").appendChild(projectCol);
-    const userId = "someUserId"; 
-    set(ref(db, 'projects/' + userId + "/" + title), {
-      title,
-      description,
-      imageUrl,
-      githubLink,
-      liveLink
-    });
-    document.getElementById("projectForm").reset();
-    const modalEl = document.querySelector("#addProjectModal");
-    const modal = bootstrap.Modal.getInstance(modalEl);
-    modal.hide();
-  });
-  const toggle = document.getElementById('darkModeToggle');
-  toggle.addEventListener('change', () => {
-    document.body.classList.toggle('dark-theme', toggle.checked);
-  });
+  //   document.getElementById("projectContainer").appendChild(projectCol);
+  //   const userId = "someUserId"; 
+  //   set(ref(db, 'projects/' + userId + "/" + title), {
+  //     title,
+  //     description,
+  //     imageUrl,
+  //     githubLink,
+  //     liveLink
+  //   });
+  //   document.getElementById("projectForm").reset();
+  //   const modalEl = document.querySelector("#addProjectModal");
+  //   const modal = bootstrap.Modal.getInstance(modalEl);
+  //   modal.hide();
+  // });
   const landingPage = document.getElementById('landingPage');
   const loginPage = document.getElementById('loginPage');
   const mainPage = document.getElementById('mainPage');
 
   const loginButtons = document.querySelectorAll('.navLoginBtn');
   const signUpButtons = document.querySelectorAll('.navSignUpBtn');
-  const getStartedBtn = document.getElementById('getStartedBtn');
 
   function showLogin() {
     landingPage.style.display = 'none';
@@ -87,11 +82,52 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   loginButtons.forEach(btn => btn.addEventListener('click', showLogin));
   signUpButtons.forEach(btn => btn.addEventListener('click', showLogin));
-  getStartedBtn.addEventListener('click', showLogin);
+  const hireMeBtn = document.getElementById('hireMeBtn');
+  const offcanvas = document.getElementById('offcanvasExample');
+  const offcanvasInstance = bootstrap.Offcanvas.getOrCreateInstance(offcanvas);
 
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    showLanding();
+  hireMeBtn.addEventListener('click', function () {
+    // Close the offcanvas manually
+    if (offcanvasInstance) {
+      offcanvasInstance.hide();
+    }
+
+    // Give it a tiny delay to finish hiding before opening modal
+    setTimeout(() => {
+      const modal = new bootstrap.Modal(document.getElementById('hireMeModal'));
+      modal.show();
+    }, 400); // delay allows offcanvas to fully close
   });
 
-  showLanding();
-});
+// // Apply preference on load
+// if (localStorage.getItem("darkMode") === "enabled") {
+//   document.body.classList.add("dark-mode");
+//   darkToggle.checked = true;
+// }
+
+// darkToggle.addEventListener("change", function () {
+//   if (this.checked) {
+//     document.body.classList.add("dark-mode");
+//     localStorage.setItem("darkMode", "enabled");
+//   } else {
+//     document.body.classList.remove("dark-mode");
+//     localStorage.setItem("darkMode", "disabled");
+//   }
+// });
+
+// // Animate sections on scroll
+// const faders = document.querySelectorAll(".fade-in");
+
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       entry.target.classList.add("visible");
+//     }
+//   });
+// }, {
+//   threshold: 0.1
+// });
+
+// faders.forEach((section) => {
+//   observer.observe(section);
+// });

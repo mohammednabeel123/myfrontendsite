@@ -1,9 +1,7 @@
 body {
     font-family: 'Poppins', sans-serif;
   }
-  body {
-    font-family: 'Segoe UI', sans-serif;
-  }
+
   #loginPage {
     display: none;
   }
@@ -29,7 +27,6 @@ body {
     background-color: #eab308;
   }
 
-/* Prevent horizontal scroll */
 html, body,.modal-content {
   max-width: 100%;
   overflow-x: hidden;
@@ -40,14 +37,11 @@ html, body,.modal-content {
     transition: 0.3s ease-in-out;
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
   }
-  /* Make modal fit smaller screens */
 @media (max-width: 576px) {
   .modal-dialog {
     margin: 1rem;
   }
 }
-
-/* Extra padding and size adjustments */
 @media (max-width: 768px) {
   .navbar-brand {
     font-size: 1.2rem;
@@ -122,22 +116,23 @@ html, body,.modal-content {
 .hero .btn-warning {
   box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
 }
-/* Social icon default colors */
 .social-icons .twitter i {
-  color: #1DA1F2; /* Twitter Blue */
+  color: #1DA1F2;
 }
 
 .social-icons .linkedin i {
-  color: #0077B5; /* LinkedIn Blue */
+  color: #0077B5; 
 }
-
 .social-icons .github i {
-  color: #ffffff; /* GitHub White */
+  color: #ffffff;
 }
-
-/* Optional: Hover effects */
 .social-icons a:hover i {
   opacity: 0.8;
   transform: scale(1.1);
   transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
 }
