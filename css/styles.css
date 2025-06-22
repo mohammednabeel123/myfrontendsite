@@ -136,3 +136,12 @@ body.dark-mode {
   background-color: black;
   color: white;
 }
+#home,#Menu {
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+}
+
+#home:hover,#Menu {
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
+}
