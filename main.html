@@ -7,6 +7,8 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link rel="stylesheet" href="css/styles.css">
+      <!-- Font Awesome CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <link 
         href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
         rel="stylesheet">
@@ -163,56 +165,52 @@ aria-labelledby="offcanvasExampleLabel"
       <div id="goals" class="row justify-content-center">
         <h3 class="text-center text-warning fw-bold mb-4">My Development Goals</h3>
   
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body text-center">
-              <i class="fas fa-code fa-3x text-warning mb-3"></i>
-              <h5 class="card-title fw-bold">Full Stack Development</h5>
-              <p class="card-text text-muted">Master frontend and backend technologies to build complete web applications.</p>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body text-center">
-              <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
-              <h5 class="card-title fw-bold">IoT Projects</h5>
-              <p class="card-text text-muted">Integrate hardware with software for smart and connected systems.</p>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body text-center">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4 ">
+          <div class="card h-100 shadow-sm border-0 video-card">
+            <video src="videos/webdev.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
+            <div class="video-overlay">
               <i class="fas fa-desktop fa-3x text-warning mb-3"></i>
               <h5 class="card-title fw-bold">Frontend Development</h5>
-              <p class="card-text text-muted">Create responsive, modern, and interactive user interfaces.</p>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body text-center">
-              <i class="fas fa-tools fa-3x text-warning mb-3"></i>
-              <h5 class="card-title fw-bold">PCB Design</h5>
-              <p class="card-text text-muted">Design and prototype printed circuit boards for hardware projects.</p>
-            </div>
-          </div>
-        </div>
-  
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <div class="card h-100 shadow-sm border-0">
-            <div class="card-body text-center">
-              <i class="fas fa-cube fa-3x text-warning mb-3"></i>
-              <h5 class="card-title fw-bold">Fusion 360 Modeling</h5>
-              <p class="card-text text-muted">Build 3D models and simulations using CAD software.</p>
+              <p class="card-text">
+                Master frontend and backend technologies to build complete web applications.
+              </p>
             </div>
           </div>
         </div>
         
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm border-0 video-card">
+            <video src="videos/IOT.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
+            <div class="video-overlay">
+              <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
+              <h5 class="card-title fw-bold">Full Stack IoT Projects</h5>
+              <p class="card-text">Integrate hardware with software for smart and connected systems.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 shadow-sm border-0 video-card">
+              <video src="videos/Fusion360.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
+              <div class="video-overlay">
+                <i class="fas fa-cube fa-3x text-warning mb-3"></i>
+                <h5 class="card-title fw-bold">Fusion 360 Modeling</h5>
+                <p class="card-text">Build 3D models and simulations using CAD software.</p>
+              </div>
+            </div>    
+        </div> 
+
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 shadow-sm border-0 video-card">
+            <video src="videos/PCB.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
+            <div class="video-overlay">
+              <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
+              <p class="">Coming soon....</p>
+              <h5 class="card-title fw-bold">PCB Design</h5>
+              <p class="card-text">Design and prototype printed circuit boards for hardware projects.</p>
+            </div>
+          </div>
+        </div>               
         <!-- You can add more goal cards here -->
       </div>
     </div>
