@@ -98,36 +98,3 @@ const db = getDatabase(app);
       modal.show();
     }, 400); // delay allows offcanvas to fully close
   });
-
-// // Apply preference on load
-// if (localStorage.getItem("darkMode") === "enabled") {
-//   document.body.classList.add("dark-mode");
-//   darkToggle.checked = true;
-// }
-
-// darkToggle.addEventListener("change", function () {
-//   if (this.checked) {
-//     document.body.classList.add("dark-mode");
-//     localStorage.setItem("darkMode", "enabled");
-//   } else {
-//     document.body.classList.remove("dark-mode");
-//     localStorage.setItem("darkMode", "disabled");
-//   }
-// });
-
-// // Animate sections on scroll
-// const faders = document.querySelectorAll(".fade-in");
-
-// const observer = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add("visible");
-//     }
-//   });
-// }, {
-//   threshold: 0.1
-// });
-
-// faders.forEach((section) => {
-//   observer.observe(section);
-// });

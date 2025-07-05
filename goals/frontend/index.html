@@ -14,6 +14,9 @@
 
       </head>
     <body>
+      <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
+        <a href="/index.html" class="btn btn-outline-light" id="home">Home</a>
+      </div>
         <a
         class="btn btn-light position-fixed top-0 end-0 m-3 p-3 z-3 collapsed"
         data-bs-toggle="offcanvas"
@@ -31,7 +34,7 @@
         aria-labelledby="offcanvasExampleLabel"
       >
         <div class="offcanvas-header bg-dark">
-          <h5 class="offcanvas-title text-warning" id="offcanvasExampleLabel">BeelForge-Frontend</h5>
+          <a class="offcanvas-title text-warning" href="/index.html" id="offcanvasExampleLabel">BeelForge</a>
           <button
             type="button"
             class="btn-close btn-close-white"
@@ -53,16 +56,15 @@
               <a href="/goals/frontend/index.html" class="nav-link text-white">🧩 Projects</a>
             </li>
             <li>
-              <a href="/goals/frontend/notes.html" class="nav-link text-white">📝 Notes</a>
+              <a href="/goals/frontend/notes.html" class="nav-link text-white">📖 Notes</a>
             </li>
             <li>
               <a href="/goals/frontend/drive.html" class="nav-link text-white">📖 Deep Dive</a>
             </li>
             <li>
-              <a href="/goals/python.html" class="nav-link text-white">🐍Python</a>
+              <a href="/goals/python.html" class="nav-link text-white">🐍 Python</a>
             </li>
           </ul>
-          
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="darkModeToggle">
             <label class="form-check-label text-white" for="darkModeToggle">
@@ -99,7 +101,6 @@
               <i class="fab fa-github"></i>
             </a>
           </div>
-          
          <div class="text-center text-white mt-3 mb-2 small">
             &copy; 2025 BeelForge. All rights reserved.
           </div>
@@ -174,4 +175,13 @@
             </div>
           </div>
       </section>
+      <script>
+        function goToNotes(sectionId){
+          if (sectionId) {
+            window.location.href = `/goals/frontend/notes.html?section=${sectionId}`;
+          }
+        }
+      </script>
+    </body>
+</html>
       
