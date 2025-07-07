@@ -16,17 +16,16 @@
     <body>
       <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
         <a href="/index.html" class="btn btn-outline-light" id="home">Home</a>
+        <button
+          class="btn btn-light"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample"
+        >
+          <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
+        </button>
       </div>
-        <a
-        class="btn btn-light position-fixed top-0 end-0 m-3 p-3 z-3 collapsed"
-        data-bs-toggle="offcanvas"
-        href="#offcanvasExample"
-        role="button"
-        aria-controls="offcanvasExample"
-        aria-expanded="false"
-      >
-        <i class="fa-solid fa-bars fa-2x text-dark"></i> Menu
-      </a>
       <div
         class="offcanvas offcanvas-end"
         tabindex="-1"
@@ -36,7 +35,7 @@
         <div class="offcanvas-header bg-dark">
           <a class="offcanvas-title text-warning" href="/index.html" id="offcanvasExampleLabel">BeelForge</a>
           <button
-            type="button"
+            type="button" 
             class="btn-close btn-close-white"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
