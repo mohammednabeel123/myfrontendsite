@@ -13,7 +13,19 @@
         <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-1ycn6Ica999uHJ+0Uz1aOxAZvq0MxkQfdpYLu5eRHOH5GzBp0KwP9aEwS5+cjG1p+JgIcPv9J5RykW+3R8Cstw=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
       </head>
     <body>
-        <a
+      <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
+        <a href="index.html" class="btn btn-outline-light" id="home">Home</a>
+        <button
+          class="btn btn-light"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample"
+        >
+          <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
+        </button>
+      </div>
+      <a
         class="btn btn-light position-fixed top-0 end-0 m-3 p-3 z-3 collapsed"
         data-bs-toggle="offcanvas"
         href="#offcanvasExample"
@@ -107,4 +119,12 @@
       <section  id="projects" class="showcase bg-dark py-5">
           </div>
       </section>
+      <script>
+        function goToNotes(sectionId){
+          if (sectionId) {
+            window.location.href = `/goals/IOT/notes.html?section=${sectionId}`;
+          }
+        }
+      </script>
+  </body>
       

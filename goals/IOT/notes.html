@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BeelForge</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/js/scripts.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-1ycn6Ica999uHJ+0Uz1aOxAZvq0MxkQfdpYLu5eRHOH5GzBp0KwP9aEwS5+cjG1p+JgIcPv9J5RykW+3R8Cstw=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
+      </head>
+    <body>
+      <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
+        <a href="index.html" class="btn btn-outline-light" id="home">Home</a>
+        <button
+          class="btn btn-light"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample"
+        >
+          <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
+        </button>
+      </div>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div class="offcanvas-header bg-dark">
+          <a class="offcanvas-title text-warning" href="/index.html" id="offcanvasExampleLabel">BeelForge</a>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column gap-3 bg-dark text-white">
+          <div class="mb-3">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search..." 
+              aria-label="Search"
+            />
+          </div>
+          <ul class="list-unstyled">
+            <li>
+              <a href="/goals/IOT/index.html" class="nav-link text-white">🧩 Projects</a>
+            </li>
+            <li>
+              <select id="notes-dropdown" onchange="showSection(this.value)">
+                <option value="section1">Section 1 – Getting started</option>
+                <option value="section2">Section 2 – Led Project</option>
+              </select>
+            </li>
+            <li>
+              <a href="/goals/IOT/drive.html" class="nav-link text-white">📖 Deep Dive</a>
+            </li>
+            <li>
+              <a href="/goals/python.html" class="nav-link text-white">🐍Python</a>
+            </li>
+          </ul>
+          
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label text-white" for="darkModeToggle">
+              Dark Mode
+            </label>
+          </div>
+           
+          <div class="mt-auto d-flex gap-3 justify-content-center social-icons">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 twitter"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 linkedin"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 github"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          
+         <div class="text-center text-white mt-3 mb-2 small">
+            &copy; 2025 BeelForge. All rights reserved.
+          </div>
+        </div>
+      </div>
+      <section class="bg-dark py-3 text-center text-white">
+        <div class="container">
+          <h3>🚀 Why I Chose Raspberry Pi Over Arduino (For Now)</h3>
+          <p>
+            Although Arduino is a great choice for microcontroller-based projects, I decided to start my IoT journey with the Raspberry Pi because of my background in Python programming from university. Since the Pi supports full Python scripting out of the box, it made sense for me to build on what I already know instead of starting from scratch with Arduino's C/C++ environment.
+          </p>
+          <p>
+            The Raspberry Pi also gives me access to a full Linux environment, GPIO pins, internet connectivity, and the flexibility to build full-stack IoT systems — from hardware control to backend logic and eventually frontend dashboards. 
+          </p>
+        </div>
+      </section>
+      
+      <div id="section1" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📦 Section 1 – Getting Started with Full Stack IoT</h1>
+        <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+          My journey into Full Stack IoT began this summer with a strong motivation to master hardware and software integration before university resumes. Since I already had a background in Python from my university courses, I decided to go with the Raspberry Pi instead of Arduino. Arduino is great for microcontroller projects, but the Pi gave me the flexibility of using Python, working within a Linux environment, and building more complex IoT systems.
+          <br><br>
+          I was excited when I finally got my Raspberry Pi, but that excitement quickly turned into confusion when the Pi wouldn’t turn on. I had used a normal phone charger instead of the recommended Pi power supply, and I thought I had damaged the board. Out of panic, I went out and got a Raspberry Pi Pico, thinking it would help me continue — only to later find out that the issue was just the power supply. Once I got the right Pi charger, everything worked perfectly. That mistake taught me an important lesson about power requirements and not assuming the worst.
+          <br><br>
+          With the Pi now working, I moved on to installing the Raspberry Pi OS onto a microSD card using the official imager. It was my first time flashing an OS manually, and the process gave me a deeper understanding of how Linux-based systems boot. I connected my Pi to a screen, keyboard, and mouse, and booted into Raspberry Pi OS successfully.
+          <br><br>
+          Since then, I’ve been diving into Linux basics — using terminal commands like <code>cd</code>, <code>ls</code>, <code>sudo</code>, <code>pwd</code>, <code>mkdir</code>, <code>rmdir</code>, <code>mv</code> and others  — and gradually getting comfortable with navigating the system. I also started using  the Thonny Python IDE for writing GPIO code to control LEDs.
+          <br><br>
+          This first phase has been full of challenges, but every mistake has taught me something. I now feel more confident in handling hardware, software, and the command line. My goal is to document everything — not just the successes, but also the struggles — so I can look back on how far I've come, and so others starting out can relate to the journey.
+        </p>
+        <p id="Datetime" class=" d-flex justify-content-end fw-bolder text-black"></p>
+      </div>
+      
+      
+      
+      <footer class="py-5  bg-body-secondary text-dark text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="">BeelForge-Notes</h5>
+              <p>Forging creativity through code. Explore front-end projects built with passion and precision.</p>
+              <small>&copy; 2025 BeelForge. All rights reserved.</small>
+            </div>
+            <div class="col-md-3">
+              <h6>Company</h6>
+              <ul class="list-unstyled gap-3">
+                <li><a href="#" class="text-decoration-none text-dark">Home</a></li>
+                <li><a href="#about" class="text-decoration-none text-dark">About</a></li>
+                <li><a href="#projects" class="text-decoration-none text-dark">Projects</a></li>
+                <li><a href="#contact" class="text-decoration-none text-dark">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h6 class="text-primary">Social Accounts</h6>
+              <ul class="list-unstyled mb-4">
+                <li><a href="#" class="text-decoration-none text-dark">Facebook</a></li>
+                <li><a href="#" class="text-decoration-none text-dark">LinkedIn</a></li>
+                <li><a href="#" class="text-decoration-none text-dark">TikTok</a></li>
+              </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="col-md-3">
+              <h6>Contact Us</h6>
+              <p>Email: <a href="mailto:beelfroge@gmail.com" class="text-decoration-none text-dark">beelfroge@gmail.com</a></p>
+              <p>Phone: <a href="tel:+90-552-7132468" class="text-decoration-none text-dark">+90-552-7132468</a></p>
+            </div>
+          </div>
+        </div>
+      </footer> 
+      <script>
+        function showSection(id) {
+          // Hide all sections
+          const allSections = document.querySelectorAll('.note-section');
+          allSections.forEach(section => section.style.display = 'none');
+      
+          // Show selected section
+          if (id) {
+            const selected = document.getElementById(id);
+            if (selected) {
+              selected.style.display = 'block';
+              selected.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }
+
+        const now = new Date();
+        const datetime = now.toDateString();
+        document.getElementById("Datetime").innerHTML = datetime
+      </script>
+    </body>
