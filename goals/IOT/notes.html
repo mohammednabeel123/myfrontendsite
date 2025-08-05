@@ -54,9 +54,10 @@
               <a href="/goals/IOT/index.html" class="nav-link text-white">🧩 Projects</a>
             </li>
             <li>
-              <select id="notes-dropdown" onchange="showSection(this.value)">
-                <option value="section1">Section 1 – Getting started</option>
-                <option value="section2">Section 2 – Led Project</option>
+              <select id="main-dropdown" onchange="showSection(this.value)">
+                <option value="section1">Section 1 – Fundamentals & Python Libraries</option>
+                <option value="section2">Section 2 – Getting Started</option>
+                <option value="section3">Section 3 – GPIO Projects</option>
               </select>
             </li>
             <li>
@@ -121,156 +122,296 @@
         </div>
       </section>
     <!-- ===================== SECTION 1 ===================== -->
-<div id="section1" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
-  <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">🐍 Python Libraries for GPIO and IoT</h1>
-  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-    Before jumping into projects, I explored the different Python libraries available for controlling Raspberry Pi GPIO pins.  
-    Each library has its own strengths, and learning them gives me flexibility for any IoT project.
-  </p>
+    <div id="section1" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
 
-  <h3 style="margin-top: 30px; color:#007bff;">1️⃣ RPi.GPIO</h3>
-  <ul style="text-align: left; font-size: 1.05rem;">
-    <li>Low-level control of GPIO pins.</li>
-    <li>Requires manual setup for input/output and cleanup.</li>
-    <li>Great for learning the fundamentals of GPIO control.</li>
-    <li><a href="../section-2-microcontrollers/rpi-gpio-projects.html">See Projects →</a></li>
-  </ul>
-
-  <h3 style="margin-top: 30px; color:#28a745;">2️⃣ GPIOZero</h3>
-  <ul style="text-align: left; font-size: 1.05rem;">
-    <li>High-level library built on top of RPi.GPIO.</li>
-    <li>Makes it super easy to control LEDs, buttons, sensors, and motors.</li>
-    <li>Perfect for beginners and rapid prototyping.</li>
-    <li><a href="../section-2-microcontrollers/gpiozero-projects.html">See Projects →</a></li>
-  </ul>
-
-  <h3 style="margin-top: 30px; color:#ff8800;">3️⃣ CircuitPython / Adafruit Blinka</h3>
-  <ul style="text-align: left; font-size: 1.05rem;">
-    <li>Ideal for I2C, SPI, and advanced sensors.</li>
-    <li>Comes with many ready-made libraries for OLEDs, temperature sensors, and more.</li>
-    <li>Useful for more complex IoT systems.</li>
-  </ul>
-
-  <h3 style="margin-top: 30px; color:#6c757d;">4️⃣ Pigpio</h3>
-  <ul style="text-align: left; font-size: 1.05rem;">
-    <li>Advanced library with hardware PWM and precise timing.</li>
-    <li>Great for servo motors and robotics applications.</li>
-    <li>Runs as a daemon and can even be controlled remotely.</li>
-  </ul>
-
-  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left; margin-top: 30px;">
-    Throughout my IoT journey:  
-    - **GPIOZero** will be my go-to for quick LED and button projects.  
-    - **RPi.GPIO** will help me understand low-level GPIO concepts.  
-    - **CircuitPython** is my choice for I2C/SPI devices like OLED displays and sensors.  
-    - **Pigpio** will come in handy for motors and precise robotics projects.
-  </p>
-</div>
-
-<!-- ===================== SECTION 2 ===================== -->
-<div id="section2" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; display: none;">
-  <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📦 My Journey into Full Stack IoT</h1>
-  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-    My journey into Full Stack IoT started with a simple goal:  
-    **Master hardware and software integration** before university resumed.
-    Since I already had a background in Python, I chose the **Raspberry Pi** over Arduino.  
-    Arduino is excellent for microcontroller projects, but the Pi gave me the flexibility of a full Linux environment, Python support, and the ability to handle more complex IoT systems.
-  </p>
-
-  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-    I ordered my <span class="fw-bolder text">Raspberry Pi B+ Model</span> from 
-    <span class="fw-bolder text">Direnc.net</span>, a popular electronics store in Turkey.  
-    My excitement turned into panic when the Pi **wouldn’t turn on**.  
-    I had used a normal phone charger instead of the recommended Pi power supply.  
-    <span class="text-bg-dark">The Pi requires 5.1V and 2.5A for stable operation</span>,  
-    but my phone charger was underpowered. I even bought a Raspberry Pi Pico thinking I had fried the board,  
-    only to discover the issue was just **insufficient current**.  
-    Lesson learned: **always check power requirements first!**
-  </p>
-
-  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-    Once I got the proper power supply, the Pi booted perfectly.  
-    I installed **Raspberry Pi OS** using the official imager and booted into Linux for the first time.  
-    I began exploring the terminal with commands like <code>cd</code>, <code>ls</code>, <code>sudo</code>, <code>pwd</code>, and <code>mkdir</code>.  
-    Soon, I was ready to start coding with **Thonny IDE** and controlling my first LED.
-  </p>
-
-  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-    This early stage was full of small mistakes, but each taught me something new.  
-    Now I feel more confident in handling hardware, software, and Linux basics.  
-    My plan is to **document everything**—not only the successes but also the struggles—  
-    so that I can look back on my growth and help beginners relate to the journey.
-  </p>
-
-  <p id="Datetime" class="d-flex justify-content-end fw-bolder text-black"></p>
-</div>
-
-<!-- ===================== SECTION 3 ===================== -->
-<div id="section3" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; display: none;">
-  <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">💡 Project 1 – Blinking Two LEDs</h1>
-  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-    My first hands-on project was a **blinking LED circuit** using the RPi.GPIO library.  
-    This simple project helped me understand GPIO outputs, resistors, and how to structure Python loops for hardware control.
-  </p>
-
-  <h3 style="margin-top: 30px;">🔧 Components Used</h3>
-  <ul style="text-align: left; font-size: 1.05rem;">
-    <li>Raspberry Pi B+ Model</li>
-    <li>Breadboard</li>
-    <li>2x LEDs (Red & Green)</li>
-    <li>2x 220Ω resistors</li>
-    <li>Jumper wires</li>
-  </ul>
-
-  <h3 style="margin-top: 30px;">🧠 Code & Logic</h3>
-  <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
-    I wrote a Python script to blink two LEDs in an alternating pattern:
-  </p>
-
-  <pre style="text-align: left; background-color: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.95rem;">
-import RPi.GPIO as GPIO
-import time
-
-GPIO.setmode(GPIO.BCM)
-
-led1 = 17
-led2 = 27
-
-GPIO.setup(led1, GPIO.OUT)
-GPIO.setup(led2, GPIO.OUT)
-
-try:
-    while True:
-        GPIO.output(led1, GPIO.HIGH)
-        GPIO.output(led2, GPIO.LOW)
-        time.sleep(1)
-
-        GPIO.output(led1, GPIO.LOW)
-        GPIO.output(led2, GPIO.HIGH)
-        time.sleep(1)
-except KeyboardInterrupt:
-    GPIO.cleanup()
-  </pre>
-
-  <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
-    - Turns **LED 1 ON / LED 2 OFF**, waits 1s, then reverses.  
-    - Uses <code>KeyboardInterrupt</code> to safely cleanup GPIO pins.  
-    - Helped me understand timing and the basics of GPIO programming.
-  </p>
-
-  <h3 style="margin-top: 30px;">📹 Demo</h3>
-  <p>
-    <em>Here’s a 6-second clip of the LEDs blinking alternately:</em><br>
-    <a href="https://youtube.com/shorts/oZUaF14HHBk?si=kIR3MiOuN_rNN2h2" target="_blank" style="color: #007bff;">🎬 Watch Demo</a>
-  </p>
-
-  <p id="Datetime" class="d-flex justify-content-end fw-bolder text-black"></p>
-</div>
-
-            
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📚 Section 1 – Fundamentals & Python Libraries for GPIO and IoT</h1>
       
+        <!-- Fundamentals -->
+        <section style="text-align: left; margin-bottom: 40px;">
+          <h2 style="color:#0056b3;">🔌 Electronics Fundamentals</h2>
+          <p style="font-size: 1.1rem; line-height: 1.7;">
+            Before diving into coding and IoT, I studied core electronics principles which are essential to understand circuits and hardware behavior.
+          </p>
+          <ul style="font-size: 1.05rem;">
+            <li><a href="./section-1-fundamentals/ohms-law.html" target="_blank" style="color:#007bff;">Ohm's Law</a></li>
+            <li><a href="./section-1-fundamentals/resistors-vs-capacitors.html" target="_blank" style="color:#007bff;">Resistors vs Capacitors</a></li>
+            <li><a href="./section-1-fundamentals/power-and-energy.html" target="_blank" style="color:#007bff;">Power and Energy in Circuits</a></li>
+          </ul>
+        </section>
+              <h2 style="margin-top: 40px; color:#007bff;">🔘 Push Buttons & GPIO Input</h2>
+      <p style="font-size: 1.05rem; text-align: left; line-height: 1.7;">
+        A push button is a simple switch that connects or disconnects a circuit when pressed.  
+        Most breadboard push buttons have <strong>4 pins</strong>:
+      </p>
+      <ul style="font-size: 1rem; text-align: left; line-height: 1.6;">
+        <li>Pins A & B are internally connected.</li>
+        <li>Pins C & D are internally connected.</li>
+        <li>Pressing the button connects <strong>A→C and B→D</strong>.</li>
+      </ul>
+
+      <p style="font-size: 1.05rem; text-align: left; line-height: 1.7;">
+        When connected to a Raspberry Pi GPIO pin:
+        <ul style="font-size: 1rem; text-align: left; line-height: 1.6;">
+          <li>One side of the button gets <strong>3.3V</strong>.</li>
+          <li>The other side connects to a <strong>GPIO pin</strong>.</li>
+          <li>A pull-down resistor ensures the pin reads <strong>LOW (0)</strong> when not pressed.</li>
+          <li>Pressing the button sends <strong>HIGH (1)</strong> to the pin.</li>
+        </ul>
+      </p>
+
+
+      <h2 style="margin-top: 40px; color:#007bff;">🔔 Active Buzzer & GPIO Output</h2>
+      <p style="font-size: 1.05rem; text-align: left; line-height: 1.7;">
+        An <strong>active buzzer</strong> produces a tone when powered.  
+        Unlike a passive buzzer, it does not need PWM signals to generate sound.  
+        <ul style="font-size: 1rem; text-align: left; line-height: 1.6;">
+          <li>Connect <strong>VCC</strong> to 3.3V or 5V.</li>
+          <li>Connect <strong>GND</strong> to ground.</li>
+          <li>Control sound by sending <strong>HIGH/LOW signals</strong> to the GPIO pin.</li>
+        </ul>
+      </p>
+
+        <!-- Python Libraries -->
+        <section style="text-align: left;">
+          <h2 style="color:#007bff;">🐍 Python Libraries for GPIO and IoT</h2>
+          <p style="font-size: 1.1rem; line-height: 1.7;">
+            Before jumping into projects, I explored the different Python libraries available for controlling Raspberry Pi GPIO pins.  
+            Each library has its own strengths, and learning them gives me flexibility for any IoT project.
+          </p>
       
+          <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">🐍 Python Libraries for GPIO and IoT</h1>
+          <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+            Before jumping into projects, I explored the different Python libraries available for controlling Raspberry Pi GPIO pins.  
+            Each library has its own strengths, and learning them gives me flexibility for any IoT project.
+          </p>
+        
+          <h3 style="margin-top: 30px; color:#007bff;">1️⃣ RPi.GPIO</h3>
+          <ul style="text-align: left; font-size: 1.05rem;">
+            <li>Low-level control of GPIO pins.</li>
+            <li>Requires manual setup for input/output and cleanup.</li>
+            <li>Great for learning the fundamentals of GPIO control.</li>
+            <li><a href="../section-2-microcontrollers/rpi-gpio-projects.html">See Projects →</a></li>
+          </ul>
+        
+          <h3 style="margin-top: 30px; color:#28a745;">2️⃣ GPIOZero</h3>
+          <ul style="text-align: left; font-size: 1.05rem;">
+            <li>High-level library built on top of RPi.GPIO.</li>
+            <li>Makes it super easy to control LEDs, buttons, sensors, and motors.</li>
+            <li>Perfect for beginners and rapid prototyping.</li>
+            <li><a href="../section-2-microcontrollers/gpiozero-projects.html">See Projects →</a></li>
+          </ul>
+        
+          <h3 style="margin-top: 30px; color:#ff8800;">3️⃣ CircuitPython / Adafruit Blinka</h3>
+          <ul style="text-align: left; font-size: 1.05rem;">
+            <li>Ideal for I2C, SPI, and advanced sensors.</li>
+            <li>Comes with many ready-made libraries for OLEDs, temperature sensors, and more.</li>
+            <li>Useful for more complex IoT systems.</li>
+          </ul>
+        
+          <h3 style="margin-top: 30px; color:#6c757d;">4️⃣ Pigpio</h3>
+          <ul style="text-align: left; font-size: 1.05rem;">
+            <li>Advanced library with hardware PWM and precise timing.</li>
+            <li>Great for servo motors and robotics applications.</li>
+            <li>Runs as a daemon and can even be controlled remotely.</li>
+          </ul>
+        
+          <p style="font-size: 1.1rem; line-height: 1.7; text-align: left; margin-top: 30px;">
+            Throughout my IoT journey:  
+            - <strong>GPIOZero</strong> will be my go-to for quick LED and button projects — simple, fast, and effective for hardware control.<br>
+            - <strong>RPi.GPIO</strong> helps me dive deep into low-level GPIO concepts and fine-tune hardware interactions.<br>
+            - <strong>CircuitPython</strong> is my choice for working with I2C/SPI devices like OLED displays and sensors — perfect for complex sensor integrations.<br>
+            - <strong>Pigpio</strong> comes in handy for precise motor control and robotics, especially when timing and PWM accuracy matter.<br>
+            - And beyond controlling pins, I’m also leveraging Python’s powerful backend capabilities — from data handling, API integration, to automation — to build complete, robust IoT systems.
+          </p>  
+        </section>
+    </div>
+    <!-- ===================== SECTION 2 ===================== -->
+    <div id="section2" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; display: none;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📦 My Journey into Full Stack IoT</h1>
+    
+      <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+        My journey into Full Stack IoT started with a simple goal:  
+        <strong>Master hardware and software integration</strong> before university resumed.
+        Since I already had a background in Python, I chose the <strong>Raspberry Pi</strong> over Arduino.  
+        Arduino is excellent for microcontroller projects, but the Pi gave me the flexibility of a full Linux environment, Python support, and the ability to handle more complex IoT systems.
+      </p>
+    
+      <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+        I ordered my <span class="fw-bolder text">Raspberry Pi B+ Model</span> from 
+        <span class="fw-bolder text">Direnc.net</span>, a popular electronics store in Turkey.  
+        My excitement turned into panic when the Pi <strong>wouldn’t turn on</strong>.  
+        I had used a normal phone charger instead of the recommended Pi power supply.  
+        <span class="text-bg-dark">The Pi requires 5.1V and 2.5A for stable operation</span>,  
+        but my phone charger was underpowered. I even bought a Raspberry Pi Pico thinking I had fried the board,  
+        only to discover the issue was just <strong>insufficient current</strong>.  
+        Lesson learned: <strong>always check power requirements first!</strong>
+      </p>
+    
+      <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+        Once I got the proper power supply, the Pi booted perfectly.  
+        I installed <strong>Raspberry Pi OS</strong> using the official imager and booted into Linux for the first time.  
+        I began exploring the terminal with commands like <code>cd</code>, <code>ls</code>, <code>sudo</code>, <code>pwd</code>, and <code>mkdir</code>.  
+        Soon, I was ready to start coding with <strong>Thonny IDE</strong> and controlling my first LED.
+      </p>
+    
+      <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+        This early stage was full of small mistakes, but each taught me something new.  
+        Now I feel more confident in handling hardware, software, and Linux basics.  
+        My plan is to <strong>document everything</strong>—not only the successes but also the struggles—  
+        so that I can look back on my growth and help beginners relate to the journey.
+      </p>
+    
+      <!-- Raspberry Pi GPIO Pinout -->
+      <h2 style="margin-top: 40px; color:#007bff;">🔌 Raspberry Pi B+ / 400 GPIO Pinout</h2>
+      <p style="font-size: 1rem; line-height: 1.5; text-align: left;">
+        Understanding the GPIO pins is essential for connecting LEDs, buttons, and sensors.  
+        Here's the pinout diagram of my Raspberry Pi 3B+ (similar to the Pi 400):
+      </p>
+      <img src="/img/PiPinOut.jpeg" alt="Raspberry Pi GPIO Pinout" style="max-width: 100%; border-radius: 8px; margin-top: 15px;">
+    
+      <p id="Datetime" class="d-flex justify-content-end fw-bolder text-black"></p>
+    </div>
+    
+    <!-- ===================== SECTION 3 ===================== -->
+    <div id="section3" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; display: none;">
+
+      <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">💡 Section 3 – GPIO Projects</h1>
+      <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+        This section contains all my beginner GPIO projects using the Raspberry Pi.  
+        Here, I experiment with controlling LEDs, buttons, and basic electronic components using Python libraries like 
+        <strong>RPi.GPIO</strong> and <strong>GPIOZero</strong>.
+      </p>
+    
+      <p style="font-size: 1.05rem; text-align: left; line-height: 1.7; margin-top: 15px;">
+        🔹 <strong>Project 1:</strong> Blinking Two LEDs – My first hands-on GPIO project using Python.  
+        🔹 <strong>Project 2:</strong> 4 LEDs & 5 Buttons – A small reaction-style game with multiple GPIO inputs and outputs.  
+        🔹 <strong>More Projects Coming Soon</strong> – I will update this section as I explore motors, sensors, and interactive IoT systems.
+      </p>
+    
+      <p style="font-size: 1rem; color: gray; margin-top: 20px;">
+        Check the <strong>Projects Menu</strong> for detailed write-ups and demos of each GPIO project.
+      </p>
+    
+      <!-- Project 1 -->
+      <div id="gpio-project1" style="margin-top: 40px;">
+        <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">💡 Project 1 – Blinking Two LEDs</h1>
+        <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+          My first hands-on project was a <strong>blinking LED circuit</strong> using the RPi.GPIO library.  
+          This simple project helped me understand GPIO outputs, resistors, and how to structure Python loops for hardware control.
+        </p>
+    
+        <h3 style="margin-top: 30px;">🔧 Components Used</h3>
+        <ul style="text-align: left; font-size: 1.05rem;">
+          <li>Raspberry Pi B+ Model</li>
+          <li>Breadboard</li>
+          <li>2x LEDs (Red & Green)</li>
+          <li>2x 220Ω resistors</li>
+          <li>Jumper wires</li>
+        </ul>
+    
+        <h3 style="margin-top: 30px;">🧠 Code & Logic</h3>
+        <pre style="text-align: left; background-color: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.95rem;">
+    import RPi.GPIO as GPIO
+    import time
+    
+    GPIO.setmode(GPIO.BCM)
+    
+    led1 = 17
+    led2 = 27
+    
+    GPIO.setup(led1, GPIO.OUT)
+    GPIO.setup(led2, GPIO.OUT)
+    
+    try:
+        while True:
+            GPIO.output(led1, GPIO.HIGH)
+            GPIO.output(led2, GPIO.LOW)
+            time.sleep(1)
+    
+            GPIO.output(led1, GPIO.LOW)
+            GPIO.output(led2, GPIO.HIGH)
+            time.sleep(1)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+        </pre>
+    
+        <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
+          - Turns <strong>LED 1 ON / LED 2 OFF</strong>, waits 1s, then reverses.  
+          - Uses <code>KeyboardInterrupt</code> to safely cleanup GPIO pins.
+        </p>
+    
+        <h3 style="margin-top: 30px;">📹 Demo</h3>
+        <p>
+          <a href="https://youtube.com/shorts/oZUaF14HHBk?si=kIR3MiOuN_rNN2h2" target="_blank" style="color: #007bff;">🎬 Watch Demo</a>
+        </p>
+      </div>
+    
+      <!-- Project 2 -->
+      <div id="gpio-project2" style="margin-top: 40px;">
+        <h1 style="font-size: 2.3rem; margin-bottom: 1rem; color:#28a745;">🎮 GPIO Project 2: 5 Buttons & 4 LEDs Game</h1>
+        
+        <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+          This project is an **interactive LED guessing game** built with a Raspberry Pi, 4 LEDs, 5 push buttons, and a passive buzzer.  
+          It combines <strong>inputs (buttons)</strong> and <strong>outputs (LEDs & sound)</strong> to create a fun, hands-on GPIO challenge.  
+          The goal is to guess which LED the Raspberry Pi randomly selects in each round.
+        </p>
       
+        <h3 style="margin-top: 25px; color:#007bff;">🕹 How the Game Works</h3>
+        <p style="font-size: 1.05rem; text-align: left; line-height: 1.6;">
+          1️⃣ Press the **Start Button** to begin the game.  
+          2️⃣ Enter your **name** in the terminal to personalize the score.  
+          3️⃣ The Raspberry Pi **randomly chooses one of the 4 LEDs**, but keeps it secret.  
+          4️⃣ Use the 4 LED buttons to make your guess. When a button is pressed:
+             <ul style="font-size: 1rem; margin-top: 10px; text-align: left; line-height: 1.6;">
+               <li>The corresponding LED lights up to show your selection.</li>
+               <li>If correct: ✅ +5 points and a **double beep** plays on the buzzer.</li>
+               <li>If wrong: ❌ -2 points and a **single low beep** plays.</li>
+             </ul>
+          5️⃣ The game runs for **5 rounds**, tracking your score after each guess.  
+          6️⃣ At the end, your **total score** is displayed and stored in a <strong>Python Shelve database</strong> for future reference.
+        </p>
+      
+        <h3 style="margin-top: 25px; color:#007bff;">🔧 Components Used</h3>
+        <ul style="text-align: left; font-size: 1.05rem; line-height: 1.6;">
+          <li>Raspberry Pi B+ Model</li>
+          <li>Breadboard & Jumper Wires</li>
+          <li>4× LEDs (Red, Green, Blue, Yellow) + 220Ω resistors</li>
+          <li>5× Push Buttons (4 for guesses, 1 as the start button)</li>
+          <li>1× Passive Buzzer (for audio feedback)</li>
+        </ul>
+      
+        <h3 style="margin-top: 25px; color:#007bff;">📚 Circuit Explanation</h3>
+        <p style="font-size: 1.05rem; text-align: left; line-height: 1.6;">
+          If you want to understand how push buttons and active buzzers are wired and work, check the <span class="bg-danger-subtle">Fundamentals Section</span> → Push Buttons & GPIO Input.
+        </p>
+      
+        <div style="margin: 25px 0;">
+          <img src="/img/LedGameWith5Buttons.jpeg" alt="5 Buttons & 4 LEDs GPIO Project" style="max-width: 100%; border-radius: 8px;">
+          <p style="font-size: 0.95rem; margin-top: 10px;">My 5 Buttons & 4 LEDs Game Circuit on a Breadboard</p>
+        </div>
+      
+        <h3 style="margin-top: 25px; color:#007bff;">🧠 Game Logic in Python</h3>
+        <p style="font-size: 1.05rem; text-align: left; line-height: 1.6;">
+          - The game uses the <code>random</code> module to select a secret LED each round.  
+          - Player input is captured via GPIO button presses.  
+          - Scoring: +5 for correct guess, -2 for wrong guess.  
+          - Sound Feedback:
+             <ul style="font-size: 1rem; margin-top: 5px; text-align: left; line-height: 1.6;">
+               <li>Double short beeps = Correct</li>
+               <li>Single long beep = Wrong</li>
+             </ul>
+          -Storage: Player name and score are saved using <code>shelve</code> for local storage.
+        </p>
+      
+        <p style="margin-top: 20px;">
+          💾 <a href="https://github.com/mohammednabeel123/myfrontendsite/tree/main/gpio-projects/5buttons-4leds" target="_blank" style="color:#28a745; font-weight: bold;">
+            View Python Code & Download →
+          </a>
+        </p>
+      </div>
+      
+    </div>
+    
       <footer class="py-5  bg-body-secondary text-dark text-center">
         <div class="container">
           <div class="row">
@@ -307,20 +448,20 @@ except KeyboardInterrupt:
         </div>
       </footer> 
       <script>
-        function showSection(id) {
+        function showSection(sectionId) {
+          // Get all sections
+          const sections = document.querySelectorAll('.note-section');
           // Hide all sections
-          const allSections = document.querySelectorAll('.note-section');
-          allSections.forEach(section => section.style.display = 'none');
-      
+          sections.forEach(sec => sec.style.display = 'none');
           // Show selected section
-          if (id) {
-            const selected = document.getElementById(id);
-            if (selected) {
-              selected.style.display = 'block';
-              selected.scrollIntoView({ behavior: "smooth" });
-            }
-          }
+          const selected = document.getElementById(sectionId);
+          if (selected) selected.style.display = 'block';
         }
+      
+        // Optional: show first section on page load
+        document.addEventListener('DOMContentLoaded', () => {
+          showSection('section1');
+        });
 
         const now = new Date();
         const datetime = now.toDateString();
