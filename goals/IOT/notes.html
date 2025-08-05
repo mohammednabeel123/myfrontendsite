@@ -120,81 +120,153 @@
           </p>
         </div>
       </section>
-      
-      <div id="section1" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📦 Section 1 – Getting Started with Full Stack IoT</h1>
-        <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-          My journey into Full Stack IoT began this summer with a strong motivation to master hardware and software integration before university resumes. Since I already had a background in Python from my university courses, I decided to go with the Raspberry Pi instead of Arduino. Arduino is great for microcontroller projects, but the Pi gave me the flexibility of using Python, working within a Linux environment, and building more complex IoT systems.
-          <br><br>
-          I was excited when I finally got my  <span  class="fw-bolder text">Raspberry Pi B+ model</span> from  <span  class="fw-bolder text">Direnc.net</span> a turkish company known for selling electronics components but that excitement quickly turned into confusion when the Pi wouldn’t turn on. I had used a normal phone charger instead of the recommended Pi power supply, <span class="text-bg-dark">I learned that the Pi requires a stable input of 100 - 240V and ouput of  5.1V power supply with  2.5A of current (depending on the model), while most phone chargers only supply around 1A–2A and can’t consistently handle the Pi’s power demands — especially when using peripherals like a keyboard, mouse, or display. That lack of current was enough to prevent the Pi from booting properly</span> so I thought I had damaged the board. Out of panic, I went out and got a Raspberry Pi Pico, thinking it would help me continue — only to later find out that the issue was just the power supply. Once I got the right Pi charger, everything worked perfectly. That mistake taught me an important lesson about power requirements and not assuming the worst.
-          <br><br>
-          With the Pi now working, I moved on to installing the Raspberry Pi OS onto a  <span  class="fw-bolder text">microSD card</span> using the official <span  class="fw-bolder text">imager</span>. It was my first time flashing an OS manually, and the process gave me a deeper understanding of how Linux-based systems boot. I connected my Pi to a screen, keyboard, and mouse, and booted into Raspberry Pi OS successfully.
-          <br><br>
-          Since then, I’ve been diving into Linux basics — using terminal commands like <code>cd</code>, <code>ls</code>, <code>sudo</code>, <code>pwd</code>, <code>mkdir</code>, <code>rmdir</code>, <code>mv</code> and others  — and gradually getting comfortable with navigating the system. I also started using  the Thonny Python IDE for writing GPIO code to control LEDs my first project check it out on notes  in the menu.
-          <br><br>
-          This first phase has been full of challenges, but every mistake has taught me something. I now feel more confident in handling hardware, software, and the command line. My goal is to document everything — not just the successes, but also the struggles — so I can look back on how far I've come, and so others starting out can relate to the journey.
-        </p>
-        <p id="Datetime" class=" d-flex justify-content-end fw-bolder text-black"></p>
-      </div>
-      
-      <div id="section2"  class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; display: none;">
-        <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">💡 Project 1 – Blinking Two LEDs</h1>
-        <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-          This was my first hands-on GPIO project on the Raspberry Pi. I used Python and the RPi.GPIO library to blink two LEDs in alternating patterns. The goal was to get comfortable working with basic circuit components like LEDs, resistors, breadboards, and GPIO pins.
-          <br><br>
-          I connected two LEDs to GPIO pins 2 and 4 and wrote a simple loop in Python to turn them on and off at 0.5-second intervals. Although the video I recorded was just 6 seconds long, it was enough to confirm that the logic worked. Seeing the LEDs blink for the first time was a huge motivational boost.
-        </p>
-        <h3 style="margin-top: 30px;">🔧 Components Used</h3>
-        <ul style="text-align: left; font-size: 1.05rem;">
-          <li>Raspberry Pi B+ Model</li>
-          <li>Breadboard</li>
-          <li>2x LEDs (Red & Green)</li>
-          <li>2x 220Ω resistors</li>
-          <li>Jumper wires</li>
-        </ul>
-        <h3 style="margin-top: 30px;">🧠 Code & Logic Explanation</h3>
-            <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
-            Below is the Python script I used for my first GPIO-based mini project. It blinks two LEDs connected to GPIO pins 17 and 27 in an alternating pattern. This project helped me understand GPIO output control, timing delays, and how to safely handle GPIO cleanup.
-            </p>
-            <pre style="text-align: left; background-color: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.95rem;">
-            import RPi.GPIO as GPIO
-            import time
+    <!-- ===================== SECTION 1 ===================== -->
+<div id="section1" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+  <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">🐍 Python Libraries for GPIO and IoT</h1>
+  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+    Before jumping into projects, I explored the different Python libraries available for controlling Raspberry Pi GPIO pins.  
+    Each library has its own strengths, and learning them gives me flexibility for any IoT project.
+  </p>
 
-            GPIO.setmode(GPIO.BCM)
+  <h3 style="margin-top: 30px; color:#007bff;">1️⃣ RPi.GPIO</h3>
+  <ul style="text-align: left; font-size: 1.05rem;">
+    <li>Low-level control of GPIO pins.</li>
+    <li>Requires manual setup for input/output and cleanup.</li>
+    <li>Great for learning the fundamentals of GPIO control.</li>
+    <li><a href="../section-2-microcontrollers/rpi-gpio-projects.html">See Projects →</a></li>
+  </ul>
 
-            led1 = 17
-            led2 = 27
+  <h3 style="margin-top: 30px; color:#28a745;">2️⃣ GPIOZero</h3>
+  <ul style="text-align: left; font-size: 1.05rem;">
+    <li>High-level library built on top of RPi.GPIO.</li>
+    <li>Makes it super easy to control LEDs, buttons, sensors, and motors.</li>
+    <li>Perfect for beginners and rapid prototyping.</li>
+    <li><a href="../section-2-microcontrollers/gpiozero-projects.html">See Projects →</a></li>
+  </ul>
 
-            GPIO.setup(led1, GPIO.OUT)
-            GPIO.setup(led2, GPIO.OUT)
+  <h3 style="margin-top: 30px; color:#ff8800;">3️⃣ CircuitPython / Adafruit Blinka</h3>
+  <ul style="text-align: left; font-size: 1.05rem;">
+    <li>Ideal for I2C, SPI, and advanced sensors.</li>
+    <li>Comes with many ready-made libraries for OLEDs, temperature sensors, and more.</li>
+    <li>Useful for more complex IoT systems.</li>
+  </ul>
 
-            try:
-                while True:
-                    GPIO.output(led1, GPIO.HIGH)
-                    GPIO.output(led2, GPIO.LOW)
-                    time.sleep(1)
-                    
-                    GPIO.output(led1, GPIO.LOW)
-                    GPIO.output(led2, GPIO.HIGH)
-                    time.sleep(1)
-            except KeyboardInterrupt:
-                GPIO.cleanup()
-            </pre>
-            <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
-            - I imported <code>RPi.GPIO</code> to control the Pi’s GPIO pins and <code>time</code> for delay.  
-            - I used <code>GPIO.setmode(GPIO.BCM)</code> to use BCM pin numbering.  
-            - Pins 17 and 27 were defined as outputs and connected to the two LEDs.  
-            - Inside a <code>try</code> block, I created an infinite <code>while True</code> loop.  
-            - Each loop cycle turns <strong>LED 1 ON</strong> and <strong>LED 2 OFF</strong>, waits 1 second, then reverses it — creating a “ping-pong” effect.  
-            - The <code>except KeyboardInterrupt</code> ensures that when I stop the script using <kbd>Ctrl+C</kbd>, the <code>GPIO.cleanup()</code> resets the pins safely.  
-            </p>
-            <h3 style="margin-top: 30px;">📹 Demo</h3>
-            <p>
-              <em>Here’s a 6-second clip of the LEDs blinking alternately:</em><br>
-              <a href="https://youtube.com/shorts/oZUaF14HHBk?si=kIR3MiOuN_rNN2h2" target="_blank" style="color: #007bff;">🎬 Watch Demo</a>
-            </p>
-            <p id="Datetime" class=" d-flex justify-content-end fw-bolder text-black"></p>
-      </div>
+  <h3 style="margin-top: 30px; color:#6c757d;">4️⃣ Pigpio</h3>
+  <ul style="text-align: left; font-size: 1.05rem;">
+    <li>Advanced library with hardware PWM and precise timing.</li>
+    <li>Great for servo motors and robotics applications.</li>
+    <li>Runs as a daemon and can even be controlled remotely.</li>
+  </ul>
+
+  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left; margin-top: 30px;">
+    Throughout my IoT journey:  
+    - **GPIOZero** will be my go-to for quick LED and button projects.  
+    - **RPi.GPIO** will help me understand low-level GPIO concepts.  
+    - **CircuitPython** is my choice for I2C/SPI devices like OLED displays and sensors.  
+    - **Pigpio** will come in handy for motors and precise robotics projects.
+  </p>
+</div>
+
+<!-- ===================== SECTION 2 ===================== -->
+<div id="section2" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; display: none;">
+  <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📦 My Journey into Full Stack IoT</h1>
+  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+    My journey into Full Stack IoT started with a simple goal:  
+    **Master hardware and software integration** before university resumed.
+    Since I already had a background in Python, I chose the **Raspberry Pi** over Arduino.  
+    Arduino is excellent for microcontroller projects, but the Pi gave me the flexibility of a full Linux environment, Python support, and the ability to handle more complex IoT systems.
+  </p>
+
+  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+    I ordered my <span class="fw-bolder text">Raspberry Pi B+ Model</span> from 
+    <span class="fw-bolder text">Direnc.net</span>, a popular electronics store in Turkey.  
+    My excitement turned into panic when the Pi **wouldn’t turn on**.  
+    I had used a normal phone charger instead of the recommended Pi power supply.  
+    <span class="text-bg-dark">The Pi requires 5.1V and 2.5A for stable operation</span>,  
+    but my phone charger was underpowered. I even bought a Raspberry Pi Pico thinking I had fried the board,  
+    only to discover the issue was just **insufficient current**.  
+    Lesson learned: **always check power requirements first!**
+  </p>
+
+  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+    Once I got the proper power supply, the Pi booted perfectly.  
+    I installed **Raspberry Pi OS** using the official imager and booted into Linux for the first time.  
+    I began exploring the terminal with commands like <code>cd</code>, <code>ls</code>, <code>sudo</code>, <code>pwd</code>, and <code>mkdir</code>.  
+    Soon, I was ready to start coding with **Thonny IDE** and controlling my first LED.
+  </p>
+
+  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+    This early stage was full of small mistakes, but each taught me something new.  
+    Now I feel more confident in handling hardware, software, and Linux basics.  
+    My plan is to **document everything**—not only the successes but also the struggles—  
+    so that I can look back on my growth and help beginners relate to the journey.
+  </p>
+
+  <p id="Datetime" class="d-flex justify-content-end fw-bolder text-black"></p>
+</div>
+
+<!-- ===================== SECTION 3 ===================== -->
+<div id="section3" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; display: none;">
+  <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">💡 Project 1 – Blinking Two LEDs</h1>
+  <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+    My first hands-on project was a **blinking LED circuit** using the RPi.GPIO library.  
+    This simple project helped me understand GPIO outputs, resistors, and how to structure Python loops for hardware control.
+  </p>
+
+  <h3 style="margin-top: 30px;">🔧 Components Used</h3>
+  <ul style="text-align: left; font-size: 1.05rem;">
+    <li>Raspberry Pi B+ Model</li>
+    <li>Breadboard</li>
+    <li>2x LEDs (Red & Green)</li>
+    <li>2x 220Ω resistors</li>
+    <li>Jumper wires</li>
+  </ul>
+
+  <h3 style="margin-top: 30px;">🧠 Code & Logic</h3>
+  <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
+    I wrote a Python script to blink two LEDs in an alternating pattern:
+  </p>
+
+  <pre style="text-align: left; background-color: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.95rem;">
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+led1 = 17
+led2 = 27
+
+GPIO.setup(led1, GPIO.OUT)
+GPIO.setup(led2, GPIO.OUT)
+
+try:
+    while True:
+        GPIO.output(led1, GPIO.HIGH)
+        GPIO.output(led2, GPIO.LOW)
+        time.sleep(1)
+
+        GPIO.output(led1, GPIO.LOW)
+        GPIO.output(led2, GPIO.HIGH)
+        time.sleep(1)
+except KeyboardInterrupt:
+    GPIO.cleanup()
+  </pre>
+
+  <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
+    - Turns **LED 1 ON / LED 2 OFF**, waits 1s, then reverses.  
+    - Uses <code>KeyboardInterrupt</code> to safely cleanup GPIO pins.  
+    - Helped me understand timing and the basics of GPIO programming.
+  </p>
+
+  <h3 style="margin-top: 30px;">📹 Demo</h3>
+  <p>
+    <em>Here’s a 6-second clip of the LEDs blinking alternately:</em><br>
+    <a href="https://youtube.com/shorts/oZUaF14HHBk?si=kIR3MiOuN_rNN2h2" target="_blank" style="color: #007bff;">🎬 Watch Demo</a>
+  </p>
+
+  <p id="Datetime" class="d-flex justify-content-end fw-bolder text-black"></p>
+</div>
+
             
       
       
