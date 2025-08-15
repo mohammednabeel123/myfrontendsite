@@ -288,60 +288,80 @@
         Check the <strong>Projects Menu</strong> for detailed write-ups and demos of each GPIO project.
       </p>
     
-      <!-- Project 1 -->
-      <div id="gpio-project1" style="margin-top: 40px;">
-        <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">💡 Project 1 – Blinking Two LEDs</h1>
-        <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
-          My first hands-on project was a <strong>blinking LED circuit</strong> using the RPi.GPIO library.  
-          This simple project helped me understand GPIO outputs, resistors, and how to structure Python loops for hardware control.
-        </p>
-    
-        <h3 style="margin-top: 30px;">🔧 Components Used</h3>
-        <ul style="text-align: left; font-size: 1.05rem;">
-          <li>Raspberry Pi B+ Model</li>
-          <li>Breadboard</li>
-          <li>2x LEDs (Red & Green)</li>
-          <li>2x 220Ω resistors</li>
-          <li>Jumper wires</li>
-        </ul>
-    
-        <h3 style="margin-top: 30px;">🧠 Code & Logic</h3>
-        <pre style="text-align: left; background-color: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.95rem;">
-    import RPi.GPIO as GPIO
-    import time
-    
-    GPIO.setmode(GPIO.BCM)
-    
-    led1 = 17
-    led2 = 27
-    
-    GPIO.setup(led1, GPIO.OUT)
-    GPIO.setup(led2, GPIO.OUT)
-    
-    try:
-        while True:
-            GPIO.output(led1, GPIO.HIGH)
-            GPIO.output(led2, GPIO.LOW)
-            time.sleep(1)
-    
-            GPIO.output(led1, GPIO.LOW)
-            GPIO.output(led2, GPIO.HIGH)
-            time.sleep(1)
-    except KeyboardInterrupt:
-        GPIO.cleanup()
-        </pre>
-    
-        <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
-          - Turns <strong>LED 1 ON / LED 2 OFF</strong>, waits 1s, then reverses.  
-          - Uses <code>KeyboardInterrupt</code> to safely cleanup GPIO pins.
-        </p>
-    
-        <h3 style="margin-top: 30px;">📹 Demo</h3>
-        <p>
-          <a href="https://youtube.com/shorts/oZUaF14HHBk?si=kIR3MiOuN_rNN2h2" target="_blank" style="color: #007bff;">🎬 Watch Demo</a>
-        </p>
+      
+        <!---Project 3 --->
+        <div class="container py-5">
+          <h1 class="text-center mb-4">🎯 🎮 GPIO Project 3: LED Roulette Game with Raspberry Pi</h1>
+
+          <p class="lead">
+              This project is a fun little game built using a Raspberry Pi, a set of LEDs, push buttons, and Python. 
+              The goal is simple: spin the roulette of LEDs, press the stop button, and try to land on the “lucky” LED 
+              to score points! Your scores are saved between rounds, so you can keep improving over time.
+          </p>
+
+          <div class="alert alert-info">
+              💡 <strong>Tip:</strong> This is a great beginner-friendly Raspberry Pi GPIO project that teaches 
+              you about <strong>LED control, button inputs, random number generation, and persistent storage</strong> in Python.
+          </div>
+
+          <h2>📜 How It Works</h2>
+          <ol class="list-group list-group-numbered mb-4">
+              <li class="list-group-item">When you start the game, the program randomly selects one LED to be the “lucky” LED.</li>
+              <li class="list-group-item">The LEDs then start lighting up in a fast sequence, like a spinning roulette.</li>
+              <li class="list-group-item">When you press the stop button, the LEDs freeze on one position.</li>
+              <li class="list-group-item">If you land on the lucky LED, you earn a point!</li>
+              <li class="list-group-item">Your score is saved using a small local database, so it remembers you between plays.</li>
+          </ol>
+
+          <h2>🛠 Components Needed</h2>
+          <ul class="list-group mb-4">
+              <li class="list-group-item">Raspberry Pi (any model with GPIO pins)</li>
+              <li class="list-group-item">10 LEDs</li>
+              <li class="list-group-item">10 suitable resistors (220Ω recommended)</li>
+              <li class="list-group-item">2 push buttons</li>
+              <li class="list-group-item">Jumper wires & breadboard</li>
+              <li class="list-group-item">Python 3 installed on your Raspberry Pi</li>
+          </ul>
+
+          <h2>💻 The Code</h2>
+          <p>The code below controls the LED roulette. It uses the <code>gpiozero</code> library for easy GPIO handling and <code>shelve</code> to store scores.</p>
+
+          <p style="margin-top: 20px;">
+            💾 <a href="https://github.com/mohammednabeel123/LedRouletteGame.git" target="_blank" style="color:#28a745; font-weight: bold;">
+              View Python Code & Download →
+            </a>
+          </p>
+
+          <h2>🚀 How to Run</h2>
+          <ol class="list-group list-group-numbered mb-4">
+              <li class="list-group-item">Install the <code>gpiozero</code> library if you haven’t already:
+                  <pre class="bg-dark text-light p-2 rounded"><code>pip install gpiozero</code></pre>
+              </li>
+              <li class="list-group-item">Save the Python code to a file, for example <code>led_roulette.py</code>.</li>
+              <li class="list-group-item">Wire up your LEDs and buttons according to the <code>led_pins</code> list in the code.</li>
+              <li class="list-group-item">Run the program:
+                  <pre class="bg-dark text-light p-2 rounded"><code>python3 led_roulette.py</code></pre>
+              </li>
+              <li class="list-group-item">Follow the instructions on the terminal, start the roulette, and try to stop on the lucky LED!</li>
+          </ol>
+
+          <div class="alert alert-warning">
+              ⚠️ <strong>Safety Note:</strong> Always power off your Raspberry Pi when making changes to your wiring to avoid short circuits.
+          </div>
+
+          <h2>🎯 Final Thoughts</h2>
+          <p>
+              This project is a fun way to mix Python programming with hands-on electronics. It’s also a perfect example 
+              of how you can add a competitive twist to simple hardware projects by introducing scoring, randomness, and 
+              persistent data storage.
+          </p>
+          <div style="margin: 25px 0;">
+            <img src="/img/ledRoulette.jpg" alt="5 Buttons & 4 LEDs GPIO Project" style="max-width: 100%; border-radius: 8px;">
+            <p style="font-size: 0.95rem; margin-top: 10px;">My 5 Buttons & 4 LEDs Game Circuit on a Breadboard</p>
+          </div>
       </div>
-    
+
+
       <!-- Project 2 -->
       <div id="gpio-project2" style="margin-top: 40px;">
         <h1 style="font-size: 2.3rem; margin-bottom: 1rem; color:#28a745;">🎮 GPIO Project 2: 5 Buttons & 4 LEDs Game</h1>
@@ -400,150 +420,71 @@
         </p>
       
         <p style="margin-top: 20px;">
-          💾 <a href="https://github.com/mohammednabeel123/myfrontendsite/tree/main/gpio-projects/5buttons-4leds" target="_blank" style="color:#28a745; font-weight: bold;">
+          💾 <a href="https://github.com/mohammednabeel123/LedWithAdvancedGame5Buttons.git" target="_blank" style="color:#28a745; font-weight: bold;">
             View Python Code & Download →
           </a>
         </p>
       </div>
 
-      
-      <!---Project 3 --->
-      <div class="container py-5">
-          <h1 class="text-center mb-4">🎯 LED Roulette Game with Raspberry Pi</h1>
 
-          <p class="lead">
-              This project is a fun little game built using a Raspberry Pi, a set of LEDs, push buttons, and Python. 
-              The goal is simple: spin the roulette of LEDs, press the stop button, and try to land on the “lucky” LED 
-              to score points! Your scores are saved between rounds, so you can keep improving over time.
-          </p>
-
-          <div class="alert alert-info">
-              💡 <strong>Tip:</strong> This is a great beginner-friendly Raspberry Pi GPIO project that teaches 
-              you about <strong>LED control, button inputs, random number generation, and persistent storage</strong> in Python.
-          </div>
-
-          <h2>📜 How It Works</h2>
-          <ol class="list-group list-group-numbered mb-4">
-              <li class="list-group-item">When you start the game, the program randomly selects one LED to be the “lucky” LED.</li>
-              <li class="list-group-item">The LEDs then start lighting up in a fast sequence, like a spinning roulette.</li>
-              <li class="list-group-item">When you press the stop button, the LEDs freeze on one position.</li>
-              <li class="list-group-item">If you land on the lucky LED, you earn a point!</li>
-              <li class="list-group-item">Your score is saved using a small local database, so it remembers you between plays.</li>
-          </ol>
-
-          <h2>🛠 Components Needed</h2>
-          <ul class="list-group mb-4">
-              <li class="list-group-item">Raspberry Pi (any model with GPIO pins)</li>
-              <li class="list-group-item">10 LEDs</li>
-              <li class="list-group-item">10 suitable resistors (220Ω recommended)</li>
-              <li class="list-group-item">2 push buttons</li>
-              <li class="list-group-item">Jumper wires & breadboard</li>
-              <li class="list-group-item">Python 3 installed on your Raspberry Pi</li>
-          </ul>
-
-          <h2>💻 The Code</h2>
-          <p>The code below controls the LED roulette. It uses the <code>gpiozero</code> library for easy GPIO handling and <code>shelve</code> to store scores.</p>
-
-          <pre class="bg-dark text-light p-3 rounded"><code>
-            from gpiozero import Button, PWMLED
-            import time
-            import random
-            import shelve
-            
-            startButton = Button(21, pull_up=True)
-            stopButton = Button(22, pull_up=True)
-            
-            led_pins = [26, 19, 13, 6, 5, 27, 17, 4, 3, 2]
-            LEDs = [PWMLED(pin) for pin in led_pins]
-            
-            running = False
-            current_led = None
-            round_done = False
-            
-            username = input("Enter your name: ").strip()
-            
-            # create score
-            with shelve.open("scores.db") as db:
-                if username not in db:
-                    db[username] = 0
-                print(f"Welcome {username}! Current score: {db[username]}")
-            
-            # Pick a lucky LED
-            def pick_lucky_led():
-                led = random.choice(LEDs)
-                print("Lucky LED is:", led.pin)
-                led.on()
-                time.sleep(1)
-                led.off()
-                return led
-            
-            lucky_led = pick_lucky_led()
-            
-            def start_roulette():
-                global running, round_done
-                running = True
-                round_done = False
-                print("Roulette started!")
-            
-            def stop_roulette():
-                global running, round_done, lucky_led
-                if round_done:
-                    return  # prevent multiple scoring in same round
-            
-                running = False
-                round_done = True
-                if current_led:
-                    print(f"Stopped at LED: {current_led.pin}")
-                    with shelve.open("scores.db", writeback=True) as db:
-                        if current_led.pin == lucky_led.pin:
-                            print("✅ Good, you got the right LED!")
-                            db[username] += 1
-                        else:
-                            print("❌ Wrong LED.")
-                        print(f"Your score is now: {db[username]}")
-                # Pick a new lucky LED for the next round
-                lucky_led = pick_lucky_led()
-            
-            startButton.when_pressed = start_roulette
-            stopButton.when_released = stop_roulette
-            
-            while True:
-                if running:
-                    for led in LEDs:
-                        if not running:
-                            break
-                        current_led = led
-                        led.on()
-                        time.sleep(0.05)
-                        led.off()
-                else:
-                    time.sleep(0.1)</code></pre>
-
-          <h2>🚀 How to Run</h2>
-          <ol class="list-group list-group-numbered mb-4">
-              <li class="list-group-item">Install the <code>gpiozero</code> library if you haven’t already:
-                  <pre class="bg-dark text-light p-2 rounded"><code>pip install gpiozero</code></pre>
-              </li>
-              <li class="list-group-item">Save the Python code to a file, for example <code>led_roulette.py</code>.</li>
-              <li class="list-group-item">Wire up your LEDs and buttons according to the <code>led_pins</code> list in the code.</li>
-              <li class="list-group-item">Run the program:
-                  <pre class="bg-dark text-light p-2 rounded"><code>python3 led_roulette.py</code></pre>
-              </li>
-              <li class="list-group-item">Follow the instructions on the terminal, start the roulette, and try to stop on the lucky LED!</li>
-          </ol>
-
-          <div class="alert alert-warning">
-              ⚠️ <strong>Safety Note:</strong> Always power off your Raspberry Pi when making changes to your wiring to avoid short circuits.
-          </div>
-
-          <h2>🎯 Final Thoughts</h2>
-          <p>
-              This project is a fun way to mix Python programming with hands-on electronics. It’s also a perfect example 
-              of how you can add a competitive twist to simple hardware projects by introducing scoring, randomness, and 
-              persistent data storage.
-          </p>
+      <!-- Project 1 -->
+      <div id="gpio-project1" style="margin-top: 40px;">
+        <h1 style="font-size: 2.2rem; margin-bottom: 1rem;">💡 Project 1 – Blinking Two LEDs</h1>
+        <p style="font-size: 1.1rem; line-height: 1.7; text-align: left;">
+          My first hands-on project was a <strong>blinking LED circuit</strong> using the RPi.GPIO library.  
+          This simple project helped me understand GPIO outputs, resistors, and how to structure Python loops for hardware control.
+        </p>
+    
+        <h3 style="margin-top: 30px;">🔧 Components Used</h3>
+        <ul style="text-align: left; font-size: 1.05rem;">
+          <li>Raspberry Pi B+ Model</li>
+          <li>Breadboard</li>
+          <li>2x LEDs (Red & Green)</li>
+          <li>2x 220Ω resistors</li>
+          <li>Jumper wires</li>
+        </ul>
+    
+        <h3 style="margin-top: 30px;">🧠 Code & Logic</h3>
+        <pre style="text-align: left; background-color: #f8f9fa; padding: 15px; border-radius: 8px; font-size: 0.95rem;">
+    import RPi.GPIO as GPIO
+    import time
+    
+    GPIO.setmode(GPIO.BCM)
+    
+    led1 = 17
+    led2 = 27
+    
+    GPIO.setup(led1, GPIO.OUT)
+    GPIO.setup(led2, GPIO.OUT)
+    
+    try:
+        while True:
+            GPIO.output(led1, GPIO.HIGH)
+            GPIO.output(led2, GPIO.LOW)
+            time.sleep(1)
+    
+            GPIO.output(led1, GPIO.LOW)
+            GPIO.output(led2, GPIO.HIGH)
+            time.sleep(1)
+    except KeyboardInterrupt:
+        GPIO.cleanup()
+        </pre>
+    
+        <p style="text-align: left; font-size: 1.05rem; line-height: 1.7;">
+          - Turns <strong>LED 1 ON / LED 2 OFF</strong>, waits 1s, then reverses.  
+          - Uses <code>KeyboardInterrupt</code> to safely cleanup GPIO pins.
+        </p>
+    
+        <h3 style="margin-top: 30px;">📹 Demo</h3>
+        <p>
+          <a href="https://youtube.com/shorts/oZUaF14HHBk?si=kIR3MiOuN_rNN2h2" target="_blank" style="color: #007bff;">🎬 Watch Demo</a>
+        </p>
       </div>
+    
+      
 
+      
+    
     <footer class="bg-dark text-light py-3 mt-5">
         <div class="container text-center">
             &copy; 2025 My Raspberry Pi Projects
