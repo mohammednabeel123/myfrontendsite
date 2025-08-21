@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for sessions
 
 # Database URI (encode $ as %24)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://myuser:Nabeel123%24@localhost:1123/myfrontenddb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://myuser:Nabeel123$@localhost:5432/myfrontenddb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize database
