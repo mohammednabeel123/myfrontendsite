@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sign Up - BeelForge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeelForge</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/styles.css" />
-<meta name="description" content="BeelForge – A hub for my full stack, IoT, and front-end projects.">
-<meta name="keywords" content="BeelForge, full stack, IoT, frontend, JavaScript, web development">
-<meta name="author" content="Nabeel Mohammed Abdul-Mumin">
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <meta name="description" content="BeelForge – A hub for my full stack, IoT, and front-end projects.">
+  <meta name="keywords" content="BeelForge, full stack, IoT, frontend, JavaScript, web development">
+  <meta name="author" content="Nabeel Mohammed Abdul-Mumin">
 </head>
 <body class="bg-dark text-white">
 
   <nav class="px-4 py-3">
-        <a class="navbar-brand text-white" href="{{ url_for('index') }}">🐝BeelForge</a>
+    <a class="navbar-brand text-white" href="index.html">🐝BeelForge</a>
   </nav>
 
   <div id="signupPage" class="vh-100 d-flex justify-content-center align-items-center">

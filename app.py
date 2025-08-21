@@ -1,10 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
 # Initialize app
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://myuser:Nabeel123$@localhost:1123/myfrontenddb'
+app.secret_key = "supersecretkey"  # Needed for sessions
+
+# Database URI (encode $ as %24)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://myuser:Nabeel123%24@localhost:1123/myfrontenddb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize database
@@ -26,11 +29,18 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-# Routes
+# Create tables
+with app.app_context():
+    db.create_all()
+
+# ---------------- ROUTES ----------------
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    username = session.get('username')
+    return render_template('index.html', username=username)
 
+# -------- REGISTER ----------
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -38,19 +48,27 @@ def register():
         email = request.form['email']
         password = request.form['password']
 
+        # Check if username or email exists
         if User.query.filter_by(username=username).first():
-            return "Username already exists!"
+            flash("Username already exists!", "danger")
+            return redirect(url_for('register'))
+        if User.query.filter_by(email=email).first():
+            flash("Email already exists!", "danger")
+            return redirect(url_for('register'))
 
+        # Create user
         new_user = User(username=username, email=email)
         new_user.set_password(password)
 
         db.session.add(new_user)
         db.session.commit()
 
-        return "User registered successfully!"
+        flash("User registered successfully! Please login.", "success")
+        return redirect(url_for('login'))
 
     return render_template('signup.html')
 
+# -------- LOGIN ----------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -60,13 +78,37 @@ def login():
         user = User.query.filter_by(username=username).first()
 
         if user and user.check_password(password):
-            return f"Welcome, {user.username}!"
+            session['user_id'] = user.id
+            session['username'] = user.username
+            flash(f"Welcome, {user.username}!", "success")
+            return redirect(url_for('index'))
         else:
-            return "Invalid username or password!"
+            flash("Invalid username or password!", "danger")
+            return redirect(url_for('login'))
 
     return render_template('login.html')
 
+# -------- LOGOUT ----------
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("You have been logged out.", "info")
+    return redirect(url_for('login'))
+
+# -------- RESET PASSWORD ----------
+@app.route('/reset', methods=['GET', 'POST'])
+def reset():
+    if request.method == 'POST':
+        email = request.form['email']
+        user = User.query.filter_by(email=email).first()
+        if user:
+            flash("Password reset link sent to your email (mock).", "info")
+        else:
+            flash("Email not found.", "danger")
+        return redirect(url_for('login'))
+
+    return render_template('reset.html')
+
+# Run the app
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()  # Creates tables if not exist
     app.run(debug=True)
