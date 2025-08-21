@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BeelForge</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="/js/scripts.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-1ycn6Ica999uHJ+0Uz1aOxAZvq0MxkQfdpYLu5eRHOH5GzBp0KwP9aEwS5+cjG1p+JgIcPv9J5RykW+3R8Cstw=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
+      </head>
+    <body>
+      <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
+        <a href="index.html" class="btn btn-outline-light" id="home">Home</a>
+        <button
+          class="btn btn-light"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample"
+        >
+          <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
+        </button>
+      </div>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div class="offcanvas-header bg-dark">
+          <a class="offcanvas-title text-warning" href="/index.html" id="offcanvasExampleLabel">BeelForge</a>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column gap-3 bg-dark text-white">
+          <div class="mb-3">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search..." 
+              aria-label="Search"
+            />
+          </div>
+          <ul class="list-unstyled">
+            <li>
+              <a href="/goals/frontend/index.html" class="nav-link text-white">🧩 Projects</a>
+            </li>
+            <li>
+              <select id="notes-dropdown" onchange="showSection(this.value)">
+                <option value="">Notes: Choose a Section</option>
+                <option value="section1">Section 1 – Arrays & Objects & Loops</option>
+                <option value="section2">Section 2 – DOM</option>
+              </select>
+            </li>
+            <li>
+              <a href="/goals/frontend/drive.html" class="nav-link text-white">📖 Deep Dive</a>
+            </li>
+            <li>
+              <a href="/goals/python.html" class="nav-link text-white">🐍Python</a>
+            </li>
+          </ul>
+          
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label text-white" for="darkModeToggle">
+              Dark Mode
+            </label>
+          </div>
+           
+          <div class="mt-auto d-flex gap-3 justify-content-center social-icons">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 twitter"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 linkedin"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 github"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          
+         <div class="text-center text-white mt-3 mb-2 small">
+            &copy; 2025 BeelForge. All rights reserved.
+          </div>
+        </div>
+      </div>
+      <section>
+        <header class="bg-dark py-3 text-center">
+          <h2 class="text-warning">📝 Frontend Notes</h2>
+          <p class="lead text-center text-white">This page documents my learning process through a mini clothing store app where I practiced core JavaScript concepts like arrays, objects, and DOM manipulation while styling with Bootstrap 5.</p>
+          </header>
+      </section>
+      <div id="section1" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📦 Section 1 – JavaScript on Objects and Arrays</h1>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🧠 Why I Learned This</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6; max-width: 650px; margin: auto;">
+          Arrays and objects are fundamental building blocks in web development. They allow you to group and organize related data efficiently — a key skill for managing real-world applications like storing products, tasks, users, and much more.
+        </p>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🔍 What It Helps Me Do</h2>
+        <ul style="list-style-type: none; padding-left: 0; max-width: 650px; margin: 1rem auto; text-align: left; font-size: 1.05rem;">
+          <li>• Store multiple items such as products, usernames, and tasks using arrays</li>
+          <li>• Define detailed information about each item using objects</li>
+          <li>• Combine arrays and objects to represent complex data structures like shopping carts</li>
+          <li>• Use loops, including nested loops, to display or manipulate data</li>
+          <li>• Disable UI buttons after an action using JavaScript to improve user experience</li>
+        </ul>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">📋 Arrays Overview</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+          Arrays are ordered collections indexed starting from 0 and denoted by square brackets <code>[]</code>. Use arrays when you need to store multiple items of data, for example:
+        </p>
+      
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // Example array of common use cases
+      const items = ["Tasks", "Usernames", "Jobs", "Shopping cart items"];
+      </code>
+        </pre>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🧱 Objects Overview</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+          Objects are collections of key-value pairs, enclosed in curly braces <code>{}</code>. They let you group related data into a single entity:
+        </p>
+      
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // Example product object
+      const product = {
+        name: "T-Shirt",
+        image: "tshirt.jpg",
+        price: 25
+      };
+      </code>
+        </pre>
+        <p style="max-width: 650px; margin: auto; font-size: 1rem; font-style: italic; color: #555;">
+          Example: A shopping cart or wishlist uses objects to represent each product with detailed info.
+        </p>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🛠️ Working with Arrays</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+          JavaScript arrays come with many useful built-in methods to manage your data easily:
+        </p>
+      
+        <ul style="list-style-type: none; padding-left: 0; max-width: 650px; margin: 1rem auto; text-align: left; font-size: 1.05rem;">
+          <li><code>array.length</code> – Returns the number of elements</li>
+          <li><code>array.sort()</code> – Sorts elements alphabetically (for strings) or numerically with a compare function</li>
+          <li><code>array.push()</code> – Adds an item to the end</li>
+          <li><code>array.pop()</code> – Removes the last item</li>
+          <li><code>array.unshift()</code> – Adds an item to the beginning</li>
+          <li><code>array.shift()</code> – Removes the first item</li>
+          <li><code>array.forEach()</code> – Executes a function once for each item</li>
+        </ul>
+      
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // Example:
+      const fruits = ["apple", "banana"];
+      
+      // Add to end
+      fruits.push("mango");       // ["apple", "banana", "mango"]
+      
+      // Remove from end
+      fruits.pop();               // ["apple", "banana"]
+      
+      // Add to beginning
+      fruits.unshift("orange");   // ["orange", "apple", "banana"]
+      
+      // Remove from beginning
+      fruits.shift();             // ["apple", "banana"]
+      
+      // Loop through array using forEach
+      fruits.forEach((fruit, index) => {
+        console.log(`Item ${index + 1}: ${fruit}`);
+      });
+      </code>
+        </pre>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🧪 Example Use</h2>
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // Example array
+      const cars = ["Toyota", "Honda", "BMW"];
+      
+      console.log(cars.length); // Output: 3
+      cars.sort();              // Sorts alphabetically: ["BMW", "Honda", "Toyota"]
+      </code>
+        </pre>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🔁 Looping with Arrays</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+          Loops are essential to iterate through arrays — useful for rendering or processing each item:
+        </p>
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // Basic for loop
+      for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+      }
+      </code>
+        </pre>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🔂 Nested Loops & Complex Data</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+          Nested loops come in handy when working with more complex structures such as:
+        </p>
+        <ul style="list-style-type: none; padding-left: 0; max-width: 650px; margin: 1rem auto; text-align: left; font-size: 1.05rem;">
+          <li>• Arrays inside arrays</li>
+          <li>• Arrays of objects</li>
+          <li>• Objects containing other objects or arrays</li>
+        </ul>
+        <p style="max-width: 650px; margin: auto; font-size: 1rem; font-style: italic; color: #555;">
+          Example: In an eCommerce store, each product may belong to multiple categories.
+        </p>
+      
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // Nested loop example
+      for (let i = 0; i < products.length; i++) {
+        for (let j = 0; j < products[i].categories.length; j++) {
+          console.log(products[i].categories[j]);
+        }
+      }
+      </code>
+        </pre>
+        <p style="max-width: 650px; margin: auto; font-size: 1.05rem; color: #555;">
+          Whenever your data contains nested arrays or objects, nested loops become necessary to access all elements.
+        </p>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">⏳ While Loop</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+          A <code>while</code> loop repeatedly executes code while a condition remains true.
+        </p>
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // While loop syntax
+      while (condition) {
+        // Code to run repeatedly
+      }
+      </code>
+        </pre>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🚫 Disabling a Button After Click</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+          Use the <code>disabled</code> property to prevent users from clicking a button multiple times, such as after submitting a form.
+        </p>
+        <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; max-width: 650px; margin: 1rem auto; overflow-x: auto; font-size: 1rem;">
+      <code>
+      // HTML
+      &lt;button id="submitBtn"&gt;Submit&lt;/button&gt;
+      
+      // JavaScript
+      document.getElementById("submitBtn").disabled = true;
+      </code>
+        </pre>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🚀 Lessons Learned</h2>
+        <ul style="list-style-type: none; padding-left: 0; max-width: 650px; margin: 1rem auto; text-align: left; font-size: 1.05rem; color: #444;">
+          <li>• Arrays store multiple values in one variable</li>
+          <li>• Objects store detailed information using key-value pairs</li>
+          <li>• Loops allow you to iterate through data efficiently</li>
+          <li>• Nested loops are essential for deeply nested data structures</li>
+          <li>• Built-in methods like <code>length</code>, <code>sort()</code>, and <code>forEach()</code> simplify array management</li>
+          <li>• The <code>disabled</code> attribute improves user experience by preventing duplicate actions</li>
+        </ul>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🖼️ Screenshots of the Project</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1rem; color: #555;">
+          Below are two screenshots showing the code in action, demonstrating use of <code>forEach()</code> with arrays and objects.
+        </p>
+        <figure style="margin-bottom: 24px;">
+          <img src="/goals/frontend/images/code1.png" 
+               alt="Bootstrap layout showing the div for displaying array items" 
+               style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
+          <figcaption style="font-size: 0.9rem; color: gray; text-align: center;">Bootstrap layout showing the div for displaying array items</figcaption>
+        </figure>
+      
+        <figure>
+          <img src="/goals/frontend/images/code.png" 
+               alt="Rendered product cards from array using forEach()" 
+               style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
+          <figcaption style="font-size: 0.9rem; color: gray; text-align: center;">Rendered product cards from array using forEach()</figcaption>
+        </figure>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">🔗 View on GitHub</h2>
+        <p style="max-width: 650px; margin: auto; font-size: 1rem; color: #555;">
+          Explore the full source code or try the live version on GitHub:
+        </p>
+      
+        <div style="margin: 1rem auto; max-width: 650px; display: flex; justify-content: center; gap: 20px;">
+          <a href="https://github.com/mohammednabeel123/frontend-clothes-store.git" target="_blank" rel="noopener noreferrer" 
+             style="padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+            📂 GitHub Repo
+          </a>
+          <a href="https://mohammednabeel123.github.io/frontend-clothes-store/" target="_blank" rel="noopener noreferrer" 
+             style="padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 6px; font-weight: 600;">
+            🚀 Live Demo
+          </a>
+        </div>
+      
+        <p style="font-style: italic; font-size: 0.9rem; color: gray; max-width: 650px; margin: 1rem auto;">
+          Source: goodnotes.com
+        </p>
+      
+        <h2 style="color: #007BFF; margin-top: 2rem;">DOM will be explained later in my documentation</h2>
+      </div>
+      
+      
+      <div id="section2" class="note-section" style="display: none;">
+        <h2>🔁 Section 2 – Loops & DOM</h2>
+        <p>Learned how to use <code>for</code>, <code>forEach()</code> to generate elements.</p>
+      </div>
+
+      <div id="section3" class="note-section" style="display: none;">
+        <h2>🚀 Section 3 – Lessons</h2>
+        <ul class="list-unstyled">
+          <li>Data structure matters</li>
+          <li>DOM + loops = powerful UI rendering</li>
+        </ul>
+      </div>
+      
+      </section>
+      <footer class="py-5  bg-body-secondary text-dark text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <h5 class="">BeelForge-Notes</h5>
+              <p>Forging creativity through code. Explore front-end projects built with passion and precision.</p>
+              <small>&copy; 2025 BeelForge. All rights reserved.</small>
+            </div>
+            <div class="col-md-3">
+              <h6>Company</h6>
+              <ul class="list-unstyled gap-3">
+                <li><a href="#" class="text-decoration-none text-dark">Home</a></li>
+                <li><a href="#about" class="text-decoration-none text-dark">About</a></li>
+                <li><a href="#projects" class="text-decoration-none text-dark">Projects</a></li>
+                <li><a href="#contact" class="text-decoration-none text-dark">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3">
+              <h6 class="text-primary">Social Accounts</h6>
+              <ul class="list-unstyled mb-4">
+                <li><a href="#" class="text-decoration-none text-dark">Facebook</a></li>
+                <li><a href="#" class="text-decoration-none text-dark">LinkedIn</a></li>
+                <li><a href="#" class="text-decoration-none text-dark">TikTok</a></li>
+              </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="col-md-3">
+              <h6>Contact Us</h6>
+              <p>Email: <a href="mailto:beelfroge@gmail.com" class="text-decoration-none text-dark">beelfroge@gmail.com</a></p>
+              <p>Phone: <a href="tel:+90-552-7132468" class="text-decoration-none text-dark">+90-552-7132468</a></p>
+            </div>
+          </div>
+        </div>
+      </footer> 
+      <script>
+        function showSection(id) {
+          // Hide all sections
+          const allSections = document.querySelectorAll('.note-section');
+          allSections.forEach(section => section.style.display = 'none');
+      
+          // Show selected section
+          if (id) {
+            const selected = document.getElementById(id);
+            if (selected) {
+              selected.style.display = 'block';
+              selected.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }
+      </script>
+    </body>
+</html>
