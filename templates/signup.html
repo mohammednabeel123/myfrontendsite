@@ -6,9 +6,6 @@
   <title>Sign Up - BeelForge</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/css/styles.css" />
-  <script type="module" src="/js/auth.js" defer></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebse-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <meta name="description" content="BeelForge – A hub for my full stack, IoT, and front-end projects.">
 <meta name="keywords" content="BeelForge, full stack, IoT, frontend, JavaScript, web development">
 <meta name="author" content="Nabeel Mohammed Abdul-Mumin">
@@ -17,13 +14,13 @@
 <body class="bg-dark text-white">
 
   <nav class="px-4 py-3">
-    <a class="navbar-brand text-white" href="index.html">🐝BeelForge</a>
+        <a class="navbar-brand text-white" href="{{ url_for('index') }}">🐝BeelForge</a>
   </nav>
 
   <div id="signupPage" class="vh-100 d-flex justify-content-center align-items-center">
     <div class="card p-4 bg-dark text-white" style="min-width: 320px; max-width: 400px; width: 100%;">
       <h3 class="text-center mb-4">Sign up with email</h3>
-      <form id="signupForm">
+      <form id="signupForm" method="post">
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
           <input type="text" id="username" class="form-control" required />
