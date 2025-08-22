@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 # Initialize app
 app = Flask(__name__)
@@ -34,11 +35,17 @@ with app.app_context():
     db.create_all()
 
 
-import os
+
 
 @app.route("/sitemap.xml")
 def sitemap():
-    return send_from_directory(os.path.abspath(os.path.dirname(__file__)), "sitemap.xml")
+    try:
+        # Get the absolute path of your project directory
+        root_dir = os.path.abspath(os.path.dirname(__file__))
+        # Serve sitemap.xml from the root directory
+        return send_from_directory(root_dir, "sitemap.xml")
+    except Exception as e:
+        return f"Error: {e}", 500
 
 
 
