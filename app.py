@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import send_from_directory
-
+from flask import send_file
 import os
 
 # Initialize app
@@ -39,9 +38,12 @@ with app.app_context():
 
 
 
+
+
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'sitemap.xml')
+    return send_file('static/sitemap.xml', mimetype='application/xml')
+
 
 
 
