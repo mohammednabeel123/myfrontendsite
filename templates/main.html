@@ -6,7 +6,6 @@
       <title>BeelForge</title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="stylesheet" href="/css/styles.css">
       <!-- Font Awesome CDN -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
       <link 
@@ -25,14 +24,16 @@
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" 
         crossorigin="anonymous"></script>
-      <script type="module" src="js/scripts.js" defer></script>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
       <meta name="description" content="BeelForge – A hub for my full stack, IoT, and front-end projects.">
       <meta name="keywords" content="BeelForge, full stack, IoT, frontend, JavaScript, web development">
       <meta name="author" content="Nabeel Mohammed Abdul-Mumin">
     </head>
 <body>
   <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
-    <a href="index.html" class="btn btn-outline-light" id="home">Home</a>
+     <a href="{{ url_for('index') }}" class="btn btn-outline-light" id="home">Home</a>
     <button
       class="btn btn-light"
       type="button"
@@ -154,75 +155,86 @@ aria-labelledby="offcanvasExampleLabel"
             Every project here reflects consistent learning, real-world application, and attention to design and usability. This site isn’t a portfolio — it’s my forge: where raw code becomes polished frontend experiences.
           </p>
           <div class="mt-4">
-            <button class="btn btn-outline-warning me-3" data-bs-target="#addProjectModal" data-bs-toggle="modal">Add Project</button>
-            <a href="#projects" class="btn btn-warning text-white">View Projects</a>
+            <a href="#projects" class="btn btn-outline-warning me-3">View Projects</a>
           </div>
         </div>
       </div>
   
       <!-- New Goals Section -->
-      <div id="goals" class="row justify-content-center">
-        <div class="col-12">
-          <h3 class="text-center text-warning fw-bold mb-4">My Development Goals</h3>
+     <div class="container">
+  <div class="row">
+
+    <!-- Frontend Development -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <a href="{{ url_for('frontend_goal') }}" class="text-decoration-none">
+        <div class="card video-card shadow-sm border-0">
+          <video class="card-video" 
+                 src="{{ url_for('static', filename='videos/webdev.mp4') }}" 
+                 autoplay muted loop playsinline
+                 poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+          </video>
+          <div class="video-overlay">
+            <i class="fas fa-desktop fa-3x text-warning mb-3"></i>
+            <h5 class="card-title fw-bold">Frontend Development</h5>
+            <p class="card-text">
+              Master frontend and backend technologies to build complete web applications.
+            </p>
+          </div>
         </div>
-      
-        <!-- Frontend Development -->
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <a href="/goals/frontend/index.html" class="text-decoration-none">
-            <div class="card h-100 shadow-sm border-0 video-card">
-              <video src="/videos/webdev.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
-              <div class="video-overlay">
-                <i class="fas fa-desktop fa-3x text-warning mb-3"></i>
-                <h5 class="card-title fw-bold">Frontend Development</h5>
-                <p class="card-text">
-                  Master frontend and backend technologies to build complete web applications.
-                </p>
-              </div>
-            </div>
-          </a>
+      </a>
+    </div>
+
+    <!-- Full Stack IoT Projects -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <a href="{{ url_for('iot_goal') }}" class="text-decoration-none">
+        <div class="card h-100 shadow-sm border-0 video-card">
+          <video src="{{ url_for('static', filename='videos/PCB.mp4') }}" autoplay muted loop playsinline></video>
+          <div class="video-overlay">
+            <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
+            <h5 class="card-title fw-bold">Full Stack IoT Projects</h5>
+            <p class="card-text">Integrate hardware with software for smart and connected systems.</p>
+          </div>
         </div>
-      
-        <!-- Full Stack IoT Projects -->
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <a href="/goals/IOT/index.html" class="text-decoration-none">
-            <div class="card h-100 shadow-sm border-0 video-card">
-              <video src="/videos/PCB.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
-              <div class="video-overlay">
-                <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
-                <h5 class="card-title fw-bold">Full Stack IoT Projects</h5>
-                <p class="card-text">Integrate hardware with software for smart and connected systems.</p>
-              </div>
-            </div>
-          </a>
+      </a>
+    </div>
+
+    <!-- Fusion 360 Modeling -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <a href="{{ url_for('fusion360_goal') }}" class="text-decoration-none">
+        <div class="card h-100 shadow-sm border-0 video-card">
+          <video src="{{ url_for('static', filename='videos/Fusion360.mp4') }}" autoplay muted loop playsinline poster="{{ url_for('static', filename='videos/fallback-image.jpg') }}"></video>
+          <div class="video-overlay">
+            <i class="fas fa-cube fa-3x text-warning mb-3"></i>
+            <h5 class="card-title fw-bold">Fusion 360 Modeling</h5>
+            <p class="card-text">Build 3D models and simulations using CAD software.</p>
+          </div>
         </div>
-        <!-- Fusion 360 Modeling -->
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <a href="/goals/fusion360/index.html" class="text-decoration-none">
-            <div class="card h-100 shadow-sm border-0 video-card">
-              <video src="/videos/Fusion360.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
-              <div class="video-overlay">
-                <i class="fas fa-cube fa-3x text-warning mb-3"></i>
-                <h5 class="card-title fw-bold">Fusion 360 Modeling</h5>
-                <p class="card-text">Build 3D models and simulations using CAD software.</p>
-              </div>
-            </div>
-          </a>
+      </a>
+    </div>
+
+    <!-- PCB Design -->
+    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <a href="{{ url_for('pcb_goal') }}" class="text-decoration-none">
+        <div class="card h-100 shadow-sm border-0 video-card">
+          <video class="card-video"
+                 src="{{ url_for('static', filename='videos/PCB.mp4') }}"
+                 autoplay muted loop playsinline
+                 poster="{{ url_for('static', filename='videos/fallback-image.jpg') }}">
+          </video>
+          <div class="video-overlay position-relative">
+            <span class="badge bg-secondary badge-coming-soon position-absolute top-0 end-0 m-2">Coming Soon</span>
+            <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
+            <h5 class="card-title fw-bold">PCB Design</h5>
+            <p class="card-text">Design and prototype printed circuit boards for hardware projects.</p>
+          </div>
         </div>
-      
-        <!-- PCB Design -->
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <a href="#" class="text-decoration-none">
-            <div class="card h-100 shadow-sm border-0 video-card">
-              <video src="/videos/PCB.mp4" autoplay muted loop playsinline poster="fallback-image.jpg"></video>
-              <div class="video-overlay position-relative">
-                <span class="badge bg-secondary position-absolute top-0 end-0 m-2">Coming Soon</span>
-                <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
-                <h5 class="card-title fw-bold">PCB Design</h5>
-                <p class="card-text">Design and prototype printed circuit boards for hardware projects.</p>
-              </div>              
-          </a>
-        </div>
-      </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
           
   </section>
     <footer class="py-5  bg-body-secondary text-dark text-center">

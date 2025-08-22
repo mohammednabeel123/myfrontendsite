@@ -40,6 +40,63 @@ def index():
     username = session.get('username')
     return render_template('index.html', username=username)
 
+@app.route('/main')
+def main():
+    return render_template('main.html')
+
+
+
+
+
+# Fusion 360
+@app.route("/goals_new/fusion360")
+def fusion360_goal():
+    return render_template("goals_new/fusion360/index.html")
+
+
+
+# IOT Section
+@app.route("/goals_new/iot")
+def iot_goal():
+    return render_template("goals_new/iot/index.html")
+
+
+@app.route("/goals_new/iot/notes")
+def iot_notes():
+    return render_template("goals_new/iot/notes.html")
+
+
+@app.route("/goals_new/iot/drive")
+def iot_deep_dive():
+    return render_template("goals_new/iot/drive.html")
+
+# Python Section
+@app.route("/goals_new/python")
+def python_page():
+    return render_template("goals_new/python.html")
+
+
+
+# PCB
+@app.route("/goals_new/pcb/notes")
+def pcb_notes_lower():
+    return render_template("goals_new/pcb/notes.html")
+
+@app.route("/goals_new/pcb")
+def pcb_goal():
+    return render_template("goals_new/pcb/index.html")
+
+
+# Frontend
+@app.route("/goals_new/frontend/notes")
+def frontend_notes():
+    return render_template("goals_new/frontend/notes.html")
+
+@app.route("/goals_new/frontend")
+def frontend_goal():
+    return render_template("goals_new/frontend/index.html")
+
+
 # -------- REGISTER ----------
 @app.route('/register', methods=['GET', 'POST'])
 def register():

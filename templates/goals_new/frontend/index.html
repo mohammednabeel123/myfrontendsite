@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeelForge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        765432q1  integrity="sha512-1ycn6Ica999uHJ+0Uz1aOxAZvq0MxkQfdpYLu5eRHOH5GzBp0KwP9aEwS5+cjG1p+JgIcPv9J5RykW+3R8Cstw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+<div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
+    <a href="{{ url_for('static', filename='index.html') }}" class="btn btn-outline-light" id="home">Home</a>
+    <button
+        class="btn btn-light"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasExample"
+        aria-controls="offcanvasExample"
+    >
+        <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
+    </button>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header bg-dark">
+        <a class="offcanvas-title text-warning" href="{{ url_for('static', filename='index.html') }}" id="offcanvasExampleLabel">BeelForge</a>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column gap-3 bg-dark text-white">
+        <div class="mb-3">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search"/>
+        </div>
+        <ul class="list-unstyled">
+            <li>
+                <a href="{{ url_for('frontend_goal') }}" class="nav-link text-white">🧩 Projects</a>
+            </li>
+            <li>
+                <a href="{{ url_for('frontend_notes') }}" class="nav-link text-white">📖 Notes</a>
+            </li>
+          <li>
+          <a href="{{ url_for('frontend_drive') }}" class="nav-link text-white">📖 Deep Dive</a>
+        </li>
+        <li>
+          <a href="{{ url_for('python_page') }}" class="nav-link text-white">🐍 Python</a>
+        </li>
+
+        </ul>
+
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label text-white" for="darkModeToggle">
+                Dark Mode
+            </label>
+        </div>
+
+        <div class="mt-auto d-flex gap-3 justify-content-center social-icons">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="fs-4 twitter" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="fs-4 linkedin" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="fs-4 github" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+
+        <div class="text-center text-white mt-3 mb-2 small">
+            &copy; 2025 BeelForge. All rights reserved.
+        </div>
+    </div>
+</div>
+
+<section id="projects" class="showcase bg-dark py-5">
+    <div class="container">
+        <div class="row text-center mb-4">
+            <div class="col">
+                <h2 class="text-warning">Featured Projects</h2>
+                <p class="text-light">Explore some of my frontend works using Bootstrap, JavaScript, and beyond.</p>
+            </div>
+        </div>
+
+        <div id="projectContainer" class="row g-4">
+            <!-- Project Card 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <!-- Image Preview -->
+            <img src="{{ url_for('static', filename='images/drivehive.jpg') }}" 
+                class="card-img-top img-fluid" 
+                loading="lazy" 
+                alt="Frontend Development Screenshot">
+
+            <div class="card-body">
+            <h5 class="card-title">Frontend Development</h5>
+            <p class="card-text text-muted small">
+                Master frontend and backend technologies to build complete web applications.
+            </p>
+
+            <!-- QR Code (optional) -->
+            <div class="text-center mt-3 d-none d-lg-block d-xl-block">
+                <p class="small mb-1">Scan QR to Visit</p>
+                <img src="{{ url_for('static', filename='images/drive_hide.png') }}" 
+                    loading="lazy" 
+                    class="img-fluid" 
+                    alt="QR Code linking to Frontend Demo" 
+                    style="border: 2px solid red; max-width: 120px;">
+            </div>
+            </div>
+
+            <div class="card-footer d-flex justify-content-between">
+            <a href="https://github.com/yourusername/frontend-project" 
+                class="btn btn-outline-primary btn-sm" 
+                target="_blank">Code</a>
+            <a href="https://yourfrontenddemo.com" 
+                class="btn btn-outline-success btn-sm" 
+                target="_blank">Live Demo</a>
+            </div>
+        </div>
+                </div>
+
+            <!-- Project Card 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ url_for('static', filename='images/pizzahub.jpg') }}" class="card-img-top img-fluid" loading="lazy" alt="Pizza Hub Website Screenshot">
+                    <div class="card-body">
+                        <h5 class="card-title">Pizza Hub</h5>
+                        <p class="card-text text-muted small">
+                            A responsive pizza website built using Bootstrap and a little JavaScript.
+                        </p>
+                        <div class="text-center mt-3 d-none d-lg-block d-xl-block">
+                            <p class="small mb-1">Scan QR to Visit</p>
+                            <img src="{{ url_for('static', filename='images/pizza_hub.png') }}" loading="lazy" class="img-fluid"
+                                 alt="QR Code linking to Pizza Hub live demo" style="border: 2px solid red; max-width: 120px;">
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="https://app.netlify.com/projects/spiffy-entremet-bce6e5/deploys/6826549b7ad278b77cee2bdd"
+                           class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer" aria-label="View Source Code on Netlify">Code</a>
+                        <a href="https://spiffy-entremet-bce6e5.netlify.app/"
+                           class="btn btn-outline-success btn-sm" target="_blank" rel="noopener noreferrer" aria-label="View Live Demo of Pizza Hub">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function goToNotes(sectionId){
+    if (sectionId) {
+        window.location.href = "{{ url_for('static', filename='goals_new/frontend/notes.html') }}?section=" + sectionId;
+    }
+}
+</script>
+</body>
+</html>

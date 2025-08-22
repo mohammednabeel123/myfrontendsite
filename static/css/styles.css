@@ -86,36 +86,106 @@ html, body,.modal-content {
   display: none;
 }
 
+
+/* ===== Global Styles ===== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Video Background ===== */
 .video-background-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
 }
 
-.video-background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.video-background-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
+/* ===== Navbar ===== */
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* ===== Hero Section ===== */
 .hero {
-  position: relative; 
-  z-index: 1;         
-  height: 100vh;      
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;     
-  padding: 0 1rem;         
-  text-shadow: 0 0 10px rgba(0,0,0,0.7); 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: rgba(0,0,0,0.4); /* optional overlay effect on video */
+    text-shadow: 0px 2px 8px rgba(0,0,0,0.7);
 }
 
-.hero .btn-warning {
-  box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ===== Buttons ===== */
+.btn-warning {
+    font-weight: bold;
+}
+
+/* ===== Sections ===== */
+section {
+    padding: 4rem 0;
+}
+
+section.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+section h2 {
+    margin-bottom: 2rem;
+}
+
+section p {
+    font-size: 1rem;
+}
+
+/* ===== "What's Inside BeelForge" Cards ===== */
+section .row > div {
+    margin-bottom: 2rem;
+}
+
+section h5 {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== Offcanvas Menu ===== */
+.offcanvas-body a.nav-link {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.offcanvas-header h5 {
+    font-size: 1.25rem;
+}
+
 .social-icons .twitter i {
   color: #1DA1F2;
 }
@@ -150,31 +220,45 @@ body.dark-mode {
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
+  height: 250px; /* fixed height so video can fill */
+  background-color: transparent; /* remove any background color */
 }
 
-.video-card video {
+.card-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
 
 .video-overlay {
-  position: relative;
-  z-index: 2;
-  color: white;
-  padding: 1.5rem;
-  background: rgba(36, 35, 35, 0.5); /* semi-transparent background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
+  padding: 1rem;
+  background: rgba(36, 35, 35, 0.3);
+  color: white;
 }
-
-.video-card:hover{
-  cursor: pointer;
+.badge-coming-soon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: rgba(108, 117, 125, 0.85); /* semi-transparent gray */
+  color: white;
+  border-radius: 0.25rem;
+  z-index: 3;
 }
-

@@ -6,9 +6,9 @@
         <title>BeelForge</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <script src="/js/scripts.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-1ycn6Ica999uHJ+0Uz1aOxAZvq0MxkQfdpYLu5eRHOH5GzBp0KwP9aEwS5+cjG1p+JgIcPv9J5RykW+3R8Cstw=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
       </head>
@@ -60,20 +60,18 @@
             />
           </div>
           <ul class="list-unstyled">
-            <li>
-              <a href="/goals/IOT/index.html" class="nav-link text-white">🧩 Projects</a>
-            </li>
-            <li>
-              <a href="/goals/IOT/notes.html" class="nav-link text-white">📝 Notes</a>
-            </li>
-            <li>
-              <a href="/goals/IOT/drive.html" class="nav-link text-white">📖 Deep Dive</a>
-            </li>
-            <li>
-              <a href="/goals/python.html" class="nav-link text-white">🐍Python</a>
-            </li>
-          </ul>
-          
+           <li>
+            <a href="{{ url_for('iot_goal') }}" class="nav-link text-white">🧩 Projects</a>
+          </li>
+          <li>
+            <a href="{{ url_for('iot_notes') }}" class="nav-link text-white">📝 Notes</a>
+          </li>
+          <li>
+            <a href="{{ url_for('iot_deep_dive') }}" class="nav-link text-white">📖 Deep Dive</a>
+          </li>
+          <li>
+            <a href="{{ url_for('python_page') }}" class="nav-link text-white">🐍 Python</a>
+          </li>
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" id="darkModeToggle">
             <label class="form-check-label text-white" for="darkModeToggle">
@@ -119,88 +117,68 @@
       <section id="projects" class="showcase bg-dark py-5">
         <div class="container">
           <h2 class="text-center text-white mb-5">🎮 FULL STACK IOT Projects From Beginner to Advance</h2>
-      
-          <div class="row g-4">
 
-            <!-- Project 4 -->
-            <div class="col-md-6 col-lg-4">
-              <div class="card shadow-lg h-100">
-                <img src="/img/smartEnvMonitor.jpg" class="card-img-top" alt="Smart Environment Monitor" style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
-                <div class="card-body text-center">
-                  <h5 class="card-title">Smart Environment Monitor</h5>
-                  <p class="card-text">Monitors temperature, humidity, light, and controls a fan with LEDs and buzzer.</p>
-                  <a href="/goals/IOT/smart-environment-monitor.html" 
-                     class="btn btn-success btn-sm m-1">🔗 View Project</a>
-                  <a href="https://github.com/mohammednabeel123/smart-environment-system.git" 
-                     target="_blank" 
-                     class="btn btn-primary btn-sm m-1">💻 GitHub</a>
+          <div class="row g-4">
+              <!-- Project 1: Smart Environment Monitor -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-lg">
+                  <img src="{{ url_for('static', filename='images/smartEnvMonitor.jpg') }}" 
+                      class="card-img-top" 
+                      alt="Smart Environment Monitor" 
+                      style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;" 
+                      loading="lazy">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Smart Environment Monitor</h5>
+                    <p class="card-text text-muted small">
+                      Monitors temperature, humidity, light, and controls a fan with LEDs and buzzer.
+                    </p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-center gap-2">
+                    <a href="/goals/IOT/smart-environment-monitor.html" class="btn btn-success btn-sm">🔗 View Project</a>
+                    <a href="https://github.com/mohammednabeel123/smart-environment-system.git" target="_blank" class="btn btn-primary btn-sm">💻 GitHub</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            
 
-              <!-- Project 3 -->
+              <!-- Project 2: LED Roulette Game -->
               <div class="col-md-6 col-lg-4">
-                <div class="card shadow-lg h-100">
-                  <img src="/img/ledRoulette.jpg" class="card-img-top" alt="LED Roulette Project" style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+                <div class="card h-100 shadow-lg">
+                  <img src="{{ url_for('static', filename='images/ledRoulette.jpg') }}" 
+                      class="card-img-top" 
+                      alt="LED Roulette Project" 
+                      style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;" 
+                      loading="lazy">
                   <div class="card-body text-center">
                     <h5 class="card-title">LED Roulette Game</h5>
-                    <p class="card-text" style="font-size: 0.95rem;">
-                      A fun Raspberry Pi game using LEDs and push buttons. 
-                      Try to stop the spinning LEDs on the lucky one to score points!
+                    <p class="card-text text-muted small" style="font-size: 0.95rem;">
+                      A fun Raspberry Pi game using LEDs and push buttons. Try to stop the spinning LEDs on the lucky one to score points!
                     </p>
-                    <a href="https://github.com/mohammednabeel123/LedRouletteGame.git" 
-                       class="btn btn-primary btn-sm m-1" target="_blank">
-                      View Code
-                    </a>
+                  </div>
+                  <div class="card-footer d-flex justify-content-center gap-2">
+                    <a href="https://github.com/mohammednabeel123/LedRouletteGame.git" target="_blank" class="btn btn-primary btn-sm">💻 View Code</a>
                   </div>
                 </div>
               </div>
-              
-              
-            <!-- Project 2 -->
-              <div class="col-md-6 col-lg-4">
-                <div class="card shadow-lg h-100">
-                  <img src="/img/LedGameWith5Buttons.jpeg"
-                    class="card-img-top img-fluid" 
-                    alt="Blinking LEDs Project" 
-                    style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
 
-                  <div class="card-body text-center">
-                    <h5 class="card-title">5 Buttons & 4 LEDs Game</h5>
-                    <p class="card-text" style="font-size: 0.95rem;">
-                      A fun Raspberry Pi game with 5 buttons, 4 LEDs, scoring system,
-                      and active buzzer feedback. Guess the LED and see your score after 5 rounds!
-                    </p>
-                    <a href="/goals/IOT/notes.html" class="btn btn-success btn-sm m-1">🔗 View Project</a>
-                    <a href="https://github.com/mohammednabeel123/LedWithAdvancedGame5Buttons.git" 
-                      target="_blank" 
-                      class="btn btn-primary btn-sm m-1">💻 View Code</a>
-                  </div>
-                </div>
-              </div>
-      
-            <!-- Project 1 -->
+              <!-- Project 3: Blinking Two LEDs -->
               <div class="col-md-6 col-lg-4">
-                <div class="card shadow-lg h-100">
-                  <img src="/img/blinking-leds.jpg" class="card-img-top bg-black" alt="Blinking LEDs" style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+                <div class="card h-100 shadow-lg">
+                  <img src="{{ url_for('static', filename='images/blinking-leds.jpg') }}" 
+                      class="card-img-top" 
+                      alt="Blinking LEDs" 
+                      style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
                   <div class="card-body text-center">
                     <h5 class="card-title">Blinking Two LEDs</h5>
                     <p class="card-text" style="font-size: 0.95rem;">
-                      My first GPIO project using RPi.GPIO. Two LEDs blink alternately,
-                      teaching me the basics of GPIO outputs and timing in Python.
+                      My first GPIO project using RPi.GPIO. Two LEDs blink alternately, teaching me the basics of GPIO outputs and timing in Python.
                     </p>
                     <a href="https://www.youtube.com/shorts/oZUaF14HHBk" class="btn btn-success btn-sm m-1">🔗 Youtube View Project</a>
-                    <a href="https://github.com/mohammednabeel123/myfrontendsite/tree/main/gpio-projects/blinking-leds" 
-                      target="_blank" 
-                      class="btn btn-primary btn-sm m-1">💻 View Code</a>
+                    <a href="https://github.com/mohammednabeel123/myfrontendsite/tree/main/gpio-projects/blinking-leds" target="_blank" class="btn btn-primary btn-sm m-1">💻 View Code</a>
                   </div>
                 </div>
               </div>
-      
-          
           </div>
-        </div>
+
       </section>
       
       
