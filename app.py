@@ -34,9 +34,12 @@ with app.app_context():
     db.create_all()
 
 
+import os
+
 @app.route("/sitemap.xml")
 def sitemap():
-    return send_from_directory(app.root_path, "sitemap.xml")
+    return send_from_directory(os.path.abspath(os.path.dirname(__file__)), "sitemap.xml")
+
 
 
 # ---------------- ROUTES ----------------
