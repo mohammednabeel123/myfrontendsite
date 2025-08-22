@@ -37,15 +37,9 @@ with app.app_context():
 
 
 
-@app.route("/sitemap.xml")
+@app.route('/sitemap.xml')
 def sitemap():
-    try:
-        # Get the absolute path of your project directory
-        root_dir = os.path.abspath(os.path.dirname(__file__))
-        # Serve sitemap.xml from the root directory
-        return send_from_directory(root_dir, "sitemap.xml")
-    except Exception as e:
-        return f"Error: {e}", 500
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'sitemap.xml')
 
 
 
