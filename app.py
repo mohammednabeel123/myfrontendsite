@@ -42,7 +42,7 @@ with app.app_context():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_file('static/sitemap.xml', mimetype='application/xml')
+    return redirect(url_for('static', filename='sitemap.xml'))
 
 
 
