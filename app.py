@@ -33,6 +33,12 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
+
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory(app.root_path, "sitemap.xml")
+
+
 # ---------------- ROUTES ----------------
 
 @app.route('/')
