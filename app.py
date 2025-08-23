@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash, send_file, Response,send_from_directory
+from flask import Flask, render_template, request, redirect, url_for, session, flash, send_from_directory, abort
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask import send_file
 import os
 
 # Initialize app
@@ -35,12 +34,15 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
-
-
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory('static', 'sitemap.xml')
-
+    try:
+        sitemap_path = os.path.join('static', 'sitemap.xml')
+        if not os.path.exists(sitemap_path):
+            abort(404, description="Sitemap file not found")
+        return send_from_directory('static', 'sitemap.xml')
+    except Exception as e:
+        abort(500, description=f"Error serving sitemap: {str(e)}")
 
 # ---------------- ROUTES ----------------
 
@@ -53,27 +55,19 @@ def index():
 def main():
     return render_template('main.html')
 
-
-
-
-
 # Fusion 360
 @app.route("/goals_new/fusion360")
 def fusion360_goal():
     return render_template("goals_new/fusion360/index.html")
-
-
 
 # IOT Section
 @app.route("/goals_new/iot")
 def iot_goal():
     return render_template("goals_new/iot/index.html")
 
-
 @app.route("/goals_new/iot/notes")
 def iot_notes():
     return render_template("goals_new/iot/notes.html")
-
 
 @app.route("/goals_new/iot/drive")
 def iot_deep_dive():
@@ -84,8 +78,6 @@ def iot_deep_dive():
 def python_page():
     return render_template("goals_new/python.html")
 
-
-
 # PCB
 @app.route("/goals_new/pcb/notes")
 def pcb_notes_lower():
@@ -95,7 +87,6 @@ def pcb_notes_lower():
 def pcb_goal():
     return render_template("goals_new/pcb/index.html")
 
-
 # Frontend
 @app.route("/goals_new/frontend/notes")
 def frontend_notes():
@@ -104,7 +95,6 @@ def frontend_notes():
 @app.route("/goals_new/frontend")
 def frontend_goal():
     return render_template("goals_new/frontend/index.html")
-
 
 # -------- REGISTER ----------
 @app.route('/register', methods=['GET', 'POST'])
