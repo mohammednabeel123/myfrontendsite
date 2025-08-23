@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash, send_file, Response
+from flask import Flask, render_template, request, redirect, url_for, session, flash, send_file, Response,send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import send_file
@@ -49,6 +49,10 @@ def sitemap_all():
         xml += f"  <url>\n    <loc>https://myfrontendsite-1.onrender.com{page}</loc>\n    <lastmod>2025-08-23</lastmod>\n    <priority>0.8</priority>\n  </url>\n"
     xml += "</urlset>"
     return Response(xml, mimetype='application/xml')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml')
 
 
 # ---------------- ROUTES ----------------
