@@ -37,19 +37,6 @@ with app.app_context():
 
 
 
-
-@app.route('/sitemap_all.xml')
-def sitemap_all():
-    pages = [
-        "/", "/main",
-        "/goals_new/frontend", "/goals_new/iot", "/goals_new/python"
-    ]
-    xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for page in pages:
-        xml += f"  <url>\n    <loc>https://myfrontendsite-1.onrender.com{page}</loc>\n    <lastmod>2025-08-23</lastmod>\n    <priority>0.8</priority>\n  </url>\n"
-    xml += "</urlset>"
-    return Response(xml, mimetype='application/xml')
-
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static', 'sitemap.xml')
