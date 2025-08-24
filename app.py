@@ -67,10 +67,15 @@ def main():
 def fusion360_goal():
     return render_template("goals_new/fusion360/index.html")
 
+
 @app.route("/goals_new/iot")
 def iot_goal():
-    return render_template("goals_new/iot/index.html")
-
+    try:
+        return render_template("goals_new/iot/index.html")
+    except Exception as e:
+        logging.exception("Failed to render iot page")
+        return f"Error: {e}", 500
+    
 @app.route("/goals_new/iot/notes")
 def iot_notes():
     return render_template("goals_new/iot/notes.html")
