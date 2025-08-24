@@ -36,15 +36,16 @@ with app.app_context():
     db.create_all()
 
 # ---------------- STATIC FILES ----------------
+
+
 @app.route('/sitemap.xml')
 def sitemap():
-    try:
-        sitemap_path = os.path.join('static', 'sitemap.xml')
-        if not os.path.exists(sitemap_path):
-            abort(404, description="Sitemap file not found")
-        return send_from_directory('static', 'sitemap.xml')
-    except Exception as e:
-        abort(500, description=f"Error serving sitemap: {str(e)}")
+    sitemap_path = os.path.join('static', 'sitemap.xml')
+    if os.path.exists(sitemap_path):
+        return send_from_directory('static', 'sitemap.xml', mimetype='application/xml')
+    else:
+        abort(404)
+
 
 # ---------------- ROUTES ----------------
 @app.route('/')
