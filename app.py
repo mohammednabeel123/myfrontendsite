@@ -176,6 +176,10 @@ def hire_me():
     return render_template("hire_me.html")  # a page with your form
 
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml')
+
 # ---------------- RUN APP ----------------
 if __name__ == '__main__':
     app.run(debug=True)
