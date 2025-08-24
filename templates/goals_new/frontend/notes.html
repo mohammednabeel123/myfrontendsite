@@ -14,7 +14,7 @@
       </head>
     <body>
       <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
-        <a href="index.html" class="btn btn-outline-light" id="home">Home</a>
+        <a href="{{ url_for('frontend_goal') }}" class="btn btn-outline-light " id="home">Home</a>
         <button
           class="btn btn-light"
           type="button"
@@ -111,11 +111,20 @@
         </div>
       </div>
       <section>
-        <header class="bg-dark py-3 text-center">
-          <h2 class="text-warning">📝 Frontend Notes</h2>
-          <p class="lead text-center text-white">This page documents my learning process through a mini clothing store app where I practiced core JavaScript concepts like arrays, objects, and DOM manipulation while styling with Bootstrap 5.</p>
-          </header>
-      </section>
+  <header class="bg-dark py-5 text-center">
+    <h2 class="text-warning fw-bold mb-3">📝 Frontend Notes & Learning Projects</h2>
+    <p class="lead text-white mx-auto" style="max-width: 700px;">
+      Documenting my journey in frontend development through hands-on mini projects, such as a clothing store app. Here, I practiced essential JavaScript concepts—arrays, objects, DOM manipulation—while applying responsive design and modern UI principles with Bootstrap 5.
+    </p>
+    <div class="custom-shape-divider-top-1714158982">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,29,739.56,14.29c-72.12-13-146.85-6.24-218.54,8.14-69.14,13.81-138.15,35.5-209.15,43.82-66.87,7.87-133.91,2.21-199.53-10.17C77.69,47.94,38.6,24.54,0,0V120H1200V0C1136.23,41.35,1066.68,113.66,985.66,92.83Z" fill="#0d0d0d"></path>
+        </svg>
+      </div>
+  </header>
+  
+</section>
+
       <div id="section1" class="note-section text-center" style="max-width: 900px; margin: auto; padding: 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
         <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">📦 Section 1 – JavaScript on Objects and Arrays</h1>
       
@@ -290,25 +299,7 @@
           <li>• Built-in methods like <code>length</code>, <code>sort()</code>, and <code>forEach()</code> simplify array management</li>
           <li>• The <code>disabled</code> attribute improves user experience by preventing duplicate actions</li>
         </ul>
-      
-        <h2 style="color: #007BFF; margin-top: 2rem;">🖼️ Screenshots of the Project</h2>
-        <p style="max-width: 650px; margin: auto; font-size: 1rem; color: #555;">
-          Below are two screenshots showing the code in action, demonstrating use of <code>forEach()</code> with arrays and objects.
-        </p>
-        <figure style="margin-bottom: 24px;">
-          <img src="/goals/frontend/images/code1.png" 
-               alt="Bootstrap layout showing the div for displaying array items" 
-               style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
-          <figcaption style="font-size: 0.9rem; color: gray; text-align: center;">Bootstrap layout showing the div for displaying array items</figcaption>
-        </figure>
-      
-        <figure>
-          <img src="/goals/frontend/images/code.png" 
-               alt="Rendered product cards from array using forEach()" 
-               style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);" />
-          <figcaption style="font-size: 0.9rem; color: gray; text-align: center;">Rendered product cards from array using forEach()</figcaption>
-        </figure>
-      
+
         <h2 style="color: #007BFF; margin-top: 2rem;">🔗 View on GitHub</h2>
         <p style="max-width: 650px; margin: auto; font-size: 1rem; color: #555;">
           Explore the full source code or try the live version on GitHub:

@@ -5,19 +5,20 @@ import os
 
 # Initialize app
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Needed for sessions
 
-# Database URI (encode $ as %24)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+# Secret key from env (safer)
+app.secret_key = os.environ.get("SECRET_KEY", "dev_secret")
+
+# Database config
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///site.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize database
 db = SQLAlchemy(app)
 
-# User model
+# ---------------- MODELS ----------------
 class User(db.Model):
     __tablename__ = "users"
-
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
@@ -34,6 +35,7 @@ class User(db.Model):
 with app.app_context():
     db.create_all()
 
+# ---------------- STATIC FILES ----------------
 @app.route('/sitemap.xml')
 def sitemap():
     try:
@@ -45,7 +47,6 @@ def sitemap():
         abort(500, description=f"Error serving sitemap: {str(e)}")
 
 # ---------------- ROUTES ----------------
-
 @app.route('/')
 def index():
     username = session.get('username')
@@ -55,12 +56,11 @@ def index():
 def main():
     return render_template('main.html')
 
-# Fusion 360
+# Goals
 @app.route("/goals_new/fusion360")
 def fusion360_goal():
     return render_template("goals_new/fusion360/index.html")
 
-# IOT Section
 @app.route("/goals_new/iot")
 def iot_goal():
     return render_template("goals_new/iot/index.html")
@@ -73,30 +73,35 @@ def iot_notes():
 def iot_deep_dive():
     return render_template("goals_new/iot/drive.html")
 
-# Python Section
 @app.route("/goals_new/python")
 def python_page():
     return render_template("goals_new/python.html")
-
-# PCB
-@app.route("/goals_new/pcb/notes")
-def pcb_notes_lower():
-    return render_template("goals_new/pcb/notes.html")
 
 @app.route("/goals_new/pcb")
 def pcb_goal():
     return render_template("goals_new/pcb/index.html")
 
-# Frontend
-@app.route("/goals_new/frontend/notes")
-def frontend_notes():
-    return render_template("goals_new/frontend/notes.html")
+@app.route("/goals_new/pcb/notes")
+def pcb_notes_lower():
+    return render_template("goals_new/pcb/notes.html")
 
 @app.route("/goals_new/frontend")
 def frontend_goal():
     return render_template("goals_new/frontend/index.html")
 
-# -------- REGISTER ----------
+
+@app.route("/goals_new/frontend/notes")
+def frontend_notes():
+    return render_template("goals_new/frontend/notes.html")
+
+
+@app.route("/goals_new/frontend/drive")
+def frontend_drive():
+    return render_template("goals_new/frontend/drive.html")
+
+
+
+# ---------------- AUTH ----------------
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -104,7 +109,6 @@ def register():
         email = request.form['email']
         password = request.form['password']
 
-        # Check if username or email exists
         if User.query.filter_by(username=username).first():
             flash("Username already exists!", "danger")
             return redirect(url_for('register'))
@@ -112,7 +116,6 @@ def register():
             flash("Email already exists!", "danger")
             return redirect(url_for('register'))
 
-        # Create user
         new_user = User(username=username, email=email)
         new_user.set_password(password)
 
@@ -124,13 +127,11 @@ def register():
 
     return render_template('signup.html')
 
-# -------- LOGIN ----------
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
         user = User.query.filter_by(username=username).first()
 
         if user and user.check_password(password):
@@ -144,14 +145,12 @@ def login():
 
     return render_template('login.html')
 
-# -------- LOGOUT ----------
 @app.route('/logout')
 def logout():
     session.clear()
     flash("You have been logged out.", "info")
     return redirect(url_for('login'))
 
-# -------- RESET PASSWORD ----------
 @app.route('/reset', methods=['GET', 'POST'])
 def reset():
     if request.method == 'POST':
@@ -165,6 +164,18 @@ def reset():
 
     return render_template('reset.html')
 
-# Run the app
+
+@app.route("/hire-me", methods=["GET", "POST"])
+def hire_me():
+    if request.method == "POST":
+        name = request.form["name"]
+        email = request.form["email"]
+        message = request.form["message"]
+        # Do something with the data (store in DB, send email, etc.)
+        return "Thanks! I'll get back to you soon."
+    return render_template("hire_me.html")  # a page with your form
+
+
+# ---------------- RUN APP ----------------
 if __name__ == '__main__':
     app.run(debug=True)
