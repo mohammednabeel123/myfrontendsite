@@ -53,6 +53,11 @@ def index():
     username = session.get('username')
     return render_template('index.html', username=username)
 
+@app.route('/home')
+def home_redirect():
+    return redirect(url_for('index'))
+
+
 @app.route('/main')
 def main():
     return render_template('main.html')
