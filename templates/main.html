@@ -118,7 +118,10 @@
         <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
           <a href="{{ url_for('iot_goal') }}" class="text-decoration-none">
             <div class="card h-100 shadow-sm border-0 video-card">
-              <video src="{{ url_for('static', filename='videos/PCB.mp4') }}" autoplay muted loop playsinline></video>
+              <video src="{{ url_for('static', filename='videos/PCB.mp4') }}" 
+              autoplay muted loop playsinline> 
+              poster="{{ url_for('static', filename='images/fallback-image.jpg') }}"
+              </video>
               <div class="video-overlay">
                 <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
                 <h5 class="card-title fw-bold">Full Stack IoT Projects</h5>
