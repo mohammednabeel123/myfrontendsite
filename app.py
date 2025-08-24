@@ -177,8 +177,9 @@ def hire_me():
 
 
 @app.route('/sitemap.xml')
-def sitemap():
+def sitemap_xml():   # <-- rename function
     return send_from_directory('static', 'sitemap.xml')
+
 
 # ---------------- RUN APP ----------------
 if __name__ == '__main__':
