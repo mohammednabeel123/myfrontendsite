@@ -67,6 +67,25 @@ def main():
 def fusion360_goal():
     return render_template("goals_new/fusion360/index.html")
 
+# C Programming
+@app.route('/goals_new/c-programming')
+def c_programming_goal():
+    return render_template('c_programming.html')
+
+# Signals & Systems
+@app.route('/goals_new/signals-systems')
+def signal_systems_goal():
+    return render_template('signals_systems.html')
+
+# Robotics & Intelligent Systems
+@app.route('/goals_new/robotics')
+def robotics_goal():
+    return render_template('robotics.html')
+
+# Computer Vision
+@app.route('/goals_new/computer-vision')
+def cv_goal():
+    return render_template('computer_vision.html')
 
 @app.route("/goals_new/iot")
 def iot_goal():

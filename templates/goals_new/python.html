@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeelForge - Python Notes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="bg-light">
+  <!-- Top Navbar -->
+  <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
+    <a href="{{ url_for('main') }}" class="btn btn-outline-light" id="home">Home</a>
+    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+      <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
+    </button>
+  </div>
+
+  <!-- Floating Menu Button -->
+  <a class="btn btn-light position-fixed top-0 end-0 m-3 p-3 z-3 collapsed"
+     data-bs-toggle="offcanvas"
+     href="#offcanvasExample"
+     role="button"
+     aria-controls="offcanvasExample"
+     aria-expanded="false">
+    <i class="fa-solid fa-bars fa-2x text-dark"></i> Menu
+  </a>
+
+  <!-- Offcanvas Sidebar -->
+  <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header bg-dark">
+      <h5 class="offcanvas-title text-warning" id="offcanvasExampleLabel">BeelForge-IOT</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column gap-3">
+      <div class="mb-3">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" />
+      </div>
+      <ul class="list-unstyled">
+        <li><a href="{{ url_for('iot_goal') }}" class="nav-link text-white">🧩 Projects</a></li>
+        <li><a href="{{ url_for('iot_notes') }}" class="nav-link text-white">📝 Notes</a></li>
+        <li><a href="{{ url_for('python_page') }}" class="nav-link text-warning fw-bold">🐍 Python</a></li>
+      </ul>
+      <a href="{{ url_for('hire_me') }}" class="btn btn-warning mt-2 animate__animated animate__pulse animate__infinite">
+        <i class="fa-solid fa-handshake me-1"></i> Hire Me
+      </a>
+      <div class="form-check form-switch mt-2">
+        <input class="form-check-input" type="checkbox" id="darkModeToggle">
+        <label class="form-check-label text-white" for="darkModeToggle">Dark Mode</label>
+      </div>
+      <div class="mt-auto d-flex gap-3 justify-content-center social-icons">
+        <a href="https://twitter.com" target="_blank" class="fs-4 text-white"><i class="fab fa-twitter"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="fs-4 text-white"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com" target="_blank" class="fs-4 text-white"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="text-center text-white mt-3 mb-2 small">&copy; 2025 BeelForge. All rights reserved.</div>
+    </div>
+  </div>
+
+  <!-- Main Python Notes Content -->
+  <div class="container my-4">
+    <h1 class="text-center mb-4 text-dark fw-bold">🐍 Python Notes & Roadmap</h1>
+
+    <!-- Accordion for Sections -->
+    <div class="accordion" id="pythonNotes">
+
+      <!-- Section 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading2">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+            Section 2 - Variables, Expressions & Statements
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse show" aria-labelledby="heading2" data-bs-parent="#pythonNotes">
+          <div class="accordion-body">
+            <h5>Values and Types</h5>
+            <pre><code>print(type(10))       # int
+print(type(3.14))     # float
+print(type("Hello"))  # str
+print(type(True))     # bool</code></pre>
+
+            <h5>Variables</h5>
+            <pre><code>x = 5
+name = "Alice"
+is_happy = True</code></pre>
+
+            <h5>Input Example</h5>
+            <pre><code>name = input("Enter your name: ")
+print("Welcome,", name)</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+            Section 3 - Projects (Variables)
+          </button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#pythonNotes">
+          <div class="accordion-body">
+            <h5>Band Name Generator</h5>
+            <pre><code>city = input("City you grew up in: ")
+pet = input("Pet's name: ")
+print("Your band name:", city + " " + pet)</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+            Section 4 - Conditionals
+          </button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#pythonNotes">
+          <div class="accordion-body">
+            <h5>If Statement</h5>
+            <pre><code>age = 18
+if age >= 18:
+    print("You are an adult")</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading6">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+            Section 6 - Functions
+          </button>
+        </h2>
+        <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#pythonNotes">
+          <div class="accordion-body">
+            <h5>Defining Functions</h5>
+            <pre><code>def greet(name):
+    print("Hello", name)</code></pre>
+            <h5>Return Example</h5>
+            <pre><code>def square(x):
+    return x * x
+print(square(4))</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 8 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading8">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+            Section 8 - Loops (Iteration)
+          </button>
+        </h2>
+        <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#pythonNotes">
+          <div class="accordion-body">
+            <h5>For Loop</h5>
+            <pre><code>for i in range(5):
+    print("Iteration", i)</code></pre>
+
+            <h5>While Loop</h5>
+            <pre><code>count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 10 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading10">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+            Section 10 - Data Structures
+          </button>
+        </h2>
+        <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#pythonNotes">
+          <div class="accordion-body">
+            <h5>Lists</h5>
+            <pre><code>fruits = ["apple", "banana", "cherry"]
+fruits.append("orange")
+print(fruits)</code></pre>
+
+            <h5>Dictionaries</h5>
+            <pre><code>student = {"name": "Ali", "age": 20}
+print(student["name"])
+student["age"] = 21</code></pre>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

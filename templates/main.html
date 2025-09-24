@@ -75,93 +75,160 @@
 </div>
 
 
-  <!-- About Section -->
-  <section id="about" class="about py-5 bg-body-tertiary">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-md-10 col-lg-8 text-center">
-          <h2 class="mb-4 text-warning fw-bold">About BeelForge</h2>
-          <p class="lead text-secondary">
-            BeelForge is more than a frontend showcase — it’s a creative forge for ideas across full stack development, IoT, PCB design, 3D modeling, and beyond.
-          </p>
-          <p class="text-muted">
-            Every project reflects consistent learning, real-world application, and attention to design and usability. This site isn’t a portfolio — it’s my forge: where raw code becomes polished experiences.
-          </p>
-          <div class="mt-4">
-            <a href="#projects" class="btn btn-outline-warning me-3">View Projects</a>
-          </div>
+
+<!-- About Section -->
+<section id="about" class="about py-5 bg-body-tertiary">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-10 col-lg-8 text-center">
+        <h2 class="mb-4 text-warning fw-bold">About BeelForge</h2>
+        <p class="lead text-secondary">
+          BeelForge is my personal workshop — a place where ideas across <span class="fw-semibold">Programming Languages, robotics, computer vision, IoT, PCB design, and more</span> are explored, learned, and documented.
+        </p>
+        <p class="text-muted">
+          This site is not just a showcase — it’s a living record of learning, experimenting, and building real projects.
+          Every note, every prototype, and every project reflects the process of turning concepts into practical, hands-on experiences.
+        </p>
+        <div class="mt-4">
+          <a href="#projects" class="btn btn-outline-warning me-3">View Projects</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
 
       <!-- Goals Section -->
       <div class="row">
-        <!-- Frontend Development -->
-      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-        <a href="{{ url_for('frontend_goal') }}" class="text-decoration-none">
-          <div class="card video-card shadow-sm border-0">
-            <video class="card-video" 
-                src="{{ url_for('static', filename='videos/webdev.mp4') }}" 
-                autoplay muted loop playsinline 
-                poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
-            </video>
-            <div class="video-overlay">
-              <i class="fas fa-desktop fa-3x text-warning mb-3"></i>
-              <h5 class="card-title fw-bold">Frontend Development</h5>
-              <p class="card-text">Master frontend and backend technologies to build complete web applications.</p>
-            </div>
-         </div>
-       </a>
+  <!-- C Programming -->
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <a href="{{ url_for('c_programming_goal') }}" class="text-decoration-none">
+      <div class="card video-card shadow-sm border-0">
+        <video class="card-video" 
+               src="{{ url_for('static', filename='videos/c_programming.mp4') }}" 
+               autoplay muted loop playsinline 
+               poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+        </video>
+        <div class="video-overlay">
+          <i class="fas fa-code fa-3x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">C Programming</h5>
+          <p class="card-text">Master C fundamentals and structured programming for building robust projects.</p>
+        </div>
       </div>
-
-
-        <!-- Full Stack IoT Projects -->
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <a href="{{ url_for('iot_goal') }}" class="text-decoration-none">
-  <div class="card h-100 shadow-sm border-0 video-card">
-    <video src="{{ url_for('static', filename='videos/PCB.mp4') }}" 
-           autoplay muted loop playsinline
-           poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
-    </video>
-    <div class="video-overlay">
-      <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
-      <h5 class="card-title fw-bold">Full Stack IoT Projects</h5>
-      <p class="card-text">Integrate hardware with software for smart and connected systems.</p>
-    </div>
+    </a>
   </div>
-</a>
 
-        </div>
-
-        <!-- Fusion 360 Modeling -->
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <a href="{{ url_for('fusion360_goal') }}" class="text-decoration-none">
-            <div class="card h-100 shadow-sm border-0 video-card">
-              <video src="{{ url_for('static', filename='videos/Fusion360.mp4') }}" autoplay muted loop playsinline poster="{{ url_for('static', filename='images/fallback-image.jpg') }}"></video>
-              <div class="video-overlay">
-                <i class="fas fa-cube fa-3x text-warning mb-3"></i>
-                <h5 class="card-title fw-bold">Fusion 360 Modeling</h5>
-                <p class="card-text">Build 3D models and simulations using CAD software.</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        <!-- PCB Design -->
-        <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-          <a href="{{ url_for('pcb_goal') }}" class="text-decoration-none">
-            <div class="card h-100 shadow-sm border-0 video-card">
-              <video class="card-video" src="{{ url_for('static', filename='videos/PCB.mp4') }}" autoplay muted loop playsinline poster="{{ url_for('static', filename='images/fallback-image.jpg') }}"></video>
-              <div class="video-overlay position-relative">
-                <span class="badge bg-secondary position-absolute top-0 end-0 m-2">Coming Soon</span>
-                <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
-                <h5 class="card-title fw-bold">PCB Design</h5>
-                <p class="card-text">Design and prototype printed circuit boards for hardware projects.</p>
-              </div>
-            </div>
-          </a>
+  <!-- Signals & Systems -->
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <a href="{{ url_for('signal_systems_goal') }}" class="text-decoration-none">
+      <div class="card video-card shadow-sm border-0">
+        <video class="card-video" 
+               src="{{ url_for('static', filename='videos/signals_systems.mp4') }}" 
+               autoplay muted loop playsinline 
+               poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+        </video>
+        <div class="video-overlay">
+          <i class="fas fa-signal fa-3x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">Signals & Systems</h5>
+          <p class="card-text">Understand signal processing and system analysis with hands-on oscilloscope experiments.</p>
         </div>
       </div>
-    </div>
+    </a>
+  </div>
+
+  <!-- Robotics & Intelligent Systems -->
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <a href="{{ url_for('robotics_goal') }}" class="text-decoration-none">
+      <div class="card video-card shadow-sm border-0">
+        <video class="card-video" 
+               src="{{ url_for('static', filename='videos/robotics.mp4') }}" 
+               autoplay muted loop playsinline 
+               poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+        </video>
+        <div class="video-overlay">
+          <i class="fas fa-robot fa-3x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">Robotics & Intelligent Systems</h5>
+          <p class="card-text">Learn robotics fundamentals and intelligent system design through practical projects.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Computer Vision -->
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <a href="{{ url_for('cv_goal') }}" class="text-decoration-none">
+      <div class="card video-card shadow-sm border-0">
+        <video class="card-video" 
+               src="{{ url_for('static', filename='videos/computer_vision.mp4') }}" 
+               autoplay muted loop playsinline 
+               poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+        </video>
+        <div class="video-overlay">
+          <i class="fas fa-camera fa-3x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">Computer Vision</h5>
+          <p class="card-text">Explore CV fundamentals and techniques to make systems perceive and interpret the environment.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Full Stack IoT Projects -->
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <a href="{{ url_for('iot_goal') }}" class="text-decoration-none">
+      <div class="card video-card shadow-sm border-0">
+        <video class="card-video" 
+               src="{{ url_for('static', filename='videos/iot.mp4') }}" 
+               autoplay muted loop playsinline 
+               poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+        </video>
+        <div class="video-overlay">
+          <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">Full Stack IoT Projects</h5>
+          <p class="card-text">Integrate hardware and software to build smart, connected systems.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- PCB Design -->
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <a href="{{ url_for('pcb_goal') }}" class="text-decoration-none">
+      <div class="card video-card shadow-sm border-0">
+        <video class="card-video" 
+               src="{{ url_for('static', filename='videos/PCB.mp4') }}" 
+               autoplay muted loop playsinline 
+               poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+        </video>
+        <div class="video-overlay position-relative">
+          <span class="badge bg-secondary position-absolute top-0 end-0 m-2">Coming Soon</span>
+          <i class="fas fa-microchip fa-3x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">PCB Design</h5>
+          <p class="card-text">Learn to design and prototype printed circuit boards for hardware projects.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Frontend Development (Last) -->
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+    <a href="{{ url_for('frontend_goal') }}" class="text-decoration-none">
+      <div class="card video-card shadow-sm border-0">
+        <video class="card-video" 
+               src="{{ url_for('static', filename='videos/webdev.mp4') }}" 
+               autoplay muted loop playsinline 
+               poster="{{ url_for('static', filename='images/fallback-image.jpg') }}">
+        </video>
+        <div class="video-overlay">
+          <i class="fas fa-desktop fa-3x text-warning mb-3"></i>
+          <h5 class="card-title fw-bold">Frontend Development</h5>
+          <p class="card-text">Master frontend and backend technologies to build complete web applications.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+      </div>
+
   </section>
 
   <!-- Footer -->
@@ -186,13 +253,13 @@
           <h6>Social Accounts</h6>
           <ul class="list-unstyled">
             <li><a href="#" class="text-decoration-none text-dark">Facebook</a></li>
-            <li><a href="#" class="text-decoration-none text-dark">LinkedIn</a></li>
+            <li><a href="http://linkedin.com/in/nabeel-mohammed-812278372" class="text-decoration-none text-dark">LinkedIn</a></li>
             <li><a href="#" class="text-decoration-none text-dark">TikTok</a></li>
           </ul>
         </div>
         <div class="col-md-3">
           <h6>Contact Us</h6>
-          <p>Email: <a href="mailto:beelfroge@gmail.com" class="text-decoration-none text-dark">beelfroge@gmail.com</a></p>
+          <p>Email: <a href="mailto:beelfroge@gmail.com" class="text-decoration-none text-dark">beelforge12@gmail.com</a></p>
           <p>Phone: <a href="tel:+90-552-7132468" class="text-decoration-none text-dark">+90-552-7132468</a></p>
         </div>
       </div>
