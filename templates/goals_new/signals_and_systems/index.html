@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeelForge - Signals & Systems</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body { background: #f8f9fa; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .card-section { background: #fff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); padding: 2rem; margin-bottom: 2rem; }
+    footer { background: #212529; color: #f8f9fa; }
+    footer a { color: #f8f9fa; text-decoration: none; }
+    footer a:hover { color: #0d6efd; }
+    h2,h4,h5 { color: #0d6efd; }
+    .lead { font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="#">BeelForge</a>
+    <button class="btn btn-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu">
+      <i class="fa-solid fa-bars text-dark"></i> Menu
+    </button>
+  </nav>
+
+  <!-- Offcanvas Menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Sections</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <a href="#complex-numbers" class="btn btn-outline-primary mb-2 menu-link">Complex Numbers</a>
+      <a href="#polar-rectangular" class="btn btn-outline-primary mb-2 menu-link">Polar & Rectangular</a>
+      <a href="#unit-step" class="btn btn-outline-primary mb-2 menu-link">Unit Step Function</a>
+    </div>
+  </div>
+
+  <div id="complex-numbers" class="container my-5 section active animate__animated animate__fadeInUp">
+    <div class="card-section">
+      <!-- Title & introduction -->
+      <div class="container my-5 text-center">
+        <h1 class="display-5 fw-bold">Signals & Systems Progress</h1>
+        <p class="text-muted">Track your learning from basic concepts to advanced analysis</p>
+      </div>
+
+      <!-- Introduction -->
+      <div class="container my-4 animate__animated animate__fadeInUp">
+        <div class="row">
+          <div class="col">
+            <p class="lead">
+              <span class="fw-bold">Signals & Systems</span> is a fundamental subject in electrical engineering. 
+              It focuses on how signals behave, how systems respond to signals, and how to analyze them.
+            </p>
+            <p class="lead">
+              The study involves time-domain and frequency-domain analysis, linear and nonlinear systems, 
+              and tools like convolution, Fourier transforms, Laplace transforms, and Z-transforms.
+            </p>
+            <p class="lead">
+              This progress documentation helps me track learning from basic concepts like complex numbers, 
+              unit step functions, and impulse signals to more advanced system analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complex Numbers -->
+      <div class="row">
+        <div class="col">
+          <h2 class="fw-bold">Complex Numbers</h2>
+          <p class="lead">
+            Complex numbers are fundamental in Signals & Systems. They are used to represent signals, phasors, and analyze system behavior. 
+            A complex number can be expressed in two common forms: <strong>rectangular</strong> (x + jy) and <strong>polar</strong> (r∠θ). 
+            Understanding how to convert between these forms is essential for signal analysis and system design.
+          </p>
+
+          <!-- Definition & Components -->
+          <div id="definition-components" class="my-4">
+            <h4>Definition & Components</h4>
+            <p>A <strong>complex number</strong> has a <strong>real part</strong> and an <strong>imaginary part</strong>.</p>
+            <p><code>z = x + jy</code></p>
+            <ul>
+              <li><strong>x</strong>: Real part</li>
+              <li><strong>y</strong>: Imaginary part</li>
+            </ul>
+          </div>
+
+          <!-- Conjugate -->
+          <div id="conjugate" class="my-4">
+            <h4>Conjugate</h4>
+            <p><code>z* = x - jy</code></p>
+          </div>
+
+          <!-- Magnitude & Phase -->
+          <div id="magnitude-phase" class="my-4">
+            <h4>Magnitude & Phase</h4>
+            <p>|z| = √(x² + y²), θ = arctan(y / x)</p>
+          </div>
+
+          <!-- Operations -->
+          <div id="operations" class="my-4">
+            <h4>Operations</h4>
+            <ul>
+              <li>Addition: (x1+jy1)+(x2+jy2) = (x1+x2)+j(y1+y2)</li>
+              <li>Subtraction: (x1+jy1)-(x2+jy2) = (x1-x2)+j(y1-y2)</li>
+              <li>Multiplication: (r1∠θ1)*(r2∠θ2) = r1*r2 ∠ (θ1+θ2)</li>
+              <li>Division: (r1∠θ1)/(r2∠θ2) = (r1/r2) ∠ (θ1-θ2)</li>
+            </ul>
+          </div>
+
+          <!-- Euler's Formula -->
+          <div id="euler" class="my-4">
+            <h4>Euler's Formula</h4>
+            <p>e^(jθ) = cosθ + j sinθ → z = r e^(jθ)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Polar & Rectangular Section -->
+<div id="polar-rectangular" class="container my-5 section animate__animated animate__fadeInUp">
+  <div class="card-section">
+    <h2 class="fw-bold mb-3">Polar & Rectangular Forms</h2>
+    
+    <p>
+      A complex number can be represented in <strong>rectangular form</strong> as <code>z = x + jy</code> or in 
+      <strong>polar form</strong> as <code>z = r ∠ θ</code>, where:
+    </p>
+    <ul>
+      <li><strong>r</strong> = magnitude = distance from origin = √(x² + y²)</li>
+      <li><strong>θ</strong> = phase angle = angle with the positive x-axis</li>
+    </ul>
+
+    <h4>Conversion Formulas</h4>
+    <ul>
+      <li><strong>Rectangular → Polar:</strong> <code>r = √(x² + y²), θ = arctan(x / y)</code></li>
+      <li><strong>Polar → Rectangular:</strong> <code>x = r cosθ, y = r sinθ</code></li>
+    </ul>
+
+    <h4>Quadrant Check & Angle Adjustment</h4>
+    <p>Since arctan only returns values between -90° and 90°, you must check the signs of x and y to determine the correct quadrant:</p>
+    <ul>
+      <li><strong>Quadrant I (Q1, ++):</strong> x>0, y>0 → θ = arctan(x/y) → 0°–90°</li>
+      <li><strong>Quadrant II (Q2, -+):</strong> x<0, y>0 → θ = 180° + arctan(x/y) → 90°–180°</li>
+      <li><strong>Quadrant III (Q3, --):</strong> x<0, y<0 → θ = 180° - arctan(x/y) → 180°–270°</li>
+      <li><strong>Quadrant IV (Q4, +-):</strong> x>0, y<0 → θ = 360° + arctan(x/y) → 270°–360°</li>
+      <li><strong>On y-axis (x=0):</strong> θ = 90° if y>0, θ = 270° if y<0</li>
+      <li><strong>On x-axis (y=0):</strong> θ = 0° if x>0, θ = 180° if x<0</li>
+    </ul>
+
+    <h4>Tips for Using Quadrants</h4>
+    <ul>
+      <li>Check the signs of x and y first before applying arctan.</li>
+      <li>Always adjust θ to get a value between 0° and 360° for polar representation.</li>
+      <li>Remember: magnitude r is always positive; the sign is in the angle θ.</li>
+      <li>Use θ in radians if your calculations are for MATLAB, Python, or other programming tools.</li>
+    </ul>
+
+    <h4>Examples</h4>
+    <ul>
+      <li>
+        <strong>Example 1:</strong> z = 3 + 4j  
+        r = √(3² + 4²) = 5, θ = arctan(3/4) ≈ 36.87° → Quadrant I  
+        <code>z = 5 ∠ 36.87°</code>
+      </li>
+      <li>
+        <strong>Example 2:</strong> z = -3 + 4j  
+        r = √((-3)² + 4²) = 5, θ = arctan(-3/4) ≈ -36.87° → Quadrant II → θ = 180° - 36.87° = 143.13°  
+        <code>z = 5 ∠ 143.13°</code>
+      </li>
+      <li>
+        <strong>Example 3:</strong> z = -3 - 4j  
+        r = √((-3)² + (-4)²) = 5, θ = arctan(-3/-4) ≈ 36.87° → Quadrant III → θ = 180° + 36.87° = 216.87°  
+        <code>z = 5 ∠ 216.87°</code>
+      </li>
+      <li>
+        <strong>Example 4:</strong> z = 3 - 4j  
+        r = √(3² + (-4)²) = 5, θ = arctan(3/-4) ≈ -36.87° → Quadrant IV → θ = 360° - 36.87° = 323.13°  
+        <code>z = 5 ∠ 323.13°</code>
+      </li>
+    </ul>
+
+    <h4>Why Polar Form is Useful</h4>
+    <ul>
+      <li>Simplifies multiplication and division of complex numbers: just multiply/divide magnitudes and add/subtract angles.</li>
+      <li>Essential in phasor analysis for AC circuits.</li>
+      <li>Helps visualize signal magnitude and phase in the complex plane.</li>
+      <li>Useful in Fourier and Laplace transforms for signals & systems analysis.</li>
+    </ul>
+  </div>
+</div>
+
+
+  <!-- Unit Step Function Section -->
+  <div id="unit-step" class="container my-5 section animate__animated animate__fadeInUp">
+    <div class="card-section">
+      <h2 class="fw-bold mb-3">Unit Step Function</h2>
+      <p>Content for Unit Step Function goes here...</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-3">
+          <h5>BeelForge-Notes</h5>
+          <p>Forging creativity through code. Explore front-end projects built with passion.</p>
+          <small>&copy; 2025 BeelForge. All rights reserved.</small>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Company</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Social Accounts</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">TikTok</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Contact Us</h6>
+          <p>Email: <a href="mailto:beelfroge12@gmail.com">beelfroge12@gmail.com</a></p>
+          <p>Phone: <a href="tel:+905527132468">+90-552-7132468</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  const menuLinks = document.querySelectorAll('.menu-link');
+  const sections = document.querySelectorAll('.section');
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(targetId).classList.add('active');
+      const offcanvas = document.getElementById('offcanvasMenu');
+      const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas) || new bootstrap.Offcanvas(offcanvas);
+      bsOffcanvas.hide();
+    });
+  });
+</script>
+</body>
+</html>

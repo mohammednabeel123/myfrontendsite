@@ -73,9 +73,12 @@ def c_programming_goal():
     return render_template('c_programming.html')
 
 # Signals & Systems
-@app.route('/goals_new/signals-systems')
+@app.route('/goals_new/signals_and_systems')
 def signal_systems_goal():
-    return render_template('signals_systems.html')
+    # Render the template for Signals & Systems page
+    return render_template('goals_new/signals_and_systems/index.html')
+
+
 
 # Robotics & Intelligent Systems
 @app.route('/goals_new/robotics')
@@ -85,7 +88,7 @@ def robotics_goal():
 # Computer Vision
 @app.route('/goals_new/computer-vision')
 def cv_goal():
-    return render_template('computer_vision.html')
+    return render_template('goals_new/computer-vision/computer_vision.html')
 
 @app.route("/goals_new/iot")
 def iot_goal():
