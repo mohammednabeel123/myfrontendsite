@@ -86,7 +86,7 @@ def robotics_goal():
     return render_template('robotics.html')
 
 # Computer Vision
-@app.route('/goals_new/computer-vision')
+@app.route("/goals_new/computer-vision")
 def cv_goal():
     return render_template('goals_new/computer-vision/computer_vision.html')
 
