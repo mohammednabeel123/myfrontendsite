@@ -90,6 +90,11 @@ def robotics_goal():
 def cv_goal():
     return render_template('goals_new/computer-vision/computer_vision.html')
 
+@app.route("/goals_new/computer-vision/projects")
+def CV_projects():
+    return render_template('goals_new/computer-vision/projects.html')
+
+
 @app.route("/goals_new/iot")
 def iot_goal():
     try:

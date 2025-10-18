@@ -1,28 +1,565 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BeelForge</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-1ycn6Ica999uHJ+0Uz1aOxAZvq0MxkQfdpYLu5eRHOH5GzBp0KwP9aEwS5+cjG1p+JgIcPv9J5RykW+3R8Cstw=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
-      </head>
-      <body>
-        <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
-      <a href="{{ url_for('main') }}" class="btn btn-outline-light" id="home">Home</a>
-        <button
-          class="btn btn-light"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasExample"
-                aria-controls="offcanvasExample"
-        >
-          <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeelForge | Computer Vision Mastery Journey</title>
+
+  <!-- 🧩 External Libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  
+  <style>
+    /* 🌑 Deep Dark Theme */
+    body {
+      background-color: #0d0d0d;
+      color: #f1f1f1;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    /* 🔝 Navigation */
+    .navbar {
+      background-color: rgba(13, 13, 13, 0.95) !important;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ffc107;
+      padding: 1rem 0;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .nav-link {
+      color: #e9ecef !important;
+      font-weight: 500;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #ffc107 !important;
+      transform: translateY(-2px);
+    }
+
+    /* 🌟 Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, 
+        rgba(255, 193, 7, 0.1) 0%, 
+        rgba(13, 13, 13, 0.9) 50%,
+        rgba(99, 102, 241, 0.1) 100%);
+      border-radius: 25px;
+      padding: 100px 40px;
+      margin-top: 80px;
+      border: 1px solid rgba(255, 193, 7, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,193,7,0.1) 0%, transparent 70%);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    /* 📚 Content Cards */
+    .concept-card {
+      background: linear-gradient(145deg, #1a1a1a, #151515);
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .concept-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,193,7,0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .concept-card:hover::before {
+      left: 100%;
+    }
+
+    .concept-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #ffc107;
+      box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15);
+    }
+
+    /* 🎯 Section Headers */
+    .section-title {
+      text-align: center;
+      color: #ffc107;
+      margin: 4rem 0 3rem 0;
+      font-weight: 700;
+      font-size: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #ffc107, #6366f1);
+      border-radius: 2px;
+    }
+
+    /* 💻 Code Blocks */
+    .code-block {
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      position: relative;
+      overflow-x: auto;
+    }
+
+    .code-header {
+      background: #222;
+      padding: 0.5rem 1rem;
+      border-radius: 8px 8px 0 0;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #ffc107;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    /* 📊 Progress Indicators */
+    .progress-container {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .skill-bar {
+      background: #2a2a2a;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .skill-progress {
+      background: linear-gradient(90deg, #ffc107, #6366f1);
+      height: 8px;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* 🎨 Custom Components */
+    .insight-box {
+      background: linear-gradient(135deg, rgba(255,193,7,0.1), rgba(99,102,241,0.1));
+      border-left: 4px solid #ffc107;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .key-point {
+      background: rgba(255,193,7,0.1);
+      border: 1px solid rgba(255,193,7,0.3);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    /* 🔥 Badges */
+    .custom-badge {
+      background: linear-gradient(135deg, #ffc107, #6366f1);
+      color: #000;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin: 0.2rem;
+      display: inline-block;
+    }
+
+    /* 📱 Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 60px 20px;
+        margin-top: 60px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .concept-card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* ✨ Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- 🔝 Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-warning" href="#">
+        <i class="fas fa-brain me-2"></i>BeelForge Vision
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#foundation">Foundation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#filters">Filters</a></li>
+          <li class="nav-item"><a class="nav-link" href="#breakthroughs">Breakthroughs</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('CV_projects') }}">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#journey">Journey</a></li>
+          <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+        </ul>
       </div>
-      </body>
+    </div>
+  </nav>
+
+  <!-- 🌟 Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">
+        🧠 My Computer Vision Mastery Journey
+      </h1>
+      <p class="lead mb-4 fs-5 animate__animated animate__fadeInUp">
+        From complete beginner to understanding the mathematical foundation of image processing.<br>
+        <strong>6+ hours of intensive learning, 3 filter types mastered, 5+ conceptual breakthroughs.</strong>
+      </p>
+      <div class="mt-5">
+        <span class="custom-badge">#ComputerVision</span>
+        <span class="custom-badge">#ImageProcessing</span>
+        <span class="custom-badge">#MachineLearning</span>
+        <span class="custom-badge">#Python</span>
+        <span class="custom-badge">#OpenCV</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 🎯 Foundation Section -->
+  <section id="foundation" class="container my-5">
+    <h2 class="section-title">🎯 The Foundation</h2>
+    
+    <div class="concept-card animate-on-scroll">
+      <h3 class="text-warning mb-4"><i class="fas fa-lightbulb me-2"></i>The Big Revelation</h3>
+      <p class="fs-5">My journey began with understanding that computers don't "see" images the way humans do. They process numerical data.</p>
+      
+      <div class="insight-box">
+        <h5 class="text-warning">💡 Key Insight:</h5>
+        <p class="mb-0">Every image is just a 2D matrix of numbers representing pixel intensities. This fundamental understanding changed everything.</p>
+      </div>
+
+      <div class="code-block mt-4">
+        <div class="code-header">How Computers See Images</div>
+        # What I thought initially:<br>
+        "Computers understand pictures visually"<br><br>
+        # Reality discovered:<br>
+        image = [<br>
+        &nbsp;&nbsp;[100, 120, 110, 105, 115],<br>
+        &nbsp;&nbsp;[105, <span class="text-warning fw-bold">50</span>, 115, 120, 110],  # Noisy pixel!<br>
+        &nbsp;&nbsp;[110, 115, 105, 100, 120],<br>
+        &nbsp;&nbsp;[100, 110, 115, 120, 105]<br>
+        ]<br><br>
+        # Each number = pixel brightness (0-255)<br>
+        # The grid = image dimensions
+      </div>
+    </div>
+
+    <div class="concept-card animate-on-scroll">
+      <h3 class="text-warning mb-4"><i class="fas fa-calculator me-2"></i>The Universal Formula</h3>
+      <p>After struggling with abstract concepts, I discovered the mathematical formula that powers ALL image filtering:</p>
+      
+      <div class="code-block text-center fs-4">
+        G[i,j] = ΣΣ H[u,v] × F[i+u, j+v]
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="key-point">
+            <h6 class="text-warning">🔍 Breaking it down:</h6>
+            <ul class="mb-0">
+              <li><strong>G[i,j]</strong> = New pixel value</li>
+              <li><strong>H[u,v]</strong> = Filter kernel values</li>
+              <li><strong>F[i+u,j+v]</strong> = Original image pixels</li>
+              <li><strong>ΣΣ</strong> = Sum over all positions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="key-point">
+            <h6 class="text-warning">🎯 What it means:</h6>
+            <p class="mb-0">For each pixel, we look at its neighbors, multiply by filter weights, and sum everything up to get the new value.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔧 Filters Section -->
+  <section id="filters" class="container my-5">
+    <h2 class="section-title">🔧 Filter Types Mastered</h2>
+
+    <div class="row">
+      <!-- Box Filter -->
+      <div class="col-md-4">
+        <div class="concept-card h-100 animate-on-scroll">
+          <div class="text-center mb-4">
+            <i class="fas fa-square fa-3x text-primary mb-3"></i>
+            <h4>Box Filter</h4>
+            <span class="custom-badge">My Starting Point</span>
+          </div>
+          
+          <div class="code-block text-center">
+            [1, 1, 1]<br>
+            [1, 1, 1] ÷ 9<br>
+            [1, 1, 1]
+          </div>
+
+          <div class="mt-3">
+            <h6 class="text-warning">🧠 My Understanding:</h6>
+            <p>The simplest filter that treats all neighbors equally. Perfect for learning the basics of correlation.</p>
+            
+            <h6 class="text-warning">🎯 When I use it:</h6>
+            <ul>
+              <li>Quick noise removal</li>
+              <li>Basic blurring effects</li>
+              <li>Teaching concepts to others</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gaussian Filter -->
+      <div class="col-md-4">
+        <div class="concept-card h-100 animate-on-scroll">
+          <div class="text-center mb-4">
+            <i class="fas fa-chart-line fa-3x text-success mb-3"></i>
+            <h4>Gaussian Filter</h4>
+            <span class="custom-badge">Level Up!</span>
+          </div>
+          
+          <div class="code-block text-center">
+            [1, 2, 1]<br>
+            [2, 4, 2] ÷ 16<br>
+            [1, 2, 1]
+          </div>
+
+          <div class="mt-3">
+            <h6 class="text-warning">🧠 My Understanding:</h6>
+            <p>A smarter blur that gives more weight to center pixels, creating natural-looking results.</p>
+            
+            <h6 class="text-warning">🎯 When I use it:</h6>
+            <ul>
+              <li>Professional image processing</li>
+              <li>When edge preservation matters</li>
+              <li>Natural-looking blur effects</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edge Detection -->
+      <div class="col-md-4">
+        <div class="concept-card h-100 animate-on-scroll">
+          <div class="text-center mb-4">
+            <i class="fas fa-border-all fa-3x text-warning mb-3"></i>
+            <h4>Edge Detection</h4>
+            <span class="custom-badge">Advanced Concept</span>
+          </div>
+          
+          <div class="code-block text-center">
+            [-1, -1, -1]<br>
+            [-1, &nbsp;8, -1]<br>
+            [-1, -1, -1]
+          </div>
+
+          <div class="mt-3">
+            <h6 class="text-warning">🧠 My Understanding:</h6>
+            <p>Finds boundaries by highlighting pixels that are different from their neighbors.</p>
+            
+            <h6 class="text-warning">🎯 When I use it:</h6>
+            <ul>
+              <li>Object detection systems</li>
+              <li>Feature extraction</li>
+              <li>Computer vision applications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💡 Breakthroughs Section -->
+  <section id="breakthroughs" class="container my-5">
+    <h2 class="section-title">💡 Conceptual Breakthroughs</h2>
+
+    <div class="concept-card animate-on-scroll">
+      <h3 class="text-warning mb-4">My "Aha!" Moments</h3>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="key-point">
+            <h5><i class="fas fa-bolt text-warning me-2"></i>The Universal Formula</h5>
+            <p class="mb-0">Realizing that ALL filters use the same correlation formula - only the numbers in H change! This unified everything.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="key-point">
+            <h5><i class="fas fa-utensils text-warning me-2"></i>Filters as Recipes</h5>
+            <p class="mb-0">Different number patterns create different effects - like cooking recipes with different ingredients.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="key-point">
+            <h5><i class="fas fa-sliders-h text-warning me-2"></i>Every Pixel Matters</h5>
+            <p class="mb-0">We process EVERY pixel by sliding the filter across the entire image - not just fixing "problem" pixels.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="key-point">
+            <h5><i class="fas fa-project-diagram text-warning me-2"></i>From Theory to Practice</h5>
+            <p class="mb-0">Moving from abstract formulas to actual code implementation was incredibly rewarding.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 📈 Journey Section -->
+  <section id="journey" class="container my-5">
+    <h2 class="section-title">📈 My Learning Journey</h2>
+
+    <div class="concept-card animate-on-scroll">
+      <div class="progress-container">
+        <h5 class="text-warning mb-4">🕒 Hour-by-Hour Progression</h5>
+        
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 20%"></div>
+        </div>
+        <p><strong>Hours 1-2:</strong> Foundation - Understanding pixels and image representation</p>
+
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 40%"></div>
+        </div>
+        <p><strong>Hours 2-3:</strong> The Struggle - Grappling with correlation mathematics</p>
+
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 60%"></div>
+        </div>
+        <p><strong>Hours 3-4:</strong> Breakthrough - Understanding the universal formula</p>
+
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 80%"></div>
+        </div>
+        <p><strong>Hours 4-5:</strong> Application - Implementing Box and Gaussian filters</p>
+
+        <div class="skill-bar">
+          <div class="skill-progress" style="width: 100%"></div>
+        </div>
+        <p><strong>Hours 5-6:</strong> Mastery - Confident analysis and filter selection</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📚 Resources Section -->
+  <section id="resources" class="container my-5">
+    <h2 class="section-title">📚 Learning Resources</h2>
+
+    <div class="concept-card animate-on-scroll">
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="text-warning mb-3">🎥 Video Tutorials</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fab fa-youtube text-danger me-2"></i>Murtaza's Workshop - OpenCV Mastery</li>
+            <li class="mb-2"><i class="fab fa-youtube text-danger me-2"></i>FreeCodeCamp - Computer Vision Course</li>
+            <li class="mb-2"><i class="fab fa-youtube text-danger me-2"></i>Sentdex - Python Programming</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h5 class="text-warning mb-3">📖 Books & Documentation</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="fas fa-book text-warning me-2"></i>Digital Image Processing - Gonzalez & Woods</li>
+            <li class="mb-2"><i class="fas fa-book text-warning me-2"></i>Instanbul Medipol University Lecture Notes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🏁 Footer -->
+  <footer class="bg-dark text-center py-5 mt-5">
+    <div class="container">
+      <h4 class="text-warning mb-3">Built with Passion & Perseverance</h4>
+      <p class="mb-3">This journey taught me that computer vision isn't magic - it's mathematics made visible.</p>
+      <div class="social-icons mb-3">
+        <a href="#" class="text-warning mx-2 fs-4"><i class="fab fa-github"></i></a>
+        <a href="#" class="text-warning mx-2 fs-4"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="text-warning mx-2 fs-4"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p class="text-muted small">© 2025 BeelForge - Nabeel MohammedAbdul-Mumin. Every pixel of progress documented.</p>
+    </div>
+  </footer>
+
+  <!-- 📦 Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✨ Scroll Animations -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+        observer.observe(element);
+      });
+    });
+  </script>
+</body>
+</html>
