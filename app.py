@@ -68,9 +68,12 @@ def fusion360_goal():
     return render_template("goals_new/fusion360/index.html")
 
 # C Programming
-@app.route('/goals_new/c-programming')
+@app.route('/goals_new/C-programming')
 def c_programming_goal():
-    return render_template('c_programming.html')
+    return render_template('goals_new/C-programming/index.html')
+
+
+
 
 # Signals & Systems
 @app.route('/goals_new/signals_and_systems')
@@ -93,6 +96,7 @@ def cv_goal():
 @app.route("/goals_new/computer-vision/projects")
 def CV_projects():
     return render_template('goals_new/computer-vision/projects.html')
+
 
 
 @app.route("/goals_new/iot")
