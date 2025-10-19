@@ -97,6 +97,10 @@ def cv_goal():
 def CV_projects():
     return render_template('goals_new/computer-vision/projects.html')
 
+@app.route("/goals_new/computer-vision/Topics")
+def cv_GaussianFilter():
+    return render_template('goals_new/computer-vision/Topics/GaussianFilter.html')
+
 
 
 @app.route("/goals_new/iot")
