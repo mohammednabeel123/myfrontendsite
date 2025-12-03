@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BeelForge</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"integrity="sha512-1ycn6Ica999uHJ+0Uz1aOxAZvq0MxkQfdpYLu5eRHOH5GzBp0KwP9aEwS5+cjG1p+JgIcPv9J5RykW+3R8Cstw=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
+      </head>
+    <body>
+      <div class="d-flex justify-content-between align-items-center px-3 py-2 bg-dark">
+      <a href="{{ url_for('main') }}" class="btn btn-outline-light" id="home">Home</a>
+        <button
+          class="btn btn-light"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample"
+        >
+          <i class="fa-solid fa-bars me-2 text-dark" id="menu"></i> Menu
+        </button>
+      </div>
+      <a
+        class="btn btn-light position-fixed top-0 end-0 m-3 p-3 z-3 collapsed"
+        data-bs-toggle="offcanvas"
+        href="#offcanvasExample"
+        role="button"
+        aria-controls="offcanvasExample"
+        aria-expanded="false"
+      >
+        <i class="fa-solid fa-bars fa-2x text-dark"></i> Menu
+      </a>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div class="offcanvas-header bg-dark">
+          <h5 class="offcanvas-title text-warning" id="offcanvasExampleLabel">BeelForge-IOT</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column gap-3 bg-dark text-white">
+          <div class="mb-3">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+          </div>
+          <ul class="list-unstyled">
+           <li>
+            <a href="{{ url_for('iot_goal') }}" class="nav-link text-white">🧩 Projects</a>
+          </li>
+          <li>
+            <a href="{{ url_for('iot_notes') }}" class="nav-link text-white">📝 Notes</a>
+          </li>
+          <li>
+            <a href="{{ url_for('iot_deep_dive') }}" class="nav-link text-white">📖 Deep Dive</a>
+          </li>
+          <li>
+            <a href="{{ url_for('python_page') }}" class="nav-link text-white">🐍 Python</a>
+          </li>
+          <a href="{{ url_for('hire_me') }}" class="btn btn-warning mt-2 animate__animated animate__pulse animate__infinite">
+            <i class="fa-solid fa-handshake me-1"></i> Hire Me
+        </a>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label text-white" for="darkModeToggle">
+              Dark Mode
+            </label>
+          </div>
+           
+          <div class="mt-auto d-flex gap-3 justify-content-center social-icons">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 twitter"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 linkedin"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="fs-4 github"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          
+         <div class="text-center text-white mt-3 mb-2 small">
+            &copy; 2025 BeelForge. All rights reserved.
+          </div>
+        </div>
+      </div>
+<section class="bg-dark text-white text-center py-5 position-relative">
+    <div class="container">
+        <!-- Title -->
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Hi, I'm Nabeel</h1>
+        
+        <!-- Subtitle -->
+        <p class="lead mb-4 animate__animated animate__fadeInUp">
+            Full Stack Developer & IoT Innovator. I create intelligent web + hardware experiences that solve real-world problems.
+        </p>
+        
+        <!-- Icon -->
+        <i class="fas fa-microchip fa-4x text-warning mb-3 animate__animated animate__pulse animate__infinite"></i>
+        
+        <!-- Highlight -->
+        <h2 class="text-center text-white mb-3 fw-bold animate__animated animate__fadeInUp">
+            🎮 Full Stack IoT Projects: Beginner → Advanced
+        </h2>
+        
+        <!-- Supporting Text -->
+        <p class="text-white-50 mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+            Explore projects that integrate ~ web dashboards, ~ smart devices, and real-time data. Learn how to connect sensors, build IoT networks, and develop full stack applications from scratch.
+        </p>
+        
+        <!-- Call to Action -->
+        <a href="#iot-projects" class="btn btn-warning btn-lg fw-bold animate__animated animate__fadeInUp animate__delay-2s">
+            🚀 Explore IoT Projects
+        </a>
+    </div>
+
+    <!-- Wave Divider -->
+    <div class="custom-shape-divider-top-1714158982">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,29,739.56,14.29c-72.12-13-146.85-6.24-218.54,8.14-69.14,13.81-138.15,35.5-209.15,43.82-66.87,7.87-133.91,2.21-199.53-10.17C77.69,47.94,38.6,24.54,0,0V120H1200V0C1136.23,41.35,1066.68,113.66,985.66,92.83Z" fill="#0d0d0d"></path>
+        </svg>
+    </div>
+</section>
+
+    
+
+      <section id="projects" class="showcase bg-dark py-5">
+        <div class="container">
+          <div class="row g-4">
+              <!-- Project 1: Smart Environment Monitor -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-lg">
+                  <img src="{{ url_for('static', filename='images/smartEnvMonitor.jpg') }}" 
+                      class="card-img-top" 
+                      alt="Smart Environment Monitor" 
+                      style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;" 
+                      loading="lazy">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Smart Environment Monitor</h5>
+                    <p class="card-text text-muted small">
+                      Monitors temperature, humidity, light, and controls a fan with LEDs and buzzer.
+                    </p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-center gap-2">
+                    <a href="/goals/IOT/smart-environment-monitor.html" class="btn btn-success btn-sm">🔗 View Project</a>
+                    <a href="https://github.com/mohammednabeel123/smart-environment-system.git" target="_blank" class="btn btn-primary btn-sm">💻 GitHub</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 2: LED Roulette Game -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-lg">
+                  <img src="{{ url_for('static', filename='images/ledRoulette.jpg') }}" 
+                      class="card-img-top" 
+                      alt="LED Roulette Project" 
+                      style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;" 
+                      loading="lazy">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">LED Roulette Game</h5>
+                    <p class="card-text text-muted small" style="font-size: 0.95rem;">
+                      A fun Raspberry Pi game using LEDs and push buttons. Try to stop the spinning LEDs on the lucky one to score points!
+                    </p>
+                  </div>
+                  <div class="card-footer d-flex justify-content-center gap-2">
+                    <a href="https://github.com/mohammednabeel123/LedRouletteGame.git" target="_blank" class="btn btn-primary btn-sm">💻 View Code</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 3: Blinking Two LEDs -->
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-lg">
+                  <img src="{{ url_for('static', filename='images/blinking-leds.jpg') }}" 
+                      class="card-img-top" 
+                      alt="Blinking LEDs" 
+                      style="height: 180px; width: 100%; object-fit: cover; border-radius: 8px 8px 0 0;">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Blinking Two LEDs</h5>
+                    <p class="card-text" style="font-size: 0.95rem;">
+                      My first GPIO project using RPi.GPIO. Two LEDs blink alternately, teaching me the basics of GPIO outputs and timing in Python.
+                    </p>
+                    <a href="https://www.youtube.com/shorts/oZUaF14HHBk" class="btn btn-success btn-sm m-1">🔗 Youtube View Project</a>
+                    <a href="https://github.com/mohammednabeel123/myfrontendsite/tree/main/gpio-projects/blinking-leds" target="_blank" class="btn btn-primary btn-sm m-1">💻 View Code</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+      </section>
+      
+      
+      <script>
+        function goToNotes(sectionId){
+          if (sectionId) {
+            window.location.href = `/goals/IOT/notes.html?section=${sectionId}`;
+          }
+        }
+      </script>
+  </body>
+      
