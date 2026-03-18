@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+  <!-- TITLE -->
+  <h1 class="fw-bold text-center mb-3">🌱 Smart Environment Monitoring System (IoT)</h1>
+
+  <p class="text-center text-muted fs-5 mb-5">
+    A real-time monitoring system combining embedded hardware, analog signal processing, and a web dashboard.
+  </p>
+
+  <!-- INTRO -->
+  <div class="mx-auto" style="max-width: 800px;">
+
+    <h3 class="mt-4">🚀 Overview</h3>
+    <p>
+      This project is an IoT-based environmental monitoring system designed to collect and display real-time data such as temperature, humidity, light intensity, and gas levels.
+      The system combines embedded hardware with a Flask-based web interface to provide both local and remote monitoring capabilities.
+    </p>
+
+    <p>
+      Initially, the system relied only on a web dashboard. However, I extended it by integrating a 128x64 OLED display (I²C),
+      allowing real-time data visualization directly from the device — making the system more independent and practical.
+    </p>
+
+    <!-- IMAGE -->
+    <img src="/static/images/smartcircuit.jpeg" class="img-fluid rounded shadow my-4">
+
+    <hr>
+
+    <!-- WHAT IT DOES -->
+    <h3>⚙️ What This System Does</h3>
+
+    <ul>
+      <li>Collects real-time environmental data</li>
+      <li>Displays sensor values on an OLED screen</li>
+      <li>Sends data to a Flask web dashboard</li>
+      <li>Allows remote monitoring from a browser</li>
+    </ul>
+
+    <hr>
+
+    <!-- SYSTEM ARCHITECTURE -->
+    <h3>🛠 System Architecture</h3>
+
+    <ul>
+      <li>Raspberry Pi (main controller)</li>
+      <li>MCP3008 ADC (analog to digital conversion)</li>
+      <li>LDR (light sensor)</li>
+      <li>MQ-2 Gas Sensor</li>
+      <li>DHT22 (temperature & humidity)</li>
+      <li>OLED Display (I²C)</li>
+      <li>Flask Web Dashboard</li>
+    </ul>
+
+    <hr>
+
+    <!-- MCP3008 SECTION -->
+    <h3>🔌 Understanding MCP3008 (ADC)</h3>
+
+    <img src="/static/images/MCP3008.gif" class="img-fluid rounded shadow my-3">
+
+    <p>
+      One of the most important parts of this project was learning how to work with analog signals using the MCP3008 ADC (Analog-to-Digital Converter).
+    </p>
+
+    <p>
+      The Raspberry Pi does not have built-in analog input pins, which means it cannot directly read values from sensors like LDRs.
+      To solve this, I used the MCP3008 chip to convert analog voltage signals into digital data that the Raspberry Pi can understand.
+    </p>
+
+    <p>
+      The MCP3008 communicates using the SPI protocol (Serial Peripheral Interface), which is a fast communication method used in embedded systems.
+    </p>
+
+    <p>
+      👉 Learn more about MCP3008:
+      <a href="https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf" target="_blank">
+        MCP3008 Datasheet
+      </a>
+    </p>
+
+    <ul>
+      <li>Reads varying voltage from LDR</li>
+      <li>Converts it into digital values</li>
+      <li>Communicates via SPI with Raspberry Pi</li>
+    </ul>
+
+    <hr>
+
+    <!-- OSCILLOSCOPE -->
+    <h3>📡 Signal Analysis (Oscilloscope)</h3>
+
+    <a href="https://www.linkedin.com/posts/nabeel-mohammed-812278372_electronics-iot-raspberrypi-activity-7374466737938833410-_4QO?utm_medium=ios_app&rcm=ACoAAFw7aY4Bj2JNFy3nizJJlHEy0yR1G6TpGjU&utm_source=social_share_video_v2&utm_campaign=copy_link" target="_blank">
+            Here is a video On LinkedIn
+        </a>
+    <p>
+      To better understand how the system behaves in real life, I used an oscilloscope to observe the analog signals coming from the sensors.
+    </p>
+
+    <p>
+      This allowed me to:
+    </p>
+
+    <ul>
+      <li>Visualize how light intensity affects voltage</li>
+      <li>Observe noise and fluctuations in signals</li>
+      <li>Understand real-world signal instability</li>
+    </ul>
+
+    <p>
+      This step was very important because it connected theoretical knowledge with real hardware behavior.
+    </p>
+
+    <hr>
+
+    <!-- WHAT I LEARNED -->
+    <h3>📚 What I Learned</h3>
+
+    <ul>
+      <li>How to interface analog sensors using MCP3008</li>
+      <li>SPI communication in embedded systems</li>
+      <li>I²C communication for OLED displays</li>
+      <li>Combining embedded systems with web applications</li>
+      <li>Debugging both hardware and software systems</li>
+    </ul>
+
+    <hr>
+
+    <!-- CHALLENGES -->
+    <h3>⚠️ Challenges I Faced</h3>
+
+    <ul>
+      <li>Understanding SPI communication and wiring</li>
+      <li>Incorrect readings due to wiring mistakes</li>
+      <li>Handling noisy analog signals</li>
+      <li>Debugging real-time data updates in Flask</li>
+    </ul>
+
+    <p>
+      These challenges forced me to debug deeply and think like a systems engineer rather than just writing code.
+    </p>
+
+    <hr>
+
+    <!-- IMPROVEMENTS -->
+    <h3>📈 Improvements Achieved</h3>
+
+    <ul>
+      <li>Reduced dependency on external devices</li>
+      <li>Faster real-time data access</li>
+      <li>Better system reliability</li>
+      <li>Improved integration between hardware and software</li>
+    </ul>
+    
+    <hr>
+    <img src="/static/images/smartDas.jpeg" class="img-fluid rounded shadow my-3">
+    <hr>
+
+    <!-- GITHUB -->
+    <h3>🔗 Project Repository</h3>
+
+    <p>
+      <a href="https://github.com/mohammednabeel123/smart-Monitor" target="_blank" class="btn btn-dark">
+        View on GitHub
+      </a>
+    </p>
+
+  </div>
+
+</div>
+
+{% include "components/comments.html" %}
+
+{% endblock %}

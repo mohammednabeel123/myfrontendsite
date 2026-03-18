@@ -5,240 +5,322 @@
 {% block content %}
 
 <style>
-/* GLOBAL BACKGROUND (FIXED) */
+
+/* ================= GLOBAL ================= */
 body {
-  background: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
+  background: linear-gradient(180deg, #0f1115 0%, #161a20 100%);
+  color: #e6e6e6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* ABOUT SECTION */
+/* ================= ABOUT ================= */
 .about {
-  background: linear-gradient(180deg, #f8f9fb 0%, #eef1f4 100%);
+  background: radial-gradient(circle at top, rgba(255,193,7,0.08), transparent 60%);
+  padding: 90px 0;
 }
 
-/* PROJECT SECTION BACKGROUND */
+/* ================= HEADINGS ================= */
+.section-title {
+  font-weight: 700;
+  color: #ffc107;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: #ffc107;
+  margin: 12px auto 20px;
+  border-radius: 10px;
+}
+
+/* ================= PROJECTS ================= */
 #projects {
-  background: #eef1f4;
+  padding: 80px 0;
 }
 
-/* PROJECT CARD */
+/* ================= CARD ================= */
 .project-card {
-  transition: all 0.35s ease;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(20, 24, 30, 0.85);
   border-radius: 18px;
-  border: 1px solid rgba(0,0,0,0.04);
+  border: 1px solid rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  transition: all 0.35s ease;
 }
 
+/* Hover effect */
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,193,7,0.3);
 }
 
-/* TOP ACCENT */
+/* Accent line */
 .project-header {
-  height: 4px;
-  background: linear-gradient(90deg, #ffc107, #ffb347);
-  opacity: 0.9;
+  height: 3px;
+  background: linear-gradient(90deg, #ffc107, #ff9800);
 }
 
-/* TEXT */
+/* ================= TEXT ================= */
 .project-card h5 {
+  color: #ffffff;
   font-size: 1.1rem;
-  letter-spacing: 0.3px;
 }
 
 .project-card p {
+  color: #b0b6bd;
   font-size: 0.9rem;
   line-height: 1.6;
 }
 
-/* TAGS */
-.project-card .badge {
-  font-size: 0.7rem;
+/* ================= TAGS ================= */
+.badge {
+  background: rgba(255,255,255,0.08);
+  color: #ffc107;
   border-radius: 20px;
-  background: #111;
-  opacity: 0.9;
+  padding: 6px 12px;
+  font-size: 0.75rem;
 }
 
-/* BUTTON */
-.project-card .btn {
+/* ================= BUTTON ================= */
+.btn-warning {
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+  border: none;
+  color: #111;
+  font-weight: 600;
   border-radius: 12px;
-  font-size: 0.9rem;
-  transition: all 0.25s ease;
 }
 
-.project-card .btn:hover {
+.btn-warning:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(255,193,7,0.3);
+  box-shadow: 0 6px 20px rgba(255,193,7,0.4);
 }
 
-/* FOOTER */
+/* ================= ABOUT TEXT ================= */
+.about p {
+  color: #c0c5cc;
+}
+
+/* ================= FOOTER ================= */
 footer {
-  background: #e9ecef;
+  background: #0b0d11;
+  padding: 60px 0;
+}
+
+footer h5, footer h6 {
+  color: #ffc107;
+}
+
+footer p, footer a {
+  color: #aaa;
 }
 
 footer a:hover {
-  color: #ffc107 !important;
+  color: #ffc107;
 }
 
-/* MOBILE IMPROVEMENT */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  body {
-    background: #eef1f4;
+  .about {
+    padding: 60px 0;
   }
+}
+/* CARD */
 
-  .project-card {
-    border-radius: 14px;
-  }
+.project-card {
+background: linear-gradient(145deg, #0f172a, #020617);
+border: 1px solid rgba(255, 193, 7, 0.2);
+transition: all 0.3s ease;
+}
+
+.project-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 40px rgba(255, 193, 7, 0.1);
+}
+
+.project-img {
+width: 100%;
+height: 160px;
+object-fit: cover;
+}
+
+.project-tag {
+background: rgba(255, 193, 7, 0.1);
+color: #ffc107;
+padding: 5px 12px;
+border-radius: 999px;
+font-size: 12px;
+margin-right: 5px;
+}
+
+.project-btn {
+border: 1px solid #ffc107;
+color: #ffc107;
+border-radius: 999px;
+padding: 10px;
+transition: all 0.3s ease;
+}
+
+.project-btn:hover {
+background: #ffc107;
+color: black;
 }
 </style>
 
-<!-- ABOUT SECTION -->
-<section id="about" class="about py-5 position-relative overflow-hidden">
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about text-center">
 
-  <div class="position-absolute top-0 start-50 translate-middle-x"
-       style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,193,7,0.06), transparent 70%); z-index: 0;">
-  </div>
+  <div class="container">
 
-  <div class="container position-relative" style="z-index: 2;">
-    <div class="row justify-content-center">
-      <div class="col-md-10 col-lg-8 text-center">
+    <h2 class="section-title display-6">
+      BeelForge
+    </h2>
 
-        <h2 class="mb-3 text-warning fw-bold display-6">
-          About BeelForge
-        </h2>
+    <div class="section-divider"></div>
 
-        <div class="mx-auto mb-4" style="width: 60px; height: 3px; background: #ffc107;"></div>
+    <p class="lead">
+      A personal engineering lab where I build systems across
+      <span class="fw-semibold text-white">
+        IoT, embedded systems, automation, and full-stack development
+      </span>.
+    </p>
 
-        <p class="lead text-secondary fs-5">
-          BeelForge is my personal workshop — a place where ideas across 
-          <span class="fw-semibold text-dark">
-            programming, robotics, computer vision, IoT, PCB design, and more
-          </span> 
-          are explored, built, and refined into real systems.
-        </p>
+    <p class="mt-3">
+      Every project here is designed, built, tested, and documented —
+      turning ideas into real-world solutions.
+    </p>
 
-        <p class="text-muted mt-3">
-          This is not just a showcase — it’s a living record of engineering growth.  
-          Every project reflects the process of turning concepts into 
-          <span class="fw-semibold">practical, working solutions</span>.
-        </p>
-
-        <div class="mt-4 d-flex justify-content-center flex-wrap gap-2">
-          <span class="badge bg-dark px-3 py-2">Design</span>
-          <span class="badge bg-dark px-3 py-2">Build</span>
-          <span class="badge bg-dark px-3 py-2">Test</span>
-          <span class="badge bg-dark px-3 py-2">Document</span>
-        </div>
-
-        <div class="mt-5">
-          <a href="#projects" class="btn btn-warning btn-lg px-4">
-            Explore Systems →
-          </a>
-        </div>
-
-      </div>
+    <div class="mt-4 d-flex justify-content-center flex-wrap gap-2">
+      <span class="badge">Design</span>
+      <span class="badge">Build</span>
+      <span class="badge">Test</span>
+      <span class="badge">Deploy</span>
     </div>
+
+    <div class="mt-5">
+      <a href="#projects" class="btn btn-warning px-4 py-2">
+        Explore Projects →
+      </a>
+    </div>
+
   </div>
 </section>
 
-<!-- PROJECTS SECTION -->
+<!-- ================= PROJECTS ================= -->
 <section id="projects" class="py-5">
+
   <div class="container">
     <div class="row g-4">
-
       {% for project in projects %}
-      <div class="col-md-6 col-lg-4">
+ <div class="col-md-6 col-lg-4">
 
-        <div class="card project-card h-100 border-0 overflow-hidden">
+      <div class="project-card rounded-4 overflow-hidden h-100 d-flex flex-column">
 
-          <div class="project-header"></div>
+        <!-- IMAGE HEADER -->
+        <div class="project-image position-relative">
 
-          <div class="card-body d-flex flex-column p-4">
+          {% if project.cover_image %}
+          <img src="{{ url_for('static', filename='images/' ~ project.cover_image) }}"
+              class="project-img"
+              alt="{{ project.title }}">
+          {% endif %}
 
-            {% if project.created_at %}
-            <small class="text-muted mb-2">
-              {{ project.created_at.strftime('%b %d, %Y') }}
-            </small>
-            {% endif %}
+          <!-- STATUS BADGE -->
+          <span class="status-badge">
+            {{ project.status if project.status else "Completed" }}
+          </span>
 
-            <h5 class="fw-semibold mb-2 text-dark">
-              {{ project.title }}
-            </h5>
+        </div>
 
-            <p class="text-muted mb-4">
-              {{ project.description[:110] }}...
-            </p>
+        <!-- CONTENT -->
+        <div class="p-4 d-flex flex-column h-100">
 
-            <div class="mb-3 d-flex flex-wrap gap-2">
-              <span class="badge bg-dark">Python</span>
-              <span class="badge bg-dark">Flask</span>
-              <span class="badge bg-dark">IoT</span>
-            </div>
+          <!-- DATE -->
+          <small class="text-muted mb-2">
+            {{ project.created_at.strftime("%b %Y") if project.created_at else "New" }}
+          </small>
 
-            <div class="mt-auto">
-              <a href="{{ url_for('project_detail', slug=project.slug) }}" 
-                 class="btn btn-warning w-100 fw-semibold">
-                View Project →
-              </a>
-            </div>
+          <!-- TITLE -->
+          <h5 class="fw-bold text-white">
+            {{ project.title }}
+          </h5>
 
+          <!-- DESCRIPTION -->
+          <p class="text-muted small">
+            {{ project.description[:100] }}...
+          </p>
+
+          <!-- SKILLS -->
+          {% if project.skills %}
+          <div class="mb-3">
+            {% for skill in project.skills.split(',') %}
+              <span class="project-tag">{{ skill.strip() }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          <!-- BUTTON -->
+          <div class="mt-auto">
+            <a href="{{ url_for('project_detail', slug=project.slug) }}"
+              class="btn project-btn w-100">
+              Open Project →
+            </a>
           </div>
 
         </div>
 
       </div>
-      {% endfor %}
 
+    </div>
+{% endfor %}
     </div>
 
     <!-- EMPTY STATE -->
     {% if projects|length == 0 %}
     <div class="text-center py-5">
-      <h5 class="text-muted">No projects yet</h5>
-      <p class="text-muted small">Start building and showcase your work.</p>
+      <h5 class="text-secondary">No projects yet</h5>
+      <p class="text-secondary small">Start building and showcase your work.</p>
     </div>
     {% endif %}
 
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="py-5 text-dark text-center">
+<!-- ================= FOOTER ================= -->
+<footer class="text-center">
+
   <div class="container">
-    <div class="row">
+    <div class="row g-4">
 
       <div class="col-md-3">
         <h5>BeelForge</h5>
-        <p>Forging creativity through code.</p>
-        <small>&copy; 2026 BeelForge</small>
+        <p>Forging systems through engineering.</p>
       </div>
 
       <div class="col-md-3">
-        <h6>Company</h6>
+        <h6>Navigation</h6>
         <ul class="list-unstyled">
-          <li><a href="{{ url_for('index') }}" class="text-decoration-none text-dark">Home</a></li>
-          <li><a href="#about" class="text-decoration-none text-dark">About</a></li>
-          <li><a href="#projects" class="text-decoration-none text-dark">Projects</a></li>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
         </ul>
       </div>
 
       <div class="col-md-3">
         <h6>Social</h6>
         <ul class="list-unstyled">
-          <li><a href="https://github.com/mohammednabeel123" class="text-dark">GitHub</a></li>
-          <li><a href="http://linkedin.com/in/nabeel-mohammed-812278372" class="text-dark">LinkedIn</a></li>
+          <li><a href="https://github.com/mohammednabeel123">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/nabeel-mohammed-812278372?utm_source=share_via&utm_content=profile&utm_medium=member_ios">LinkedIn</a></li>
         </ul>
       </div>
 
       <div class="col-md-3">
         <h6>Contact</h6>
-        <p>Email: <a href="mailto:beelforge12@gmail.com" class="text-dark">beelforge12@gmail.com</a></p>
-        <p>Phone: <a href="tel:+905527132468" class="text-dark">+90 552 713 2468</a></p>
+        <p>Email: beelforge12@gmail.com</p>
+        <p>Phone: +90 552 713 2468</p>
       </div>
 
     </div>
-  </div>   
+  </div>
+
 </footer>
 
 {% endblock %}

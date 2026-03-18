@@ -79,7 +79,10 @@ class Project(db.Model):
     title = db.Column(db.String(150), nullable=False)
     description = db.Column(db.Text, nullable=False)
     slug = db.Column(db.String(150), nullable=False, unique=True)
-    created_at = db.Column(db.DateTime, server_default=db.func.now())
+
+    cover_image = db.Column(db.String(200))
+    skills = db.Column(db.String(300))
+    featured = db.Column(db.Boolean, default=False)
 
     comments = db.relationship(
         "Comment",
