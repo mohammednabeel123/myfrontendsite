@@ -303,7 +303,7 @@ def delete_comment(comment_id):
     return redirect(url_for("project_detail", slug=project_slug))
 
 
-@app.route("/react_comment/<int:comment_id>/<reaction>", methods=["POST"])
+@app.route("/react_comment/<int:comment_id>", methods=["POST"])
 def react_comment(comment_id, reaction):
     if "user_id" not in session:
         abort(403)

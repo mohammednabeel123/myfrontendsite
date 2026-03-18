@@ -65,29 +65,33 @@
             <!-- LEFT: LIKE -->
             <div class="d-flex gap-2">
 
-  <form method="POST" action="{{ url_for('react_comment', comment_id=comment.id, reaction='❤️') }}">
-    <button class="btn btn-sm btn-light border rounded-pill">
-      ❤️ {{ comment.reaction_counts["❤️"] if comment.reaction_counts else 0 }}
-    </button>
-  </form>
+  <form method="POST" action="{{ url_for('react_comment', comment_id=comment.id) }}">
+  <input type="hidden" name="reaction" value="❤️">
+  <button class="btn btn-sm btn-light border rounded-pill">
+    ❤️ {{ comment.reaction_counts["❤️"] }}
+  </button>
+</form>
 
-  <form method="POST" action="{{ url_for('react_comment', comment_id=comment.id, reaction='😂') }}">
-    <button class="btn btn-sm btn-light border rounded-pill">
-      😂 {{ comment.reaction_counts["😂"] if comment.reaction_counts else 0 }}
-    </button>
-  </form>
+<form method="POST" action="{{ url_for('react_comment', comment_id=comment.id) }}">
+  <input type="hidden" name="reaction" value="😂">
+  <button class="btn btn-sm btn-light border rounded-pill">
+    😂 {{ comment.reaction_counts["😂"] }}
+  </button>
+</form>
 
-  <form method="POST" action="{{ url_for('react_comment', comment_id=comment.id, reaction='🔥') }}">
-    <button class="btn btn-sm btn-light border rounded-pill">
-      🔥 {{ comment.reaction_counts["🔥"] if comment.reaction_counts else 0 }}
-    </button>
-  </form>
+<form method="POST" action="{{ url_for('react_comment', comment_id=comment.id) }}">
+  <input type="hidden" name="reaction" value="🔥">
+  <button class="btn btn-sm btn-light border rounded-pill">
+    🔥 {{ comment.reaction_counts["🔥"] }}
+  </button>
+</form>
 
-  <form method="POST" action="{{ url_for('react_comment', comment_id=comment.id, reaction='👍') }}">
-    <button class="btn btn-sm btn-light border rounded-pill">
-      👍 {{ comment.reaction_counts["👍"] if comment.reaction_counts else 0 }}
-    </button>
-  </form>
+<form method="POST" action="{{ url_for('react_comment', comment_id=comment.id) }}">
+  <input type="hidden" name="reaction" value="👍">
+  <button class="btn btn-sm btn-light border rounded-pill">
+    👍 {{ comment.reaction_counts["👍"] }}
+  </button>
+</form>
 
 </div>
 
