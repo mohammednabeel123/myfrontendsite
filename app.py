@@ -304,10 +304,11 @@ def delete_comment(comment_id):
 
 
 @app.route("/react_comment/<int:comment_id>", methods=["POST"])
-def react_comment(comment_id, reaction):
+def react_comment(comment_id):
     if "user_id" not in session:
         abort(403)
 
+    reaction = request.form.get("reaction", "")  # ← get from form
     allowed = {"❤️", "😂", "🔥", "👍"}
     if reaction not in allowed:
         abort(400)
@@ -321,10 +322,8 @@ def react_comment(comment_id, reaction):
 
     if existing:
         if existing.reaction == reaction:
-            # clicking the same reaction removes it
             db.session.delete(existing)
         else:
-            # clicking a different reaction changes it
             existing.reaction = reaction
     else:
         db.session.add(CommentReaction(
