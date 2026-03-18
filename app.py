@@ -152,8 +152,6 @@ def project_detail(slug):
             "🔥": counts.get("🔥", 0),
             "👍": counts.get("👍", 0),
         }
-
-    for comment in comments:
         comment.time_ago = time_ago(comment.created_at)
     
     return render_template(
