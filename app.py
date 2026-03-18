@@ -76,6 +76,7 @@ class Project(db.Model):
     title = db.Column(db.String(150), nullable=False)
     description = db.Column(db.Text, nullable=False)
     slug = db.Column(db.String(150), nullable=False, unique=True)
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
 
     comments = db.relationship(
         "Comment",
