@@ -166,7 +166,7 @@ def project_detail(slug):
         }
 
         comment.time_ago = time_ago(comment.created_at)
-        comment.user_reaction = none
+        comment.user_reaction = None
 
     return render_template(
         f"Projects/{slug}.html",
