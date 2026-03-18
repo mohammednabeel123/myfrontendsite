@@ -5,26 +5,32 @@
 {% block content %}
 
 <style>
-/* GLOBAL */
+/* GLOBAL BACKGROUND (FIXED) */
 body {
-  background: #f8f9fa;
+  background: linear-gradient(180deg, #f4f6f8 0%, #eef1f4 100%);
 }
 
 /* ABOUT SECTION */
 .about {
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  background: linear-gradient(180deg, #f8f9fb 0%, #eef1f4 100%);
+}
+
+/* PROJECT SECTION BACKGROUND */
+#projects {
+  background: #eef1f4;
 }
 
 /* PROJECT CARD */
 .project-card {
   transition: all 0.35s ease;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .project-card:hover {
-  transform: translateY(-10px) scale(1.01);
+  transform: translateY(-10px);
   box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 
@@ -37,7 +43,7 @@ body {
 
 /* TEXT */
 .project-card h5 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   letter-spacing: 0.3px;
 }
 
@@ -68,33 +74,22 @@ body {
 
 /* FOOTER */
 footer {
-  background: #f1f3f5;
+  background: #e9ecef;
 }
 
 footer a:hover {
   color: #ffc107 !important;
 }
 
-/* Project card hover effect */
-.project-card {
-  transition: all 0.3s ease;
-  background: #fff;
-}
+/* MOBILE IMPROVEMENT */
+@media (max-width: 768px) {
+  body {
+    background: #eef1f4;
+  }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-/* Top accent bar */
-.project-header {
-  height: 6px;
-  background: linear-gradient(90deg, #ffc107, #ff8c00);
-}
-
-/* Button polish */
-.project-card .btn {
-  border-radius: 10px;
+  .project-card {
+    border-radius: 14px;
+  }
 }
 </style>
 
@@ -102,7 +97,7 @@ footer a:hover {
 <section id="about" class="about py-5 position-relative overflow-hidden">
 
   <div class="position-absolute top-0 start-50 translate-middle-x"
-       style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,193,7,0.08), transparent 70%); z-index: 0;">
+       style="width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,193,7,0.06), transparent 70%); z-index: 0;">
   </div>
 
   <div class="container position-relative" style="z-index: 2;">
@@ -148,9 +143,10 @@ footer a:hover {
 </section>
 
 <!-- PROJECTS SECTION -->
-<section id="projects" class="py-5 bg-light">
+<section id="projects" class="py-5">
   <div class="container">
     <div class="row g-4">
+
       {% for project in projects %}
       <div class="col-md-6 col-lg-4">
 
@@ -160,31 +156,26 @@ footer a:hover {
 
           <div class="card-body d-flex flex-column p-4">
 
-            <!-- DATE -->
             {% if project.created_at %}
             <small class="text-muted mb-2">
               {{ project.created_at.strftime('%b %d, %Y') }}
             </small>
             {% endif %}
 
-            <!-- TITLE -->
             <h5 class="fw-semibold mb-2 text-dark">
               {{ project.title }}
             </h5>
 
-            <!-- DESCRIPTION -->
             <p class="text-muted mb-4">
               {{ project.description[:110] }}...
             </p>
 
-            <!-- TAGS -->
             <div class="mb-3 d-flex flex-wrap gap-2">
               <span class="badge bg-dark">Python</span>
               <span class="badge bg-dark">Flask</span>
               <span class="badge bg-dark">IoT</span>
             </div>
 
-            <!-- BUTTON -->
             <div class="mt-auto">
               <a href="{{ url_for('project_detail', slug=project.slug) }}" 
                  class="btn btn-warning w-100 fw-semibold">

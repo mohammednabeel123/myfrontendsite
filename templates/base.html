@@ -57,14 +57,14 @@
       </ul>
 
       {% if session.get('user_id') %}
-      <a href="{{ url_for('logout') }}" class="btn btn-danger mt-2">
-        <i class="fa-solid fa-right-from-bracket me-2"></i>Logout
-      </a>
-      {% else %}
-      <a href="{{ url_for('login') }}" class="btn btn-warning text-white mt-2">
-        <i class="fa-solid fa-briefcase me-2"></i>Login
-      </a>
-      {% endif %}
+  <a href="{{ url_for('logout') }}" class="btn btn-danger mt-2">
+    <i class="fa-solid fa-right-from-bracket me-2"></i>Logout
+  </a>
+{% else %}
+  <a href="{{ url_for('login') }}" class="btn btn-warning text-white mt-2">
+    <i class="fa-solid fa-briefcase me-2"></i>Login
+  </a>
+{% endif %}
 
       <a href="{{ url_for('hire_me') }}" class="btn text-white fw-bold"
          style="background: linear-gradient(135deg, #ffb347, #ffcc33); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
