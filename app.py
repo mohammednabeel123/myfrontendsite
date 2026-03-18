@@ -166,14 +166,7 @@ def project_detail(slug):
         }
 
         comment.time_ago = time_ago(comment.created_at)
-
-        existing_reaction = None
-        if current_user_id:
-            existing_reaction = next(
-                (r.reaction for r in comment.reactions if r.user_id == current_user_id),
-                None
-            )
-        comment.user_reaction = existing_reaction
+        comment.user_reaction = none
 
     return render_template(
         f"Projects/{slug}.html",
