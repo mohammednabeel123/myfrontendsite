@@ -156,8 +156,7 @@ def project_detail(slug):
     current_user_id = session.get("user_id")
 
     for comment in comments:
-        counts = Counter(r.reaction for r in comment.reactions)
-
+        counts = Counter(r.reaction for r in comment.reactions if r.reaction)
         comment.reaction_counts = {
             "❤️": counts.get("❤️", 0),
             "😂": counts.get("😂", 0),
