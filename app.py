@@ -149,7 +149,7 @@ def main():
     return render_template("main.html", projects=projects)
 
 
-@app.route("/project/<slug>")
+@app.route("/Projects/<slug>")
 def project_detail(slug):
     project = Project.query.filter_by(slug=slug).first_or_404()
 
