@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Hire Me | BeelForge{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+  <!-- HEADER -->
+  <div class="text-center mb-5">
+
+    <h1 class="fw-bold text-warning display-6">
+      Work With Me
+    </h1>
+
+    <div class="mx-auto my-3" style="width: 60px; height: 3px; background: #ffc107;"></div>
+
+    <p class="text-muted col-lg-6 mx-auto">
+      I build real-world systems combining software, hardware, and intelligent logic.
+      If you have a project, idea, or opportunity — let’s collaborate.
+    </p>
+
+  </div>
+
+  <!-- FORM -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+
+      <div class="card shadow-sm border-0 rounded-4">
+
+        <div class="card-body p-4">
+
+          <!-- FLASH MESSAGES -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} text-center">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endwith %}
+
+          <form method="POST" action="{{ url_for('hire_me') }}">
+
+            <!-- NAME -->
+            <div class="mb-3">
+              <label class="form-label">Your Name</label>
+              <input type="text" name="name" class="form-control" required>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+
+            <!-- MESSAGE -->
+            <div class="mb-4">
+              <label class="form-label">Project / Message</label>
+              <textarea name="message" rows="4" class="form-control" placeholder="Tell me about your project..." required></textarea>
+            </div>
+
+            <!-- BUTTON -->
+            <button class="btn btn-warning w-100 fw-semibold">
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- EXTRA TRUST SECTION -->
+  <div class="text-center mt-5 text-muted small">
+    Typically responds within 24 hours.
+  </div>
+
+</div>
+
+{% endblock %}
