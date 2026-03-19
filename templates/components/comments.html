@@ -10,7 +10,7 @@
         <h5 class="fw-bold mb-3">💬 Discussion</h5>
 
         {% if session.get('user_id') %}
-        <form method="POST" action="{{ url_for('add_comment', project_id=project.id) }}">
+        <form method="POST" action="{{ url_for('add_comment', project_id=project.id)}}">
           <textarea name="content"
                     class="form-control mb-3 rounded-3"
                     rows="3"
@@ -26,7 +26,7 @@
         {% else %}
           <div class="alert alert-light border text-center rounded-3">
             <small class="text-muted">
-              You need to <a href="{{ url_for('login') }}">Login</a> to comment.
+              You need to <a href="{{ url_for('login',next=request.path) }}">Login</a> to comment.
             </small>
           </div>
         {% endif %}

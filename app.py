@@ -247,10 +247,13 @@ def delete_project(project_id):
 def add_comment(project_id):
     if "user_id" not in session:
         flash("Login required to comment.", "warning")
-        return redirect(url_for("login"))
+        return redirect(url_for("login",next=request.path))
 
     project = Project.query.get_or_404(project_id)
     content = request.form.get("content", "").strip()
+    # print("Content:".content)
+    # print("User ID:",session.get("user_id"))
+    # print("Project ID:")
 
     if not content:
         flash("Comment cannot be empty.", "danger")
